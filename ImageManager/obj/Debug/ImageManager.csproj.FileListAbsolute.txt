@@ -1,0 +1,11 @@
+C:\Zircon Server\File Release\Debug\ImageManager\ImageManager.exe.config
+C:\Zircon Server\File Release\Debug\ImageManager\ImageManager.exe
+C:\Zircon Server\File Release\Debug\ImageManager\ImageManager.pdb
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.IMain.resources
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.Properties.Resources.resources
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.csproj.GenerateResource.cache
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.exe.licenses
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.csproj.CoreCompileInputs.cache
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.csproj.CopyComplete
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.exe
+C:\Zircon Server\File Release\Source\ImageManager\obj\Debug\ImageManager.pdb
