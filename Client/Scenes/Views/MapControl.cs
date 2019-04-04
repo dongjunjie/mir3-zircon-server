@@ -858,7 +858,7 @@ namespace Client.Scenes.Views
         {
             int steps = 1;
 
-            if (GameScene.Game.CanRun && CEnvir.Now >= User.NextRunTime && User.BagWeight <= User.Stats[Stat.BagWeight] && User.WearWeight <= User.Stats[Stat.WearWeight])
+            if (CEnvir.Now >= User.NextRunTime && User.BagWeight <= User.Stats[Stat.BagWeight] && User.WearWeight <= User.Stats[Stat.WearWeight])
             {
                 steps++;
                 if (User.Horse != HorseType.None)
