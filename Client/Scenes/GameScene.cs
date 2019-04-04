@@ -3540,7 +3540,7 @@ namespace Client.Scenes
         {
             if (User.Stats == null) return;
 
-            User.Light = Math.Max(3, User.Stats[Stat.Light]);
+            User.Light = Math.Max(99, User.Stats[Stat.Light]);
             
             MainPanel.ACLabel.Text = User.Stats.GetFormat(Stat.MaxAC);
             MainPanel.MRLabel.Text = User.Stats.GetFormat(Stat.MaxMR);
