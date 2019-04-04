@@ -2971,6 +2971,7 @@ namespace Server.Envir
             account.Referral = refferal;
             account.CreationIP = con.IPAddress;
             account.CreationDate = Now;
+            account.Activated = true;
 
             if (refferal != null)
             {
@@ -2985,7 +2986,7 @@ namespace Server.Envir
 
 
 
-            SendActivationEmail(account);
+            //SendActivationEmail(account);  //取消发送激活邮件
 
             con.Enqueue(new S.NewAccount { Result = NewAccountResult.Success });
 
