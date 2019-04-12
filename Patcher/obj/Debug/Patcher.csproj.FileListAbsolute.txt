@@ -1,9 +1,0 @@
-C:\Zircon Server\File Release\Debug\Patcher\Patcher.exe.config
-C:\Zircon Server\File Release\Debug\Patcher\Patcher.exe
-C:\Zircon Server\File Release\Debug\Patcher\Patcher.pdb
-C:\Zircon Server\File Release\Source\Patcher\obj\Debug\Patcher.PMain.resources
-C:\Zircon Server\File Release\Source\Patcher\obj\Debug\Patcher.Properties.Resources.resources
-C:\Zircon Server\File Release\Source\Patcher\obj\Debug\Patcher.csproj.GenerateResource.cache
-C:\Zircon Server\File Release\Source\Patcher\obj\Debug\Patcher.csproj.CoreCompileInputs.cache
-C:\Zircon Server\File Release\Source\Patcher\obj\Debug\Patcher.exe
-C:\Zircon Server\File Release\Source\Patcher\obj\Debug\Patcher.pdb

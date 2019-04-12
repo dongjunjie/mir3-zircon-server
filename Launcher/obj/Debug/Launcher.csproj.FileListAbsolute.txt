@@ -1,9 +1,0 @@
-C:\Zircon Server\File Release\Debug\Launcher\Launcher.exe
-C:\Zircon Server\File Release\Debug\Launcher\Launcher.pdb
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.LMain.resources
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.Properties.Resources.resources
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.csproj.GenerateResource.cache
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.exe.licenses
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.csproj.CoreCompileInputs.cache
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.exe
-C:\Zircon Server\File Release\Source\Launcher\obj\Debug\Launcher.pdb
