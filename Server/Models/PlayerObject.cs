@@ -6294,7 +6294,7 @@ namespace Server.Models
 
                     if (SEnvir.Now < UseItemTime || Horse != HorseType.None) return;
 
-                    if (SEnvir.Random.Next(100) >= item.CurrentDurability)
+                    if (SEnvir.Random.Next(1) >= item.CurrentDurability)
                     {
                         Connection.ReceiveChat(Connection.Language.LearnBookFailed, MessageType.System);
 
