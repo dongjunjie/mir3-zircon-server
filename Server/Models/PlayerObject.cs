@@ -6310,11 +6310,11 @@ namespace Server.Models
 
                     if (Magics.TryGetValue(info.Magic, out magic))
                     {
-                        int rate = (magic.Level - 2) * 500;
+                        int rate = (magic.Level - 2) * 5;
 
                         magic.Experience++;
 
-                        if (magic.Experience >= rate || (magic.Level == 3 && SEnvir.Random.Next(rate) == 0))
+                        if (magic.Experience >= rate || (magic.Level >= 3 && SEnvir.Random.Next(rate) == 0))
                         {
                             magic.Level++;
                             magic.Experience = 0;
