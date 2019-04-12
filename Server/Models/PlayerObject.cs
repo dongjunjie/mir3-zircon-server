@@ -1281,7 +1281,7 @@ namespace Server.Models
             }
             else if (text.StartsWith("@!"))
             {
-                if (!Character.Account.TempAdmin) return;
+                if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                 text = string.Format("{0}: {1}", Name, text.Remove(0, 2));
 
@@ -1373,7 +1373,7 @@ namespace Server.Models
                         GuildLeave();
                         break;
                     case "RECALL":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         player = SEnvir.GetPlayerByCharacter(parts[1]);
@@ -1466,18 +1466,18 @@ namespace Server.Models
                         Character.GroupRecallTime = SEnvir.Now.AddMinutes(3);
                         break;
                     case "OBSERVER":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         Observer = !Observer;
 
                         AddAllObjects();
                         RemoveAllObjects();
                         break;
                     case "GAMEMASTER":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         GameMaster = !GameMaster;
                         break;
                     case "GOLDBOT":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         if (parts.Length < 2) return;
 
@@ -1489,7 +1489,7 @@ namespace Server.Models
                         Connection.ReceiveChat($"Gold Bot [{target.CharacterName}] - [{target.Account.GoldBot}]", MessageType.System);
                         break;
                     case "ITEMBOT":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         if (parts.Length < 2) return;
 
@@ -1501,7 +1501,7 @@ namespace Server.Models
                         Connection.ReceiveChat($"Item Bot [{target.CharacterName}] - [{target.Account.ItemBot}]", MessageType.System);
                         break;
                     case "LEVEL":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         if (parts.Length < 3)
                         {
@@ -1524,7 +1524,7 @@ namespace Server.Models
                         player.LevelUp();
                         break;
                     case "GOTO":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         player = SEnvir.GetPlayerByCharacter(parts[1]);
@@ -1534,7 +1534,7 @@ namespace Server.Models
                         Teleport(player.CurrentMap, player.CurrentLocation);
                         break;
                     case "GIVESKILLS":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         player = SEnvir.GetPlayerByCharacter(parts[1]);
@@ -1573,7 +1573,7 @@ namespace Server.Models
 
                         break;
                     case "SETCOMPANIONVALUE":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 3) return;
 
                         Stat stat;
@@ -1622,7 +1622,7 @@ namespace Server.Models
                         });
                         break;
                     case "MAKE":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         if (parts.Length < 2) return;
 
@@ -1652,7 +1652,7 @@ namespace Server.Models
 
                         break;
                     case "GCCOLLECT":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         DateTime time = Time.Now;
 
@@ -1661,12 +1661,12 @@ namespace Server.Models
                         Connection.ReceiveChat($"[GC COLLECT] {(Time.Now - time).Ticks / TimeSpan.TicksPerMillisecond}ms", MessageType.System);
                         break;
                     case "CLEARIPBLOCKS":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         SEnvir.IPBlocks.Clear();
                         break;
                     case "REBOOT":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
 
                         time = Time.Now;
 
@@ -1675,7 +1675,7 @@ namespace Server.Models
                         Connection.ReceiveChat($"[Reboot Command] {(Time.Now - time).Ticks / TimeSpan.TicksPerMillisecond}ms", MessageType.System);
                         break;
                     case "GIVEGAMEGOLD":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 3) return;
 
                         CharacterInfo character = SEnvir.GetCharacter(parts[1]);
@@ -1705,7 +1705,7 @@ namespace Server.Models
 
                         break;
                     case "REMOVEGAMEGOLD":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 3) return;
 
                         character = SEnvir.GetCharacter(parts[1]);
@@ -1734,7 +1734,7 @@ namespace Server.Models
                         Connection.ReceiveChat(string.Format("[REMOVE GAME GOLD] {0} Amount: {1}", character.CharacterName, count), MessageType.System);
                         break;
                     case "TAKEGAMEGOLD":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 3) return;
 
                         character = SEnvir.GetCharacter(parts[1]);
@@ -1750,7 +1750,7 @@ namespace Server.Models
                         Connection.ReceiveChat(string.Format("[TAKE GAME GOLD] {0} Amount: {1}", character.CharacterName, count), MessageType.System);
                         break;
                     case "REFUNDGAMEGOLD":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 3) return;
 
                         character = SEnvir.GetCharacter(parts[1]);
@@ -1766,7 +1766,7 @@ namespace Server.Models
                         Connection.ReceiveChat(string.Format("[REFUND GAME GOLD] {0} Amount: {1}", character.CharacterName, count), MessageType.System);
                         break;
                     case "REFUNDHUNTGOLD":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 3) return;
 
                         character = SEnvir.GetCharacter(parts[1]);
@@ -1782,7 +1782,7 @@ namespace Server.Models
                         Connection.ReceiveChat(string.Format("[REFUND HUNT GOLD] {0} Amount: {1}", character.CharacterName, count), MessageType.System);
                         break;
                     case "CHATBAN":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         character = SEnvir.GetCharacter(parts[1]);
@@ -1795,7 +1795,7 @@ namespace Server.Models
                         character.Account.ChatBanExpiry = SEnvir.Now.AddMinutes(count);
                         break;
                     case "GLOBALBAN":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         character = SEnvir.GetCharacter(parts[1]);
@@ -1811,7 +1811,7 @@ namespace Server.Models
                         //If Is GM or Teleport Ring
                         break;
                     case "MAP":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         MapInfo info = SEnvir.MapInfoList.Binding.FirstOrDefault(x => string.Compare(x.FileName, parts[1], StringComparison.OrdinalIgnoreCase) == 0);
@@ -1827,7 +1827,7 @@ namespace Server.Models
                             Character.BeltLinks[i].Delete();
                         break;
                     case "FORCEWAR":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         if (!int.TryParse(parts[1], out value)) return;
@@ -1841,7 +1841,7 @@ namespace Server.Models
                         SEnvir.StartConquest(castle, true);
                         break;
                     case "FORCEENDWAR":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         if (!int.TryParse(parts[1], out value)) return;
@@ -1857,7 +1857,7 @@ namespace Server.Models
                         war.EndTime = DateTime.MinValue;
                         break;
                     case "TAKECASTLE":
-                        if (!Character.Account.TempAdmin) return;
+                        if (!Character.Account.TempAdmin && !Character.Account.Admin) return;
                         if (parts.Length < 2) return;
 
                         if (!int.TryParse(parts[1], out value)) return;
@@ -19034,7 +19034,7 @@ namespace Server.Models
                 Location = CurrentLocation,
                 Direction = Direction,
 
-                Light = Stats[Stat.Light],
+                Light = 99,
                 Dead = Dead,
 
                 Class = Class,
@@ -19103,7 +19103,7 @@ namespace Server.Models
                 HorseArmour = Equipment[(int)EquipmentSlot.HorseArmour]?.Info.Shape ?? 0,
                 //Todo Helmet
 
-                Light = Stats[Stat.Light]
+                Light = 99
             };
 
             Broadcast(p);
