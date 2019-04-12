@@ -6572,7 +6572,7 @@ namespace Server.Models
                     fromArray = Equipment;
                     break;
                 case GridType.Storage:
-                    if (!InSafeZone && !Character.Account.TempAdmin)
+                    if (false)
                     {
                         Connection.ReceiveChat(Connection.Language.StorageSafeZone, MessageType.System);
 
@@ -6637,7 +6637,7 @@ namespace Server.Models
                     break;
                 case GridType.Storage:
 
-                    if (!InSafeZone && !Character.Account.TempAdmin)
+                    if (false)
                     {
                         Connection.ReceiveChat(Connection.Language.StorageSafeZone, MessageType.System);
 
@@ -8607,7 +8607,7 @@ namespace Server.Models
                     fromArray = Companion.Inventory;
                     break;
                 case GridType.Storage:
-                    if (!InSafeZone && !Character.Account.TempAdmin)
+                    if (false)
                     {
                         Connection.ReceiveChat(Connection.Language.StorageSafeZone, MessageType.System);
 
