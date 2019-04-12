@@ -2900,7 +2900,7 @@ namespace Server.Models
 
             if (!Teleport(destMap, destMap.GetRandomLocation(location, 10, 25))) return;
 
-            TeleportTime = SEnvir.Now.AddMinutes(5);
+            TeleportTime = SEnvir.Now.AddSeconds(5);
         }
 
         public override void Dodged()
