@@ -469,7 +469,7 @@ namespace Client.Scenes
             {
                 Size = new Size(320, 425);
                 HasFooter = true;
-                TitleLabel.Text = "Select Character";
+                TitleLabel.Text = "选择角色";
                 Movable = false;
 
                 CloseButton.MouseClick += (o, e) => LogOut();
@@ -477,7 +477,7 @@ namespace Client.Scenes
                 StartButton = new DXButton
                 {
                     Parent = this,
-                    Label = { Text = "Start Game" },
+                    Label = { Text = "开始游戏" },
                     Location = new Point((Size.Width - 260)/4 + 10, Size.Height - 43),
                     Size = new Size(80, DefaultHeight),
                     Enabled = false,
@@ -487,7 +487,7 @@ namespace Client.Scenes
                 CreateButton = new DXButton
                 {
                     Parent = this,
-                    Label = { Text = "Create" },
+                    Label = { Text = "创建" },
                     Location = new Point((Size.Width - 260)/4*2 + 90, Size.Height - 43),
                     Size = new Size(80, DefaultHeight),
                 };
@@ -496,7 +496,7 @@ namespace Client.Scenes
                 DeleteButton = new DXButton
                 {
                     Parent = this,
-                    Label = { Text = "Delete" },
+                    Label = { Text = "删除" },
                     Location = new Point((Size.Width - 260)/4*3 + 170, Size.Height - 43),
                     Size = new Size(80, DefaultHeight),
                     Enabled = false,
@@ -942,7 +942,7 @@ namespace Client.Scenes
             {
                 Size = new Size(260, 650);
                 HasFooter = true;
-                TitleLabel.Text = "Create Character";
+                TitleLabel.Text = "创建角色";
                 Movable = false;
                 Visible = false;
                 CloseButton.MouseClick += (o, e) => Close();
@@ -951,7 +951,7 @@ namespace Client.Scenes
                 {
                     Parent = this,
                     Enabled = false,
-                    Label = { Text = "Create" },
+                    Label = { Text = "创建" },
                     Location = new Point((Size.Width - 80)/2, Size.Height - 43),
                     Size = new Size(80, DefaultHeight),
                 };
@@ -1202,7 +1202,7 @@ namespace Client.Scenes
                 label = new DXLabel
                 {
                     Parent = this,
-                    Text = "Name:",
+                    Text = "人物名称:",
                 };
                 label.Location = new Point(CharacterNameTextBox.Location.X - label.Size.Width - 5, (CharacterNameTextBox.Size.Height - label.Size.Height)/2 + CharacterNameTextBox.Location.Y);
 
@@ -1656,7 +1656,7 @@ namespace Client.Scenes
                 DXLabel label = new DXLabel
                 {
                     Parent = this,
-                    Text = "Name",
+                    Text = "名称",
                     IsControl = false,
 
                 };
@@ -1678,7 +1678,7 @@ namespace Client.Scenes
                 label = new DXLabel
                 {
                     Parent = this,
-                    Text = "Class",
+                    Text = "职业",
                     IsControl = false,
                 };
                 label.Location = new Point(ClassLabel.Location.X - label.Size.Width - 5, 28);
@@ -1699,7 +1699,7 @@ namespace Client.Scenes
                 label = new DXLabel
                 {
                     Parent = this,
-                    Text = "Level",
+                    Text = "等级",
                     IsControl = false,
                 };
                 label.Location = new Point(LevelLabel.Location.X - label.Size.Width - 5, 28);
@@ -1720,7 +1720,7 @@ namespace Client.Scenes
                 label = new DXLabel
                 {
                     Parent = this,
-                    Text = "Location",
+                    Text = "位置",
                     IsControl = false,
                 };
                 label.Location = new Point(LocationLabel.Location.X - label.Size.Width - 5, 48);

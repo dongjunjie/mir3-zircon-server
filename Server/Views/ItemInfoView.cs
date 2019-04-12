@@ -51,7 +51,7 @@ namespace Server.Views
             foreach (ItemInfo item in SMain.Session.GetCollection<ItemInfo>().Binding)
                 itemData.Add(GetLine(item));
 
-            string path = @"C:\Zircon Server\Data Works\Exports\";
+            string path = @"D:\Zircon Server\Data Works\Exports\";
 
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
@@ -91,33 +91,33 @@ namespace Server.Views
             builder.Append((info?.Durability.ToString() ?? "Durability") + ", ");
             builder.Append((info?.Rarity.ToString() ?? "Rarity") + ", ");
 
-            builder.Append((info == null ? "AC" : string.Format("{0}-{1}", info.Stats[Stat.MinAC], info.Stats[Stat.MaxAC])) + ", ");
-            builder.Append((info == null ? "MR" : string.Format("{0}-{1}", info.Stats[Stat.MinMR], info.Stats[Stat.MaxMR])) + ", ");
-            builder.Append((info == null ? "DC" : string.Format("{0}-{1}", info.Stats[Stat.MinDC], info.Stats[Stat.MaxDC])) + ", ");
-            builder.Append((info == null ? "MC" : string.Format("{0}-{1}", info.Stats[Stat.MinMC], info.Stats[Stat.MaxMC])) + ", ");
-            builder.Append((info == null ? "SC" : string.Format("{0}-{1}", info.Stats[Stat.MinSC], info.Stats[Stat.MaxSC])) + ", ");
-            builder.Append((info == null ? "Accuracy" : string.Format("+{0}", info.Stats[Stat.Accuracy])) + ", ");
-            builder.Append((info == null ? "Agility" : string.Format("+{0}", info.Stats[Stat.Agility])) + ", ");
-            builder.Append((info == null ? "Attack Speed" : string.Format("+{0}", info.Stats[Stat.AttackSpeed])) + ", ");
-            builder.Append((info == null ? "Health" : string.Format("+{0}", info.Stats[Stat.Health])) + ", ");
-            builder.Append((info == null ? "Mana" : string.Format("+{0}", info.Stats[Stat.Mana])) + ", ");
-            builder.Append((info == null ? "Luck" : string.Format("+{0}", info.Stats[Stat.Luck])) + ", ");
-            builder.Append((info == null ? "Experienc eRate" : string.Format("+{0}", info.Stats[Stat.ExperienceRate])) + ", ");
-            builder.Append((info == null ? "Drop Rate" : string.Format("+{0}", info.Stats[Stat.DropRate])) + ", ");
-            builder.Append((info == null ? "Gold Rate" : string.Format("+{0}", info.Stats[Stat.GoldRate])) + ", ");
-            builder.Append((info == null ? "Skill Rate" : string.Format("+{0}", info.Stats[Stat.SkillRate])) + ", ");
-            builder.Append((info == null ? "Duration" : string.Format("+{0}", info.Stats[Stat.Duration])) + ", ");
-            builder.Append((info == null ? "Inventory Weight" : string.Format("+{0}", info.Stats[Stat.BagWeight])) + ", ");
-            builder.Append((info == null ? "Wear Weight" : string.Format("+{0}", info.Stats[Stat.WearWeight])) + ", ");
-            builder.Append((info == null ? "Hand Weight" : string.Format("+{0}", info.Stats[Stat.HandWeight])) + ", ");
-            builder.Append((info == null ? "Life Steal" : string.Format("+{0}", info.Stats[Stat.LifeSteal])) + ", ");
-            builder.Append((info == null ? "Fire Attack" : string.Format("+{0}", info.Stats[Stat.FireAttack])) + ", ");
-            builder.Append((info == null ? "Ice Attack" : string.Format("+{0}", info.Stats[Stat.IceAttack])) + ", ");
-            builder.Append((info == null ? "Lightning Attack" : string.Format("+{0}", info.Stats[Stat.LightningAttack])) + ", ");
-            builder.Append((info == null ? "Wind Attack" : string.Format("+{0}", info.Stats[Stat.WindAttack])) + ", ");
-            builder.Append((info == null ? "Holy Attack" : string.Format("+{0}", info.Stats[Stat.HolyAttack])) + ", ");
-            builder.Append((info == null ? "Dark Attack" : string.Format("+{0}", info.Stats[Stat.DarkAttack])) + ", ");
-            builder.Append((info == null ? "Phantom Attack" : string.Format("+{0}", info.Stats[Stat.PhantomAttack])) + ", ");
+            builder.Append((info == null ? "防御" : string.Format("{0}-{1}", info.Stats[Stat.MinAC], info.Stats[Stat.MaxAC])) + ", ");
+            builder.Append((info == null ? "魔防" : string.Format("{0}-{1}", info.Stats[Stat.MinMR], info.Stats[Stat.MaxMR])) + ", ");
+            builder.Append((info == null ? "攻击" : string.Format("{0}-{1}", info.Stats[Stat.MinDC], info.Stats[Stat.MaxDC])) + ", ");
+            builder.Append((info == null ? "魔法" : string.Format("{0}-{1}", info.Stats[Stat.MinMC], info.Stats[Stat.MaxMC])) + ", ");
+            builder.Append((info == null ? "道术" : string.Format("{0}-{1}", info.Stats[Stat.MinSC], info.Stats[Stat.MaxSC])) + ", ");
+            builder.Append((info == null ? "准确" : string.Format("+{0}", info.Stats[Stat.Accuracy])) + ", ");
+            builder.Append((info == null ? "敏捷" : string.Format("+{0}", info.Stats[Stat.Agility])) + ", ");
+            builder.Append((info == null ? "攻击速度" : string.Format("+{0}", info.Stats[Stat.AttackSpeed])) + ", ");
+            builder.Append((info == null ? "生命值" : string.Format("+{0}", info.Stats[Stat.Health])) + ", ");
+            builder.Append((info == null ? "魔法值" : string.Format("+{0}", info.Stats[Stat.Mana])) + ", ");
+            builder.Append((info == null ? "幸运" : string.Format("+{0}", info.Stats[Stat.Luck])) + ", ");
+            builder.Append((info == null ? "经验倍率" : string.Format("+{0}", info.Stats[Stat.ExperienceRate])) + ", ");
+            builder.Append((info == null ? "掉落倍率" : string.Format("+{0}", info.Stats[Stat.DropRate])) + ", ");
+            builder.Append((info == null ? "金币倍率" : string.Format("+{0}", info.Stats[Stat.GoldRate])) + ", ");
+            builder.Append((info == null ? "技能倍率" : string.Format("+{0}", info.Stats[Stat.SkillRate])) + ", ");
+            builder.Append((info == null ? "耐久" : string.Format("+{0}", info.Stats[Stat.Duration])) + ", ");
+            builder.Append((info == null ? "背包重量" : string.Format("+{0}", info.Stats[Stat.BagWeight])) + ", ");
+            builder.Append((info == null ? "穿着负重" : string.Format("+{0}", info.Stats[Stat.WearWeight])) + ", ");
+            builder.Append((info == null ? "手持负重" : string.Format("+{0}", info.Stats[Stat.HandWeight])) + ", ");
+            builder.Append((info == null ? "生命窃取" : string.Format("+{0}", info.Stats[Stat.LifeSteal])) + ", ");
+            builder.Append((info == null ? "火元素伤害" : string.Format("+{0}", info.Stats[Stat.FireAttack])) + ", ");
+            builder.Append((info == null ? "冰元素伤害" : string.Format("+{0}", info.Stats[Stat.IceAttack])) + ", ");
+            builder.Append((info == null ? "电元素伤害" : string.Format("+{0}", info.Stats[Stat.LightningAttack])) + ", ");
+            builder.Append((info == null ? "风元素伤害" : string.Format("+{0}", info.Stats[Stat.WindAttack])) + ", ");
+            builder.Append((info == null ? "神圣元素伤害" : string.Format("+{0}", info.Stats[Stat.HolyAttack])) + ", ");
+            builder.Append((info == null ? "黑暗元素伤害" : string.Format("+{0}", info.Stats[Stat.DarkAttack])) + ", ");
+            builder.Append((info == null ? "幻影元素伤害" : string.Format("+{0}", info.Stats[Stat.PhantomAttack])) + ", ");
 
 
             return builder.ToString();

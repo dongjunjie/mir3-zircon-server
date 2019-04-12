@@ -15,33 +15,37 @@ namespace Library
 
     public enum MirClass : byte
     {
+        [Description("战士")]
         Warrior,
+        [Description("法师")]
         Wizard,
+        [Description("道士")]
         Taoist,
+        [Description("刺客")]
         Assassin,
     }
 
     public enum AttackMode : byte
     {
-        [Description("Attack: Peaceful")]
+        [Description("Attack: 和平模式")]
         Peace,
-        [Description("Attack: Group")]
+        [Description("Attack: 组队模式")]
         Group,
-        [Description("Attack: Guild")]
+        [Description("Attack: 行会模式")]
         Guild,
-        [Description("Attack: War, Red, Brown")]
+        [Description("Attack: 红名模式")]
         WarRedBrown,
-        [Description("Attack: All")]
+        [Description("Attack: 全体模式")]
         All
     }
 
     public enum PetMode : byte
     {
-        [Description("Pet: Move, Attack")]
+        [Description("Pet: 移动, 攻击")]
         Both,
-        [Description("Pet: Move")]
+        [Description("Pet: 移动")]
         Move,
-        [Description("Pet: Attack")]
+        [Description("Pet: 攻击")]
         Attack,
         [Description("Pet: PvP")]
         PvP,
@@ -69,15 +73,19 @@ namespace Library
     public enum RequiredClass : byte
     {
         None = 0,
+        [Description("战士")]
         Warrior = 1,
+        [Description("法师")]
         Wizard = 2,
+        [Description("道士")]
         Taoist = 4,
+        [Description("刺客")]
         Assassin = 8,
-        [Description("Warrior, Wizard, Taoist")]
+        [Description("战士, 法师, 道士")]
         WarWizTao = Warrior | Wizard | Taoist,
-        [Description("Wizard, Taoist")]
+        [Description("法师, 道士")]
         WizTao = Wizard | Taoist,
-        [Description("Warrior, Assassin")]
+        [Description("战士, 刺客")]
         AssWar = Warrior | Assassin,
         All = WarWizTao | Assassin
     }
@@ -85,7 +93,9 @@ namespace Library
     [Flags]
     public enum RequiredGender : byte
     {
+        [Description("男性")]
         Male = 1,
+        [Description("女性")]
         Female = 2,
         None = Male | Female
     }
@@ -292,9 +302,11 @@ namespace Library
         Weapon,
         Armour,
         Torch,
+        [Description("头盔")]
         Helmet,
         Necklace,
         Bracelet,
+        [Description("戒指")]
         Ring,
         Shoes,
         Poison,

@@ -435,138 +435,138 @@ namespace Library
 
     public enum Stat
     {
-        [StatDescription(Title = "Base Health", Format = "{0:+#0;-#0;#0}", Mode = StatType.None)]
+        [StatDescription(Title = "基础生命值", Format = "{0:+#0;-#0;#0}", Mode = StatType.None)]
         BaseHealth,
-        [StatDescription(Title = "Base Mana", Format = "{0:+#0;-#0;#0}", Mode = StatType.None)]
+        [StatDescription(Title = "基础魔法值", Format = "{0:+#0;-#0;#0}", Mode = StatType.None)]
         BaseMana,
 
-        [StatDescription(Title = "Health", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "生命值", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Health,
-        [StatDescription(Title = "Mana", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "魔法值", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Mana,
 
-        [StatDescription(Title = "AC", Format = "{0}-0", Mode = StatType.Min, MinStat = MinAC, MaxStat = MaxAC)]
+        [StatDescription(Title = "防御", Format = "{0}-0", Mode = StatType.Min, MinStat = MinAC, MaxStat = MaxAC)]
         MinAC,
-        [StatDescription(Title = "AC", Format = "{0}-{1}", Mode = StatType.Max, MinStat = MinAC, MaxStat = MaxAC)]
+        [StatDescription(Title = "防御", Format = "{0}-{1}", Mode = StatType.Max, MinStat = MinAC, MaxStat = MaxAC)]
         MaxAC,
-        [StatDescription(Title = "MR", Format = "{0}-0", Mode = StatType.Min, MinStat = MinMR, MaxStat = MaxMR)]
+        [StatDescription(Title = "魔防", Format = "{0}-0", Mode = StatType.Min, MinStat = MinMR, MaxStat = MaxMR)]
         MinMR,
-        [StatDescription(Title = "MR", Format = "{0}-{1}", Mode = StatType.Max, MinStat = MinMR, MaxStat = MaxMR)]
+        [StatDescription(Title = "魔防", Format = "{0}-{1}", Mode = StatType.Max, MinStat = MinMR, MaxStat = MaxMR)]
         MaxMR,
-        [StatDescription(Title = "DC", Format = "{0}-0", Mode = StatType.Min, MinStat = MinDC, MaxStat = MaxDC)]
+        [StatDescription(Title = "攻击", Format = "{0}-0", Mode = StatType.Min, MinStat = MinDC, MaxStat = MaxDC)]
         MinDC,
-        [StatDescription(Title = "DC", Format = "{0}-{1}", Mode = StatType.Max, MinStat = MinDC, MaxStat = MaxDC)]
+        [StatDescription(Title = "攻击", Format = "{0}-{1}", Mode = StatType.Max, MinStat = MinDC, MaxStat = MaxDC)]
         MaxDC,
-        [StatDescription(Title = "SP (Nature)", Format = "{0}-0", Mode = StatType.SpellPower, MinStat = MinMC, MaxStat = MaxMC)]
+        [StatDescription(Title = "魔法", Format = "{0}-0", Mode = StatType.SpellPower, MinStat = MinMC, MaxStat = MaxMC)]
         MinMC,
-        [StatDescription(Title = "SP (Nature)", Format = "{0}-{1}", Mode = StatType.SpellPower, MinStat = MinMC, MaxStat = MaxMC)]
+        [StatDescription(Title = "魔法", Format = "{0}-{1}", Mode = StatType.SpellPower, MinStat = MinMC, MaxStat = MaxMC)]
         MaxMC,
-        [StatDescription(Title = "SP (Spirit)", Format = "{0}-0", Mode = StatType.SpellPower, MinStat = MinSC, MaxStat = MaxSC)]
+        [StatDescription(Title = "道术", Format = "{0}-0", Mode = StatType.SpellPower, MinStat = MinSC, MaxStat = MaxSC)]
         MinSC,
-        [StatDescription(Title = "SP (Spirit)", Format = "{0}-{1}", Mode = StatType.SpellPower, MinStat = MinSC, MaxStat = MaxSC)]
+        [StatDescription(Title = "道术", Format = "{0}-{1}", Mode = StatType.SpellPower, MinStat = MinSC, MaxStat = MaxSC)]
         MaxSC,
 
-        [StatDescription(Title = "Accuracy", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "准确", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Accuracy,
-        [StatDescription(Title = "Agility", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "敏捷", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Agility,
-        [StatDescription(Title = "Attack Speed", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "攻击速度", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         AttackSpeed,
 
-        [StatDescription(Title = "Light Radius", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "光照范围", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Light,
-        [StatDescription(Title = "Strength", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "力量", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Strength, //Also known as Inten (Intensity)
-        [StatDescription(Title = "Luck", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "幸运", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Luck, //does nothing at the moment
 
-        [StatDescription(Title = "Fire", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "火", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         FireAttack,
-        [StatDescription(Title = "Fire", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "火", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         FireResistance,
 
-        [StatDescription(Title = "Ice", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "冰", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         IceAttack,
-        [StatDescription(Title = "Ice", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "冰", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         IceResistance,
 
-        [StatDescription(Title = "Lightning", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "电", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         LightningAttack,
-        [StatDescription(Title = "Lightning", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "电", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         LightningResistance,
         
-        [StatDescription(Title = "Wind", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "风", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         WindAttack,
-        [StatDescription(Title = "Wind", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "风", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         WindResistance,
         
-        [StatDescription(Title = "Holy", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "神圣", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         HolyAttack,
-        [StatDescription(Title = "Holy", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "神圣", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         HolyResistance,
 
-        [StatDescription(Title = "Dark", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "黑暗", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         DarkAttack,
-        [StatDescription(Title = "Dark", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "黑暗", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         DarkResistance,
 
-        [StatDescription(Title = "Phantom", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
+        [StatDescription(Title = "幻影", Format = "{0:+#0;-#0;#0}", Mode = StatType.AttackElement)]
         PhantomAttack,
-        [StatDescription(Title = "Phantom", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "幻影", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         PhantomResistance,
 
-        [StatDescription(Title = "Comfort", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "舒适度", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Comfort, //Regen Timer
-        [StatDescription(Title = "Life Steal", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "生命窃取", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         LifeSteal,
 
-        [StatDescription(Title = "Experience Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "经验倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         ExperienceRate,
-        [StatDescription(Title = "Drop Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "掉落别率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         DropRate,
-        [StatDescription(Title = "Blank Stat", Mode = StatType.None)]
+        [StatDescription(Title = "空白状态", Mode = StatType.None)]
         None,
-        [StatDescription(Title = "Skill Rate", Format = "x{0}", Mode = StatType.Default)]
+        [StatDescription(Title = "技能倍率", Format = "x{0}", Mode = StatType.Default)]
         SkillRate,
 
-        [StatDescription(Title = "Pick Up Range", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "拾取范围", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         PickUpRadius,
 
 
-        [StatDescription(Title = "Total Healing", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "总回复", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         Healing,
-        [StatDescription(Title = "Max Heal per Tick", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "每秒回复", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         HealingCap,
 
-        [StatDescription(Title = "Invisibility", Mode = StatType.Text)]
+        [StatDescription(Title = "隐身", Mode = StatType.Text)]
         Invisibility,
 
-        [StatDescription(Title = "Affinity: Fire", Mode = StatType.Text)]
+        [StatDescription(Title = "火亲和", Mode = StatType.Text)]
         FireAffinity,
-        [StatDescription(Title = "Affinity: Ice", Mode = StatType.Text)]
+        [StatDescription(Title = "冰亲和", Mode = StatType.Text)]
         IceAffinity,
-        [StatDescription(Title = "Affinity: Lightning", Mode = StatType.Text)]
+        [StatDescription(Title = "电亲和", Mode = StatType.Text)]
         LightningAffinity,
-        [StatDescription(Title = "Affinity: Wind", Mode = StatType.Text)]
+        [StatDescription(Title = "风亲和", Mode = StatType.Text)]
         WindAffinity,
-        [StatDescription(Title = "Affinity: Holy", Mode = StatType.Text)]
+        [StatDescription(Title = "神圣亲和", Mode = StatType.Text)]
         HolyAffinity,
-        [StatDescription(Title = "Affinity: Dark", Mode = StatType.Text)]
+        [StatDescription(Title = "黑暗亲和", Mode = StatType.Text)]
         DarkAffinity,
-        [StatDescription(Title = "Affinity: Phantom", Mode = StatType.Text)]
+        [StatDescription(Title = "幻影亲和", Mode = StatType.Text)]
         PhantomAffinity,
 
-        [StatDescription(Title = "Reflect Damage", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "反弹伤害", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         ReflectDamage,
 
         [StatDescription(Mode = StatType.None)]
         WeaponElement,
         [StatDescription(Title = "Temporary Innocence.", Mode = StatType.Text)]
         Redemption,
-        [StatDescription(Title = "Health", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "生命值", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         HealthPercent,
 
-        [StatDescription(Title = "Critical Chance", Format = "{0:+#0;-#0;#0}%", Mode = StatType.Default)]
+        [StatDescription(Title = "暴击几率", Format = "{0:+#0;-#0;#0}%", Mode = StatType.Default)]
         CriticalChance,
 
         [StatDescription(Title = "5% more profit when selling", Format = "{0} or more", Mode = StatType.Default)]
@@ -578,9 +578,9 @@ namespace Library
         [StatDescription(Title = "20% more profit when selling", Format = "{0} or more", Mode = StatType.Default)]
         SaleBonus20,
 
-        [StatDescription(Title = "Magic Shield", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "魔法盾", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MagicShield,
-        [StatDescription(Title = "Invisible", Mode = StatType.Text)]
+        [StatDescription(Title = "无形的", Mode = StatType.Text)]
         Cloak,
         [StatDescription(Title = "Cloak Damage", Format = "{0} per tick", Mode = StatType.Default)]
         CloakDamage,
@@ -588,21 +588,21 @@ namespace Library
         [StatDescription(Title = "New Beginning Charges", Format = "{0}", Mode = StatType.Default)]
         TheNewBeginning,
 
-        [StatDescription(Title = "Brown, People can attack you freely", Mode = StatType.Text)]
+        [StatDescription(Title = "灰名, 其他人可以合法攻击你", Mode = StatType.Text)]
         Brown,
-        [StatDescription(Title = "PK Points:", Format = "{0}", Mode = StatType.Default)]
+        [StatDescription(Title = "PK值:", Format = "{0}", Mode = StatType.Default)]
         PKPoint,
 
 
         [StatDescription(Title = "Global Shout no level restriction", Mode = StatType.Text)]
         GlobalShout,
-        [StatDescription(Title = "MC", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "魔法", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MCPercent,
 
-        [StatDescription(Title = "Chance of Judgement", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "审判几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         JudgementOfHeaven,
 
-        [StatDescription(Title = "Transparency", Mode = StatType.Text)]
+        [StatDescription(Title = "透明度", Mode = StatType.Text)]
         Transparency,
 
         [StatDescription(Title = "HP Recovery", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
@@ -614,56 +614,56 @@ namespace Library
         [StatDescription(Title = "HP Recovery", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         RenounceHPLost,
 
-        [StatDescription(Title = "Inventory Weight", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "背包重量", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         BagWeight,
-        [StatDescription(Title = "Wear Weight", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "穿着重量", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         WearWeight,
-        [StatDescription(Title = "Hand Weight", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "手持重量", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         HandWeight,
 
-        [StatDescription(Title = "Gold Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         GoldRate,
 
         [StatDescription(Title = "OldDuration", Mode = StatType.Time)]
         OldDuration,
-        [StatDescription(Title = "Available Hunt Gold", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "可用赏金", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         AvailableHuntGold,
-        [StatDescription(Title = "Maximum Available Hunt Gold", Format = "{0:#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "最大可用赏金", Format = "{0:#0}", Mode = StatType.Default)]
         AvailableHuntGoldCap,
-        [StatDescription(Title = "Revive Cool Down", Mode = StatType.Time)]
+        [StatDescription(Title = "复活冷却CD", Mode = StatType.Time)]
         ItemReviveTime,
-        [StatDescription(Title = "Max Refine Chance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大精练几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxRefineChance,
 
-        [StatDescription(Title = "Companion Inventory Space", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "宠物背包空间", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         CompanionInventory,
-        [StatDescription(Title = "Companion Inventory Weight", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "宠物背包重量", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         CompanionBagWeight,
-        [StatDescription(Title = "DC", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "攻击", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         DCPercent,
-        [StatDescription(Title = "SC", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "道术", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         SCPercent,
-        [StatDescription(Title = "Companion Hunger", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
+        [StatDescription(Title = "宠物饥饿度", Format = "{0:+#0;-#0;#0}", Mode = StatType.Default)]
         CompanionHunger,
 
-        [StatDescription(Title = "Pet's DC", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "宠物攻击力", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         PetDCPercent,
 
-        [StatDescription(Title = "Locates Boss Monsters on the Map", Mode = StatType.Text)]
+        [StatDescription(Title = "可以在地图上探测Boss", Mode = StatType.Text)]
         BossTracker,
-        [StatDescription(Title = "Locates Players on the Map", Mode = StatType.Text)]
+        [StatDescription(Title = "可以在地图上探测玩家", Mode = StatType.Text)]
         PlayerTracker,
 
-        [StatDescription(Title = "Companion Rate", Format = "x{0}", Mode = StatType.Default)]
+        [StatDescription(Title = "宠物经验倍率", Format = "x{0}", Mode = StatType.Default)]
         CompanionRate,
 
-        [StatDescription(Title = "Weight Rate", Format = "x{0}", Mode = StatType.Default)]
+        [StatDescription(Title = "重量倍率", Format = "x{0}", Mode = StatType.Default)]
         WeightRate,
         [StatDescription(Title = "MinAC and MinMR have been greatly Increased.", Mode = StatType.Text)]
         Defiance,
         [StatDescription(Title = "You sacrfice your Defense for Offense.", Mode = StatType.Text)]
         Might,
-        [StatDescription(Title = "Mana", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "魔法值", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         ManaPercent,
 
         [StatDescription(Title = "Recall Command: @GroupRecall", Mode = StatType.Text)]
@@ -696,40 +696,40 @@ namespace Library
         [StatDescription(Mode = StatType.None)]
         TeleportRing,
 
-        [StatDescription(Title = "Base Experience Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "基础经验倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         BaseExperienceRate,
 
-        [StatDescription(Title = "Base Gold Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "基础金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         BaseGoldRate,
 
-        [StatDescription(Title = "Base Drop Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "基础掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         BaseDropRate,
 
         [StatDescription(Title = "Frost Bite Damage", Format = "{0}", Mode = StatType.Default)]
         FrostBiteDamage,
 
-        [StatDescription(Title = "Max Regular Monster's Base Experience", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大常规怪物基础经验倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterExperience,
 
-        [StatDescription(Title = "Max Regular Monster's Base Gold", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大常规怪物基础金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterGold,
 
-        [StatDescription(Title = "Max Regular Monster's Base Drop Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大常规怪物基础掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterDrop,
 
-        [StatDescription(Title = "Max Regular Monster's Base Damage", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大常规怪物基础伤害倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterDamage,
 
-        [StatDescription(Title = "Max Regular Monster's Base Health", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大常规怪物基础生命值倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterHealth,
 
-        [StatDescription(Title = "Critical Damage (PvE)", Format = "x{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "暴击伤害 (PvE)", Format = "x{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         CriticalDamage,
 
-        [StatDescription(Title = "Experience", Format = "{0}", Mode = StatType.Default)]
+        [StatDescription(Title = "经验", Format = "{0}", Mode = StatType.Default)]
         Experience,
 
-        [StatDescription(Title = "Death Drops Enabled.", Mode = StatType.Text)]
+        [StatDescription(Title = "死亡掉落开启.", Mode = StatType.Text)]
         DeathDrops,
 
         [StatDescription(Title = "Physical", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
@@ -744,15 +744,15 @@ namespace Library
         [StatDescription(Title = "Max Frost Bite Damage", Format = "{0}", Mode = StatType.Default)]
         FrostBiteMaxDamage,
 
-        [StatDescription(Title = "Paralysis Chance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "麻痹几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         ParalysisChance,
-        [StatDescription(Title = "Slow Chance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "减速几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         SlowChance,
-        [StatDescription(Title = "Silence Chance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "沉默几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         SilenceChance,
-        [StatDescription(Title = "Block Chance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "格挡几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         BlockChance,
-        [StatDescription(Title = "Evasion Chance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "闪避几率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         EvasionChance,
 
         [StatDescription(Mode = StatType.None)]
@@ -760,15 +760,15 @@ namespace Library
         [StatDescription(Mode = StatType.None)]
         FootballArmourAction,
 
-        [StatDescription(Title = "Poison Resistance", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "毒性抵抗", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         PoisonResistance,
 
-        [StatDescription(Title = "Rebirth ", Format = "{0}", Mode = StatType.Default)]
+        [StatDescription(Title = "转生 ", Format = "{0}", Mode = StatType.Default)]
         Rebirth,
 
 
 
-        [StatDescription(Title = "Duration", Mode = StatType.Time)]
+        [StatDescription(Title = "持续时间", Mode = StatType.Time)]
         Duration = 10000,
     }
 
