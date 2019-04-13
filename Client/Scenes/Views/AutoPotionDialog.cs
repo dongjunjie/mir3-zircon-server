@@ -27,7 +27,7 @@ namespace Client.Scenes.Views
 
         public AutoPotionDialog()
         {
-            TitleLabel.Text = "Auto Potion";
+            TitleLabel.Text = "自动喝药设置";
             HasFooter = true;
 
             SetClientSize(new Size(280, 398));
@@ -321,7 +321,7 @@ namespace Client.Scenes.Views
             {
                 Parent = this,
                 IsControl = false,
-                Text = "Health:"
+                Text = "生命值:"
             };
             HealthLabel.Location = new Point(HealthTargetBox.Location.X - HealthLabel.Size.Width, HealthTargetBox.Location.Y + (HealthTargetBox.Size.Height - HealthLabel.Size.Height) / 2);
 
@@ -330,13 +330,13 @@ namespace Client.Scenes.Views
             {
                 Parent = this,
                 IsControl = false,
-                Text = "Mana:"
+                Text = "魔法值:"
             };
             ManaLabel.Location = new Point(ManaTargetBox.Location.X - ManaLabel.Size.Width, ManaTargetBox.Location.Y + (ManaTargetBox.Size.Height - ManaLabel.Size.Height) / 2);
             
             EnabledCheckBox = new DXCheckBox
             {
-                Label = {Text =  "Enabled"},
+                Label = {Text =  "启动"},
                 Parent = this,
             };
             EnabledCheckBox.CheckedChanged += (o, e) => SendUpdate();
