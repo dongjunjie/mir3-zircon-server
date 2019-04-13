@@ -1610,7 +1610,7 @@ namespace Client.Scenes
                 Visible = true;
                 ClassIcon.Index = 27 + (int) SelectInfo.Class;
                 NameLabel.Text = SelectInfo.CharacterName;
-                ClassLabel.Text = SelectInfo.Class.ToString();
+                ClassLabel.Text = EnumService.GetDescription(SelectInfo.Class);
                 LevelLabel.Text = SelectInfo.Level.ToString();
                 LocationLabel.Text = Globals.MapInfoList.Binding.FirstOrDefault(x => x.Index == SelectInfo.Location)?.Description ?? "New Character";
             }
