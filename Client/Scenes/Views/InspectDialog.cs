@@ -67,20 +67,20 @@ namespace Client.Scenes.Views
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Character" } },
+                TabButton = { Label = { Text = "角色" } },
             };
             CharacterTab.BeforeChildrenDraw += CharacterTab_BeforeChildrenDraw;
             StatsTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Stats" } },
+                TabButton = { Label = { Text = "状态" } },
             };
             HermitTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Hermit" } },
+                TabButton = { Label = { Text = "修炼" } },
             };
             DXControl namePanel = new DXControl
             {
@@ -350,7 +350,7 @@ namespace Client.Scenes.Views
             DXLabel label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "AC:"
+                Text = "防御:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 10);
 
@@ -365,7 +365,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "MR:"
+                Text = "魔防:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 2 - label.Size.Width + 25, y);
 
@@ -380,7 +380,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "DC:"
+                Text = "攻击:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -395,7 +395,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "MC:"
+                Text = "魔法:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 2 - label.Size.Width + 25, y);
 
@@ -410,7 +410,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "SC:"
+                Text = "道术:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 
@@ -426,7 +426,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Accuracy:"
+                Text = "准确:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -442,7 +442,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Agility:"
+                Text = "敏捷:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 2 - label.Size.Width + 25, y);
 
@@ -457,7 +457,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Body W:"
+                Text = "穿着重量:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -472,7 +472,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Hand W:"
+                Text = "腕力:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 
@@ -489,7 +489,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "A. Speed:"
+                Text = "攻击速度:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -505,7 +505,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Luck:"
+                Text = "幸运:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 2 - label.Size.Width + 25, y);
 
@@ -520,7 +520,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Comfort:"
+                Text = "舒适度:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 
@@ -537,7 +537,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Life Steal:"
+                Text = "生命窃取:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -552,7 +552,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Gold Rate:"
+                Text = "金币倍率:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 
@@ -567,7 +567,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Critical Chance:"
+                Text = "暴击几率:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -582,7 +582,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Drop Rate:"
+                Text = "掉落倍率:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 
@@ -597,7 +597,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Pick Up Radius:"
+                Text = "拾取范围:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
 
@@ -613,7 +613,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "Exp. Rate:"
+                Text = "经验倍率:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 
@@ -631,7 +631,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "E. Att:"
+                Text = "元素攻击:"
             };
             label.Location = new Point(50 - label.Size.Width, 175);
 
@@ -641,7 +641,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 600,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Fire",
+                Hint = "火",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -660,7 +660,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 601,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Ice",
+                Hint = "冰",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -679,7 +679,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 602,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Lightning",
+                Hint = "电",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -698,7 +698,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 603,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Wind",
+                Hint = "风",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 150, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -717,7 +717,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 604,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Holy",
+                Hint = "神圣",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -736,7 +736,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 605,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Dark",
+                Hint = "黑暗",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -755,7 +755,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 606,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Phantom",
+                Hint = "幻影",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -776,7 +776,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "E. Adv:"
+                Text = "强元素:"
             };
             label.Location = new Point(50 - label.Size.Width, 235);
 
@@ -787,7 +787,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 600,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Fire",
+                Hint = "火",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -806,7 +806,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 601,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Ice",
+                Hint = "冰",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -825,7 +825,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 602,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Lightning",
+                Hint = "电",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -844,7 +844,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 603,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Wind",
+                Hint = "风",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 150, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -863,7 +863,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 604,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Holy",
+                Hint = "神圣",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -882,7 +882,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 605,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Dark",
+                Hint = "黑暗",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -901,7 +901,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 606,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Phantom",
+                Hint = "幻影",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -920,7 +920,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1517,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Physical",
+                Hint = "物理",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 150, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -941,7 +941,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "E. Dis:"
+                Text = "弱元素:"
             };
             label.Location = new Point(50 - label.Size.Width, 295);
 
@@ -951,7 +951,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 600,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Fire",
+                Hint = "火",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -970,7 +970,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 601,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Ice",
+                Hint = "冰",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -989,7 +989,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 602,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Lightning",
+                Hint = "电",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -1008,7 +1008,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 603,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Wind",
+                Hint = "风",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 150, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -1027,7 +1027,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 604,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Holy",
+                Hint = "神圣",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1046,7 +1046,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 605,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Dark",
+                Hint = "黑暗",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1065,7 +1065,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 606,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Phantom",
+                Hint = "幻影",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1084,7 +1084,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1517,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Physical",
+                Hint = "物理",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 150, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1103,7 +1103,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "AC:"
+                Text = "防御:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 - label.Size.Width + 25, 15);
 
@@ -1118,7 +1118,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "MR:"
+                Text = "魔防:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 * 2 - label.Size.Width + 25, 15);
 
@@ -1133,7 +1133,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "DC:"
+                Text = "攻击:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 - label.Size.Width + 25, 35);
 
@@ -1148,7 +1148,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "MC:"
+                Text = "魔法:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 * 2 - label.Size.Width + 25, 35);
 
@@ -1163,7 +1163,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "SC:"
+                Text = "道术:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 * 3 - label.Size.Width + 25, 35);
 
@@ -1178,7 +1178,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "Health:"
+                Text = "生命值:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 - label.Size.Width + 25, 55);
 
@@ -1193,7 +1193,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "Mana:"
+                Text = "魔法值:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 * 2 - label.Size.Width + 25, 55);
 
@@ -1211,7 +1211,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "E. Att:"
+                Text = "元素攻击:"
             };
             label.Location = new Point(50 - label.Size.Width, 90);
 
@@ -1221,7 +1221,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 600,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Fire",
+                Hint = "火",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -1240,7 +1240,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 601,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Ice",
+                Hint = "冰",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -1259,7 +1259,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 602,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Lightning",
+                Hint = "电",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -1278,7 +1278,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 603,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Wind",
+                Hint = "风",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 150, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2);
 
@@ -1297,7 +1297,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 604,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Holy",
+                Hint = "神圣",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1316,7 +1316,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 605,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Dark",
+                Hint = "黑暗",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 50, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1335,7 +1335,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.ProgUse,
                 Index = 606,
                 ForeColour = Color.FromArgb(60, 60, 60),
-                Hint = "Phantom",
+                Hint = "幻影",
             };
             icon.Location = new Point(label.Location.X + label.Size.Width + 100, label.Location.Y + (label.Size.Height - icon.Size.Height) / 2 + 25);
 
@@ -1353,7 +1353,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = HermitTab,
-                Text = "Unspent Points:"
+                Text = "未分配点数:"
             };
             label.Location = new Point(HermitTab.Size.Width / 4 * 2 - label.Size.Width + 25, 150);
 

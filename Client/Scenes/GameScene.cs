@@ -1736,7 +1736,7 @@ namespace Client.Scenes
                             colour = Color.Red;
                         break;
                     default:
-                        text = "Unknown Type Required";
+                        text = "未知类型需求";
                         break;
                 }
 
@@ -1913,11 +1913,11 @@ namespace Client.Scenes
                 {
                     case ItemType.Book:
                         label.ForeColour = Color.Red;
-                        label.Text = "Does not contain Level 4 Pages.";
+                        label.Text = "不可用作3级技能后的升级.";
                         break;
                     default:
                         label.ForeColour = Color.Yellow;
-                        label.Text = "Cannot be Refined or Upgraded.";
+                        label.Text = "不可精炼或升级.";
                         break;
                 }
 
@@ -1933,7 +1933,7 @@ namespace Client.Scenes
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
                     ForeColour = Color.Green,
-                    Text = "Contains high level Pages.",
+                    Text = "可以用作3级技能后的升级.",
                 };
 
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -2020,12 +2020,12 @@ namespace Client.Scenes
 
                 if (CEnvir.Now >= value)
                 {
-                    label.Text = "Revival ready";
+                    label.Text = "复活 ready";
                     label.ForeColour = Color.LimeGreen;
                 }
                 else
                 {
-                    label.Text = $"Revival ready in {Functions.ToString(value - CEnvir.Now, true)}";
+                    label.Text = $"复活 ready in {Functions.ToString(value - CEnvir.Now, true)}";
                     label.ForeColour = Color.Red;
                 }
 
@@ -2047,7 +2047,7 @@ namespace Client.Scenes
                     ForeColour = Color.MediumOrchid,
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = "Wedding Ring.",
+                    Text = "结婚戒指.",
                 };
 
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -2268,7 +2268,7 @@ namespace Client.Scenes
 
                         if ((MouseItem.Flags & UserItemFlags.Refinable) == UserItemFlags.Refinable)
                         {
-                            label.Text = "Ready for Refine";
+                            label.Text = "可以精炼";
                             label.ForeColour = Color.LightGreen;
                         }
                         else
@@ -2295,7 +2295,7 @@ namespace Client.Scenes
                         ForeColour = Color.White,
                         Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                         Parent = ItemLabel,
-                        Text = $"{displayInfo.ItemType} Level: " + (MouseItem.Level < Globals.AccessoryExperienceList.Count ? MouseItem.Level.ToString() : "Max")
+                        Text = $"{displayInfo.ItemType} 等级: " + (MouseItem.Level < Globals.AccessoryExperienceList.Count ? MouseItem.Level.ToString() : "Max")
                     };
 
                     ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -2311,7 +2311,7 @@ namespace Client.Scenes
 
                         if ((MouseItem.Flags & UserItemFlags.Refinable) == UserItemFlags.Refinable)
                         {
-                            label.Text = "Ready for Refine";
+                            label.Text = "可以精炼";
                             label.ForeColour = Color.LightGreen;
                         }
                         else

@@ -243,35 +243,35 @@ namespace Client.Scenes.Views
             switch (buff.Type)
             {
                 case BuffType.Server:
-                    text = $"Server Settings\n";
+                    text = $"服务器设置\n";
                     break;
                 case BuffType.HuntGold:
-                    text = $"Hunt Gold\n";
+                    text = $"赏金\n";
                     break;
                 case BuffType.Observable:
-                    text = $"Observable\n\n" +
-                           $"You are allowing people to watch you play.\n";
+                    text = $"观察者模式\n\n" +
+                           $"你允许其他玩家观战.\n";
                     break;
                 case BuffType.Veteran:
-                    text = $"Veteran\n";
+                    text = $"老兵模式\n";
                     break;
                 case BuffType.Brown:
-                    text = $"Brown\n";
+                    text = $"灰名\n";
                     break;
                 case BuffType.PKPoint:
-                    text = $"PK Points\n";
+                    text = $"PK值\n";
                     break;
                 case BuffType.Redemption:
                     text = $"Redemption Key Stone\n";
                     break;
                 case BuffType.Castle:
-                    text = $"Castle Owner\n";
+                    text = $"沙巴克城主\n";
                     break;
                 case BuffType.Guild:
-                    text = $"Guild\n";
+                    text = $"行会模式\n";
                     break;
                 case BuffType.MapEffect:
-                    text = $"Map Effect\n";
+                    text = $"地图效果\n";
                     break;
                 case BuffType.ItemBuff:
                     ItemInfo info = Globals.ItemInfoList.Binding.First(x => x.Index == buff.ItemIndex);
@@ -279,104 +279,104 @@ namespace Client.Scenes.Views
                     stats = info.Stats;
                     break;
                 case BuffType.ItemBuffPermanent:
-                    text = "Permanent Item Buffs\n";
+                    text = "永久Buffs\n";
                     break;
                 case BuffType.Defiance:
-                    text = $"Defiance\n";
+                    text = $"铁布衫\n";
                     break;
                 case BuffType.Might:
-                    text = $"Might\n";
+                    text = $"破血狂杀\n";
                     break;
                 case BuffType.Endurance:
-                    text = $"Endurance\n";
+                    text = $"金刚之躯\n";
                     break;
                 case BuffType.ReflectDamage:
-                    text = $"Reflect Damage\n";
+                    text = $"移花接木\n";
                     break;
                 case BuffType.Renounce:
-                    text = $"Renounce\n";
+                    text = $"凝血离魂\n";
                     break;
                 case BuffType.MagicShield:
-                    text = $"Magic Shield\n";
+                    text = $"魔法盾\n";
                     break;
                 case BuffType.FrostBite:
-                    text = $"Frost Bite\n";
+                    text = $"护身冰环\n";
                     break;
                 case BuffType.JudgementOfHeaven:
-                    text = $"Judgement Of Heaven\n";
+                    text = $"天打雷劈\n";
                     break;
                 case BuffType.Heal:
-                    text = $"Heal\n";
+                    text = $"治愈术\n";
                     break;
                 case BuffType.Invisibility:
-                    text = $"Invisibility\n";
+                    text = $"隐身术\n";
 
-                    text += $"Hide in plain sight.\n";
+                    text += $"隐藏在视线之内.\n";
                     break;
                 case BuffType.MagicResistance:
-                    text = $"Magic Resistance\n";
+                    text = $"幽灵盾\n";
                     break;
                 case BuffType.Resilience:
-                    text = $"Resilience\n";
+                    text = $"神圣战甲术\n";
                     break;
                 case BuffType.ElementalSuperiority:
-                    text = $"Elemental Superiority\n";
+                    text = $"强魔震法\n";
                     break;
                 case BuffType.BloodLust:
-                    text = $"Blood Lust\n";
+                    text = $"猛虎强势\n";
                     break;
                 case BuffType.StrengthOfFaith:
-                    text = $"Strength Of Faith\n";
+                    text = $"移花接木\n";
                     break;
                 case BuffType.CelestialLight:
-                    text = $"Celestial Light\n";
+                    text = $"阴阳法环\n";
                     break;
                 case BuffType.Transparency:
-                    text = $"Transparency\n";
+                    text = $"妙影无踪\n";
                     break;
                 case BuffType.LifeSteal:
-                    text = $"Life Steal\n";
+                    text = $"吸星大法\n";
                     break;
                 case BuffType.PoisonousCloud:
-                    text = $"Poisonous Cloud\n";
+                    text = $"鬼雾\n";
                     break;
                 case BuffType.FullBloom:
-                    text = $"Full Bloom\n";
+                    text = $"泣血杜鹃\n";
                     break;
                 case BuffType.WhiteLotus:
                     text = $"White Lotus\n";
                     break;
                 case BuffType.RedLotus:
-                    text = $"Red Lotus\n";
+                    text = $"暗夜百合\n";
                     break;
                 case BuffType.Cloak:
-                    text = $"Cloak\n";
+                    text = $"潜行\n";
                     break;
                 case BuffType.GhostWalk:
-                    text = $"Ghost Walk\n\n" +
-                           $"Allows you to move faster whilst cloaked.";
+                    text = $"鬼灵步\n\n" +
+                           $"当你隐身时，你有机会提高100%的移动速度。.";
                     break;
                 case BuffType.TheNewBeginning:
-                    text = $"The New Beginning\n";
+                    text = $"心念\n";
                     break;
                 case BuffType.DarkConversion:
-                    text = $"Dark Conversion\n";
+                    text = $"恶灵契约\n";
                     break;
                 case BuffType.DragonRepulse:
-                    text = $"Dragon Repulse\n";
+                    text = $"星云锁链\n";
                     break;
                 case BuffType.Evasion:
-                    text = $"Evasion\n";
+                    text = $"风之闪避\n";
                     break;
                 case BuffType.RagingWind:
-                    text = $"Raging Wind\n";
+                    text = $"风之守护\n";
                     break;
                 case BuffType.MagicWeakness:
-                    text = $"Magic Weakness\n\n" +
-                           $"Your Magic Resistance has been greatly reduced.\n";
+                    text = $"魔法衰弱\n\n" +
+                           $"你的魔防大幅度下降.\n";
                     break;
                 case BuffType.Companion:
-                    text = $"Companion\n";
+                    text = $"宠物\n";
                     break;
             }
             
@@ -397,9 +397,9 @@ namespace Client.Scenes.Views
             }
 
             if (buff.RemainingTime != TimeSpan.MaxValue)
-                text += $"\nDuration: {Functions.ToString(buff.RemainingTime, true)}";
+                text += $"\n持续时间: {Functions.ToString(buff.RemainingTime, true)}";
 
-            if (buff.Pause) text += "\nPaused (Not in Effect).";
+            if (buff.Pause) text += "\n暂停 (无效).";
 
             return text;
         }
@@ -428,7 +428,7 @@ namespace Client.Scenes.Views
                 pair.Value.ForeColour = Functions.Lerp(Color.White, Color.CadetBlue, rate);
             }
 
-            Hint = Icons.Count > 0 ? null : "Buff Area";
+            Hint = Icons.Count > 0 ? null : "Buff区域";
 
 
         }

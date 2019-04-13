@@ -125,7 +125,7 @@ namespace Library
                     return description.Title;
                 case StatType.Time:
                     if (this[stat] < 0)
-                        return description.Title + ": Permanent";
+                        return description.Title + ": 永久";
 
                     return description.Title + ": " + Functions.ToString(TimeSpan.FromSeconds(this[stat]), true);
                 case StatType.SpellPower:
@@ -137,7 +137,7 @@ namespace Library
                     if (stat != Stat.MaxSC) return null;
 
 
-                    return "Spell Power: " + string.Format(description.Format, this[description.MinStat], this[stat]);
+                    return "技能威力: " + string.Format(description.Format, this[description.MinStat], this[stat]);
                 case StatType.AttackElement:
 
                     list = new List<Stat>();
@@ -147,7 +147,7 @@ namespace Library
                     if (list.Count == 0 || list[0] != stat)
                         return null;
 
-                    value = $"E. Atk: ";
+                    value = $"元素攻击: ";
 
                     neecComma = false;
                     foreach (Stat s in list)
@@ -201,7 +201,7 @@ namespace Library
                     }
                     
 
-                    value = ei ? $"E. Adv: " : $"E. Dis: ";
+                    value = ei ? $"强元素: " : $"弱元素: ";
 
                     neecComma = false;
 
@@ -250,7 +250,7 @@ namespace Library
                     return description.Format;
                 case StatType.Time:
                     if (this[stat] < 0)
-                        return "Permanent";
+                        return "永久";
 
                     return Functions.ToString(TimeSpan.FromSeconds(this[stat]), true);
                 default: return null;
@@ -522,7 +522,7 @@ namespace Library
 
         [StatDescription(Title = "经验倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         ExperienceRate,
-        [StatDescription(Title = "掉落别率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         DropRate,
         [StatDescription(Title = "空白状态", Mode = StatType.None)]
         None,
@@ -569,20 +569,20 @@ namespace Library
         [StatDescription(Title = "暴击几率", Format = "{0:+#0;-#0;#0}%", Mode = StatType.Default)]
         CriticalChance,
 
-        [StatDescription(Title = "5% more profit when selling", Format = "{0} or more", Mode = StatType.Default)]
+        [StatDescription(Title = "5%额外售价", Format = "{0} or more", Mode = StatType.Default)]
         SaleBonus5,
-        [StatDescription(Title = "10% more profit when selling", Format = "{0} or more", Mode = StatType.Default)]
+        [StatDescription(Title = "10%额外售价", Format = "{0} or more", Mode = StatType.Default)]
         SaleBonus10,
-        [StatDescription(Title = "15% more profit when selling", Format = "{0} or more", Mode = StatType.Default)]
+        [StatDescription(Title = "15%额外售价", Format = "{0} or more", Mode = StatType.Default)]
         SaleBonus15,
-        [StatDescription(Title = "20% more profit when selling", Format = "{0} or more", Mode = StatType.Default)]
+        [StatDescription(Title = "20%额外售价", Format = "{0} or more", Mode = StatType.Default)]
         SaleBonus20,
 
         [StatDescription(Title = "魔法盾", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MagicShield,
         [StatDescription(Title = "无形的", Mode = StatType.Text)]
         Cloak,
-        [StatDescription(Title = "Cloak Damage", Format = "{0} per tick", Mode = StatType.Default)]
+        [StatDescription(Title = "潜行伤害", Format = "{0} 每次", Mode = StatType.Default)]
         CloakDamage,
 
         [StatDescription(Title = "New Beginning Charges", Format = "{0}", Mode = StatType.Default)]
@@ -669,25 +669,25 @@ namespace Library
         [StatDescription(Title = "Recall Command: @GroupRecall", Mode = StatType.Text)]
         RecallSet,
 
-        [StatDescription(Title = "Regular Monster's Base Experience", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "常规怪物基础经验倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterExperience,
 
-        [StatDescription(Title = "Regular Monster's Base Gold", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "常规怪物基础金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterGold,
 
-        [StatDescription(Title = "Regular Monster's Base Drop Rate", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "常规怪物基础掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterDrop,
 
-        [StatDescription(Title = "Regular Monster's Base Damage", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "常规怪物基础伤害倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterDamage,
 
-        [StatDescription(Title = "Regular Monster's Base Health", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "常规怪物基础生命值倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterHealth,
 
         [StatDescription(Mode = StatType.None)]
         ItemIndex,
 
-        [StatDescription(Title = "Improved Companion item collection.", Mode = StatType.Text)]
+        [StatDescription(Title = "提高宠物拾取速度.", Mode = StatType.Text)]
         CompanionCollection,
         [StatDescription(Title = "Protection Ring", Mode = StatType.Text)]
         ProtectionRing,
@@ -732,7 +732,7 @@ namespace Library
         [StatDescription(Title = "死亡掉落开启.", Mode = StatType.Text)]
         DeathDrops,
 
-        [StatDescription(Title = "Physical", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
+        [StatDescription(Title = "物理", Format = "{0:+#0;-#0;#0}", Mode = StatType.ElementResistance)]
         PhysicalResistance,
 
         [StatDescription(Title = "Success Rate Per Fragment", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]

@@ -251,7 +251,7 @@ namespace Client.Scenes.Views
             {
                 Parent = panel2,
                 IsControl = false,
-                Text = "AC:"
+                Text = "防御:"
             };
             label.Location = new Point(36 - label.Size.Width, 5);
 
@@ -266,7 +266,7 @@ namespace Client.Scenes.Views
             {
                 Parent = panel2,
                 IsControl = false,
-                Text = "MR:"
+                Text = "魔防:"
             };
             label.Location = new Point(125 - label.Size.Width, 5);
 
@@ -280,7 +280,7 @@ namespace Client.Scenes.Views
             {
                 Parent = panel2,
                 IsControl = false,
-                Text = "DC:"
+                Text = "攻击:"
             };
             label.Location = new Point(36 - label.Size.Width, 22);
 
@@ -297,7 +297,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1510,
                 Location = new Point(5, 39),
-                Hint = "Fire"
+                Hint = "火"
             };
 
             FireResistLabel = new DXLabel
@@ -313,7 +313,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1511,
                 Location = new Point(icon.Location.X + 43, 39),
-                Hint = "Ice"
+                Hint = "冰"
             };
 
             IceResistLabel = new DXLabel
@@ -329,7 +329,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1512,
                 Location = new Point(icon.Location.X + 43, 39),
-                Hint = "Lightning"
+                Hint = "电"
             };
 
             LightningResistLabel = new DXLabel
@@ -345,7 +345,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1513,
                 Location = new Point(icon.Location.X + 43, 39),
-                Hint = "Wind"
+                Hint = "风"
             };
 
             WindResistLabel = new DXLabel
@@ -362,7 +362,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1514,
                 Location = new Point(5, 63),
-                Hint = "Holy",
+                Hint = "神圣",
             };
 
             HolyResistLabel = new DXLabel
@@ -378,7 +378,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1515,
                 Location = new Point(icon.Location.X + 43, 63),
-                Hint = "Dark",
+                Hint = "黑暗",
             };
 
             DarkResistLabel = new DXLabel
@@ -394,7 +394,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1516,
                 Location = new Point(icon.Location.X + 43, 63),
-                Hint = "Phantom",
+                Hint = "幻影",
             };
 
             PhantomResistLabel = new DXLabel
@@ -410,7 +410,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter,
                 Index = 1517,
                 Location = new Point(icon.Location.X + 43, 63),
-                Hint = "Physical"
+                Hint = "物理"
             };
 
             PhysicalResistLabel = new DXLabel
@@ -468,35 +468,35 @@ namespace Client.Scenes.Views
                 {
                     case Element.None:
                         AttackIcon.Index = 1517;
-                        AttackIcon.Hint = "Physical";
+                        AttackIcon.Hint = "物理";
                         break;
                     case Element.Fire:
                         AttackIcon.Index = 1510;
-                        AttackIcon.Hint = "Fire";
+                        AttackIcon.Hint = "火";
                         break;
                     case Element.Ice:
                         AttackIcon.Index = 1511;
-                        AttackIcon.Hint = "Ice";
+                        AttackIcon.Hint = "冰";
                         break;
                     case Element.Lightning:
                         AttackIcon.Index = 1512;
-                        AttackIcon.Hint = "Lightning";
+                        AttackIcon.Hint = "电";
                         break;
                     case Element.Wind:
                         AttackIcon.Index = 1513;
-                        AttackIcon.Hint = "Wind";
+                        AttackIcon.Hint = "风";
                         break;
                     case Element.Holy:
                         AttackIcon.Index = 1514;
-                        AttackIcon.Hint = "Holy";
+                        AttackIcon.Hint = "神圣";
                         break;
                     case Element.Dark:
                         AttackIcon.Index = 1515;
-                        AttackIcon.Hint = "Dark";
+                        AttackIcon.Hint = "黑暗";
                         break;
                     case Element.Phantom:
                         AttackIcon.Index = 1516;
-                        AttackIcon.Hint = "Phantom";
+                        AttackIcon.Hint = "幻影";
                         break;
                 }
             }
@@ -524,35 +524,35 @@ namespace Client.Scenes.Views
                 {
                     case Element.None:
                         AttackIcon.Index = 1517;
-                        AttackIcon.Hint = "Physical";
+                        AttackIcon.Hint = "物理";
                         break;
                     case Element.Fire:
                         AttackIcon.Index = 1510;
-                        AttackIcon.Hint = "Fire";
+                        AttackIcon.Hint = "火";
                         break;
                     case Element.Ice:
                         AttackIcon.Index = 1511;
-                        AttackIcon.Hint = "Ice";
+                        AttackIcon.Hint = "冰";
                         break;
                     case Element.Lightning:
                         AttackIcon.Index = 1512;
-                        AttackIcon.Hint = "Lightning";
+                        AttackIcon.Hint = "电";
                         break;
                     case Element.Wind:
                         AttackIcon.Index = 1513;
-                        AttackIcon.Hint = "Wind";
+                        AttackIcon.Hint = "风";
                         break;
                     case Element.Holy:
                         AttackIcon.Index = 1514;
-                        AttackIcon.Hint = "Holy";
+                        AttackIcon.Hint = "神圣";
                         break;
                     case Element.Dark:
                         AttackIcon.Index = 1515;
-                        AttackIcon.Hint = "Dark";
+                        AttackIcon.Hint = "黑暗";
                         break;
                     case Element.Phantom:
                         AttackIcon.Index = 1516;
-                        AttackIcon.Hint = "Phantom";
+                        AttackIcon.Hint = "幻影";
                         break;
                 }
             }

@@ -58,7 +58,7 @@ namespace Client.Envir
                 }
                 else
                 {
-                    DXMessageBox.Show("Disconnected from server\nReason: Connection timed out.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 连接超时.", "Disconnected", DialogAction.ReturnToLogin);
                 }
             }
 
@@ -81,7 +81,7 @@ namespace Client.Envir
                 {
                     CEnvir.WrongVersion = true;
                     
-                    DXMessageBox.Show("Disconnected from server\nReason: Wrong Version.", "Disconnected", DialogAction.Close).Modal = false;
+                    DXMessageBox.Show("与服务器失去连接\n原因: 版本校验失败.", "Disconnected", DialogAction.Close).Modal = false;
                 }
 
                 scene.Disconnected();
@@ -92,25 +92,25 @@ namespace Client.Envir
             switch (p.Reason)
             {
                 case DisconnectReason.Unknown:
-                    DXMessageBox.Show("Disconnected from server\nReason: Unknown", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 未知", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 case DisconnectReason.TimedOut:
-                    DXMessageBox.Show("Disconnected from server\nReason: Connection Timed out.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 连接超时.", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 case DisconnectReason.ServerClosing:
-                    DXMessageBox.Show("Disconnected from server\nReason: Server shutting down.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 服务器主动关闭.", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 case DisconnectReason.AnotherUser:
-                    DXMessageBox.Show("Disconnected from server\nReason: Another user logged onto your account.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 其他人正在登陆你的账号.", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 case DisconnectReason.AnotherUserAdmin:
-                    DXMessageBox.Show("Disconnected from server\nReason: An admin logged onto your account.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 管理员登陆了你的账号.", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 case DisconnectReason.Banned:
-                    DXMessageBox.Show("Disconnected from server\nReason: You have been banned.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 你被封号了.", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 case DisconnectReason.Crashed:
-                    DXMessageBox.Show("Disconnected from server\nReason: Server Crashed.", "Disconnected", DialogAction.ReturnToLogin);
+                    DXMessageBox.Show("与服务器失去连接\n原因: 服务器崩溃.", "Disconnected", DialogAction.ReturnToLogin);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -1561,7 +1561,7 @@ namespace Client.Envir
             MapObject.User.Level = p.Level;
             MapObject.User.Experience = p.Experience;
 
-            GameScene.Game.ReceiveChat("Level Increased", MessageType.System);
+            GameScene.Game.ReceiveChat("你升级了!", MessageType.System);
         }
         public void Process(S.GainedExperience p)
         {
@@ -1571,12 +1571,12 @@ namespace Client.Envir
 
             if (p.Amount < 0)
             {
-                GameScene.Game.ReceiveChat($"Experience Lost {p.Amount:#,##0.#}.", MessageType.Combat);
+                GameScene.Game.ReceiveChat($"失去经验 {p.Amount:#,##0.#}.", MessageType.Combat);
                 return;
             }
 
 
-            string message = $"Experience Gained {p.Amount:#,##0.#}";
+            string message = $"得到经验 {p.Amount:#,##0.#}";
 
             if (weapon != null && weapon.Info.Effect != ItemEffect.PickAxe && (weapon.Flags & UserItemFlags.Refinable) != UserItemFlags.Refinable && (weapon.Flags & UserItemFlags.NonRefinable) != UserItemFlags.NonRefinable && weapon.Level < Globals.WeaponExperienceList.Count)
             {
@@ -1588,10 +1588,10 @@ namespace Client.Envir
                     weapon.Level++;
                     weapon.Flags |= UserItemFlags.Refinable;
 
-                    message += ", Your weapon is ready for refine";
+                    message += ", 你的武器可以精炼了";
                 }
                 else
-                    message += $", Weapon Experience {p.Amount/10:#,##0.#}";
+                    message += $", 武器获得经验 {p.Amount/10:#,##0.#}";
             }
             
             GameScene.Game.ReceiveChat(message + ".", MessageType.Combat);
@@ -1652,10 +1652,10 @@ namespace Client.Envir
                 string text = item.Count > 1 ? $"You gained {displayInfo.ItemName} x{item.Count}." : $"You gained {displayInfo.ItemName}.";
 
                 if ((item.Flags & UserItemFlags.QuestItem) == UserItemFlags.QuestItem)
-                    text += " (Quest)";
+                    text += " (任务)";
 
                 if (item.Info.Effect == ItemEffect.ItemPart)
-                    text += " [Part]";
+                    text += " [碎片]";
 
                 GameScene.Game.ReceiveChat(text, MessageType.Combat);
             }
@@ -3721,10 +3721,10 @@ namespace Client.Envir
                 string text = item.Count > 1 ? $"Your companion gained {displayInfo.ItemName} x{item.Count}." : $"Your companion gained {displayInfo.ItemName}.";
 
                 if ((item.Flags & UserItemFlags.QuestItem) == UserItemFlags.QuestItem)
-                    text += " (Quest)";
+                    text += " (任务)";
 
                 if (item.Info.Effect == ItemEffect.ItemPart)
-                    text += " [Part]";
+                    text += " [碎片]";
 
                 GameScene.Game.ReceiveChat(text, MessageType.Combat);
             }
