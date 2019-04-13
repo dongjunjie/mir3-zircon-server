@@ -38,6 +38,30 @@ namespace Client.Scenes.Views
 
             if (ChatModeButton != null)
                 ChatModeButton.Label.Text = Mode.ToString();
+                switch (Mode)
+                {
+                    case ChatMode.Local:
+                    ChatModeButton.Label.Text = "本地";
+                    break;
+                    case ChatMode.Shout:
+                    ChatModeButton.Label.Text = "喊话";
+                    break;
+                    case ChatMode.Whisper:
+                    ChatModeButton.Label.Text = "私聊";
+                    break;
+                    case ChatMode.Group:
+                    ChatModeButton.Label.Text = "组队";
+                    break;
+                    case ChatMode.Guild:
+                    ChatModeButton.Label.Text = "行会";
+                    break;
+                    case ChatMode.Global:
+                    ChatModeButton.Label.Text = "全服";
+                    break;
+                    case ChatMode.Observer:
+                    ChatModeButton.Label.Text = "观察";
+                    break;
+                }
         }
 
         #endregion
@@ -103,7 +127,7 @@ namespace Client.Scenes.Views
             {
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(50, SmallButtonHeight),
-                Label = { Text = "Options" },
+                Label = { Text = "聊天设置" },
                 Parent = this,
             };
             OptionsButton.MouseClick += (o, e) =>
