@@ -303,8 +303,11 @@ namespace Library
 
     public enum Rarity : byte
     {
+        [Description("普通")]
         Common,
+        [Description("卓越")]
         Superior,
+        [Description("传奇")]
         Elite,
     }
 

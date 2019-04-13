@@ -1613,7 +1613,7 @@ namespace Client.Scenes
                     ForeColour = colour,
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = $"需要性别: {MouseItem.Info.RequiredGender}",
+                    Text = $"需要性别: {EnumService.GetDescription(MouseItem.Info.RequiredGender)}",
                 };
 
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -1763,9 +1763,9 @@ namespace Client.Scenes
                     ForeColour = Color.FromArgb(0, 204, 0),
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = displayInfo.Rarity.ToString(),
+                    Text = EnumService.GetDescription(displayInfo.Rarity),
                 };
-
+                
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
                     label.DisplayArea.Bottom > ItemLabel.Size.Height ? label.DisplayArea.Bottom : ItemLabel.Size.Height);
             }
