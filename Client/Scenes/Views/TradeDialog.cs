@@ -40,7 +40,7 @@ namespace Client.Scenes.Views
 
         public TradeDialog()
         {
-            TitleLabel.Text = "Trade Window";
+            TitleLabel.Text = "交易窗口";
 
             Location = new Point(40, 40);
             
@@ -80,7 +80,7 @@ namespace Client.Scenes.Views
 
             UserLabel = new DXLabel
             {
-                Text = "User",
+                Text = "用户",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -94,7 +94,7 @@ namespace Client.Scenes.Views
 
             PlayerLabel = new DXLabel
             {
-                Text = "Player",
+                Text = "玩家",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -129,7 +129,7 @@ namespace Client.Scenes.Views
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
                 Location = new Point(UserGrid.Location.X + 1, UserGrid.Location.Y + UserGrid.Size.Height + 5),
-                Text = "Gold",
+                Text = "金币",
                 Size = new Size(58, 20),
                 IsControl = false,
             };
@@ -158,7 +158,7 @@ namespace Client.Scenes.Views
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
                 Location = new Point(PlayerGrid.Location.X + 1, UserGrid.Location.Y + UserGrid.Size.Height + 5),
-                Text = "Gold",
+                Text = "金币",
                 Size = new Size(58, 20),
                 IsControl = false,
             };
@@ -167,7 +167,7 @@ namespace Client.Scenes.Views
             {
                 Parent = this,
                 Location = new Point(UserGrid.Location.X + UserGrid.Size.Width - 80, UserGoldLabel.Location.Y + 25),
-                Label = { Text = "Confirm" },
+                Label = { Text = "确认" },
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(80, SmallButtonHeight),
             };
@@ -189,7 +189,7 @@ namespace Client.Scenes.Views
         {
             if (GameScene.Game.Observer) return;
 
-            DXItemAmountWindow window = new DXItemAmountWindow("Trade Gold", new ClientUserItem(Globals.GoldInfo, GameScene.Game.User.Gold));
+            DXItemAmountWindow window = new DXItemAmountWindow("交易金币", new ClientUserItem(Globals.GoldInfo, GameScene.Game.User.Gold));
 
             window.ConfirmButton.MouseClick += (o1, e1) =>
             {
