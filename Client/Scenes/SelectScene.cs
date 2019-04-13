@@ -809,7 +809,7 @@ namespace Client.Scenes
                         break;
                 }
 
-                SelectedClassLabel.Text = SelectedClass.ToString();
+                SelectedClassLabel.Text = EnumService.GetDescription(SelectedClass);
             }
 
             #endregion
@@ -861,7 +861,8 @@ namespace Client.Scenes
                         break;
 
                 }
-                SelectedGenderLabel.Text = SelectedGender.ToString();
+                SelectedGenderLabel.Text = EnumService.GetDescription(SelectedGender);
+
             }
 
             #endregion

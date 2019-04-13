@@ -7,9 +7,25 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    public class EnumService
+    {
+        public static string GetDescription(Enum obj)
+        {
+            string objName = obj.ToString();
+            Type t = obj.GetType();
+            System.Reflection.FieldInfo fi = t.GetField(objName);
+
+            DescriptionAttribute[] arrDesc = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            return arrDesc[0].Description;
+        }
+    }
+
     public enum MirGender : byte
     {
+        [Description("男性")]
         Male,
+        [Description("女性")]
         Female
     }
 
@@ -72,6 +88,7 @@ namespace Library
     [Flags]
     public enum RequiredClass : byte
     {
+        [Description("无")]
         None = 0,
         [Description("战士")]
         Warrior = 1,
@@ -87,6 +104,7 @@ namespace Library
         WizTao = Wizard | Taoist,
         [Description("战士, 刺客")]
         AssWar = Warrior | Assassin,
+        [Description("全职业")]
         All = WarWizTao | Assassin
     }
 
@@ -97,34 +115,55 @@ namespace Library
         Male = 1,
         [Description("女性")]
         Female = 2,
+        [Description("无")]
         None = Male | Female
     }
 
     public enum EquipmentSlot
     {
+        [Description("武器")]
         Weapon = 0,
+        [Description("盔甲")]
         Armour = 1,
+        [Description("头盔")]
         Helmet = 2,
+        [Description("火把")]
         Torch = 3,
+        [Description("项链")]
         Necklace = 4,
+        [Description("左手镯")]
         BraceletL = 5,
+        [Description("右手镯")]
         BraceletR = 6,
+        [Description("左戒指")]
         RingL = 7,
+        [Description("右戒指")]
         RingR = 8,
+        [Description("鞋子")]
         Shoes = 9,
+        [Description("药品")]
         Poison = 10,
+        [Description("护符")]
         Amulet = 11,
+        [Description("鲜花")]
         Flower = 12,
+        [Description("马护甲")]
         HorseArmour = 13,
+        [Description("徽章")]
         Emblem = 14,
+        [Description("盾牌")]
         Shield = 15,
     }
 
     public enum CompanionSlot
     {
+        [Description("背包")]
         Bag = 0,
+        [Description("头部")]
         Head = 1,
+        [Description("背部")]
         Back = 2,
+        [Description("食物")]
         Food = 3,
     }
 
@@ -297,23 +336,37 @@ namespace Library
 
     public enum ItemType : byte
     {
+        [Description("无")]
         Nothing,
+        [Description("消耗品")]
         Consumable,
+        [Description("武器")]
         Weapon,
+        [Description("盔甲")]
         Armour,
+        [Description("火把")]
         Torch,
         [Description("头盔")]
         Helmet,
+        [Description("项链")]
         Necklace,
+        [Description("手镯")]
         Bracelet,
         [Description("戒指")]
         Ring,
+        [Description("鞋子")]
         Shoes,
+        [Description("药品")]
         Poison,
+        [Description("护符")]
         Amulet,
+        [Description("肉")]
         Meat,
+        [Description("矿")]
         Ore,
+        [Description("技能书")]
         Book,
+        [Description("卷轴")]
         Scroll,
         [Description("Dark Stone")]
         DarkStone,
@@ -321,6 +374,7 @@ namespace Library
         RefineSpecial,
         [Description("Horse Armour")]
         HorseArmour,
+        [Description("鲜花")]
         Flower,
         [Description("Companion Food")]
         CompanionFood,
@@ -330,10 +384,13 @@ namespace Library
         CompanionHead,
         [Description("Companion Back")]
         CompanionBack,
+        [Description("系统")]
         System,
         [Description("Item Part")]
         ItemPart,
+        [Description("徽章")]
         Emblem,
+        [Description("盾牌")]
         Shield,
     }
 
@@ -444,30 +501,51 @@ namespace Library
 
     public enum MagicSchool
     {
+        [Description("无")]
         None,
+        [Description("被动")]
         Passive,
+        [Description("武器掌握")]
         WeaponSkills,
+        [Description("自然")]
         Neutral,
+        [Description("火")]
         Fire,
+        [Description("冰")]
         Ice,
+        [Description("电")]
         Lightning,
+        [Description("风")]
         Wind,
+        [Description("神圣")]
         Holy,
+        [Description("黑暗")]
         Dark,
+        [Description("幻影")]
         Phantom,
+        [Description("战斗")]
         Combat,
+        [Description("暗杀")]
         Assassination
     }
     
     public enum Element : byte
     {
+        [Description("无")]
         None,
+        [Description("火")]
         Fire,
+        [Description("冰")]
         Ice,
+        [Description("电")]
         Lightning ,
+        [Description("风")]
         Wind,
+        [Description("神圣")]
         Holy,
+        [Description("黑暗")]
         Dark ,
+        [Description("幻影")]
         Phantom,
     }
 
