@@ -325,7 +325,7 @@ namespace Client.Scenes.Views
             ShowHelmetBox = new DXCheckBox
             {
                 Parent = CharacterTab,
-                Hint = "展示修炼",
+                Hint = "展示头盔",
                 ReadOnly = true,
             };
             ShowHelmetBox.Location = new Point(215 + 39 - ShowHelmetBox.Size.Width, 58 - ShowHelmetBox.Size.Height);

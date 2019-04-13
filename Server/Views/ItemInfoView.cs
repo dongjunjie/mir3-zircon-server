@@ -64,12 +64,12 @@ namespace Server.Views
             StringBuilder builder = new StringBuilder();
 
             
-            builder.Append((info?.ItemName ?? "Name") + ", ");
-            builder.Append((info?.ItemType.ToString() ?? "Type") + ", ");
+            builder.Append((info?.ItemName ?? "名字") + ", ");
+            builder.Append((info?.ItemType.ToString() ?? "类型") + ", ");
 
             if (info == null)
             {
-                builder.Append("Required Class");
+                builder.Append("需求职业");
             }
             else
             {
@@ -84,12 +84,12 @@ namespace Server.Views
 
             builder.Append(", ");
 
-            builder.Append((info?.RequiredType.ToString() ?? "Required Type") + ", ");
-            builder.Append((info?.RequiredAmount.ToString() ?? "Required Amount") + ", ");
-            builder.Append((info?.Image.ToString("00000") ?? "Image") + ", ");
-            builder.Append((info?.Weight.ToString() ?? "Weight") + ", ");
-            builder.Append((info?.Durability.ToString() ?? "Durability") + ", ");
-            builder.Append((info?.Rarity.ToString() ?? "Rarity") + ", ");
+            builder.Append((info?.RequiredType.ToString() ?? "需求类别") + ", ");
+            builder.Append((info?.RequiredAmount.ToString() ?? "需求护甲") + ", ");
+            builder.Append((info?.Image.ToString("00000") ?? "图像") + ", ");
+            builder.Append((info?.Weight.ToString() ?? "重量") + ", ");
+            builder.Append((info?.Durability.ToString() ?? "耐久") + ", ");
+            builder.Append((info?.Rarity.ToString() ?? "稀有性") + ", ");
 
             builder.Append((info == null ? "防御" : string.Format("{0}-{1}", info.Stats[Stat.MinAC], info.Stats[Stat.MaxAC])) + ", ");
             builder.Append((info == null ? "魔防" : string.Format("{0}-{1}", info.Stats[Stat.MinMR], info.Stats[Stat.MaxMR])) + ", ");

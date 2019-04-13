@@ -303,11 +303,11 @@ namespace Library
 
     public enum Rarity : byte
     {
-        [Description("普通")]
+        [Description("普通物品")]
         Common,
-        [Description("卓越")]
+        [Description("卓越物品")]
         Superior,
-        [Description("传奇")]
+        [Description("传奇物品")]
         Elite,
     }
 
@@ -371,25 +371,25 @@ namespace Library
         Book,
         [Description("卷轴")]
         Scroll,
-        [Description("Dark Stone")]
+        [Description("黑石头")]
         DarkStone,
-        [Description("Refine Special")]
+        [Description("特别精炼")]
         RefineSpecial,
-        [Description("Horse Armour")]
+        [Description("马盔甲")]
         HorseArmour,
         [Description("鲜花")]
         Flower,
-        [Description("Companion Food")]
+        [Description("宠物食物")]
         CompanionFood,
-        [Description("Companion Bag")]
+        [Description("宠物背包")]
         CompanionBag,
-        [Description("Companion Head")]
+        [Description("宠物头部")]
         CompanionHead,
-        [Description("Companion Back")]
+        [Description("宠物背部")]
         CompanionBack,
         [Description("系统")]
         System,
-        [Description("Item Part")]
+        [Description("物品碎片")]
         ItemPart,
         [Description("徽章")]
         Emblem,
