@@ -49,7 +49,7 @@ namespace Client.Scenes.Views
 
         public MailDialog()
         {
-            TitleLabel.Text = "Mail Box";
+            TitleLabel.Text = "邮件";
             HasFooter = true;
 
             SetClientSize(new Size(350, 350));
@@ -110,7 +110,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.Right - 100, Size.Height - 43),
                 Size = new Size(80, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Collect Some" }
+                Label = { Text = "签收" }
             };
             CollectAllButton.MouseClick += (o, e) =>
             {
@@ -148,7 +148,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.Right - 200, Size.Height - 43),
                 Size = new Size(80, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Delete Some" }
+                Label = { Text = "删除" }
             };
             DeleteAll.MouseClick += (o, e) =>
             {
@@ -168,7 +168,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.Right - 300, Size.Height - 43),
                 Size = new Size(80, DefaultHeight),
                 Parent = this,
-                Label = { Text = "New Mail" }
+                Label = { Text = "写邮件" }
             };
             NewButton.MouseClick += (o, e) =>
             {
@@ -325,9 +325,9 @@ namespace Client.Scenes.Views
         public event EventHandler<EventArgs> IsHeaderChanged;
         public void OnIsHeaderChanged(bool oValue, bool nValue)
         {
-            SubjectLabel.Text = "Subject";
-            SenderLabel.Text = "Sender";
-            DateLabel.Text = "Date";
+            SubjectLabel.Text = "主题";
+            SenderLabel.Text = "发送者";
+            DateLabel.Text = "日期";
 
             SubjectLabel.ForeColour = Color.FromArgb(198, 166, 99);
             SenderLabel.ForeColour = Color.FromArgb(198, 166, 99);
@@ -560,12 +560,12 @@ namespace Client.Scenes.Views
         public ReadMailDialog()
         {
             SetClientSize(new Size(255, 340));
-            TitleLabel.Text = "Read Mail";
+            TitleLabel.Text = "读邮件";
 
             DXLabel label = new DXLabel
             {
                 Parent = this,
-                Text = "Sender:"
+                Text = "发送者:"
             };
             label.Location = new Point(ClientArea.X + 50 - label.Size.Width, ClientArea.Y);
 
@@ -586,7 +586,7 @@ namespace Client.Scenes.Views
                 Size = new Size(70, SmallButtonHeight),
                 Location = new Point(SenderBox.Location.X + SenderBox.Size.Width + 10, label.Location.Y),
                 Parent = this,
-                Label = { Text = "Reply" }
+                Label = { Text = "回复" }
             };
             ReplyButton.MouseClick += (o, e) =>
             {
@@ -598,7 +598,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Subject:"
+                Text = "主题:"
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, SenderBox.Location.Y + 25);
 
@@ -616,7 +616,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Date:"
+                Text = "日期:"
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, SubjectBox.Location.Y + 25);
 
@@ -635,7 +635,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Message:"
+                Text = "内容:"
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, DateBox.Location.Y + 25);
 
@@ -654,7 +654,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Items:",
+                Text = "物品:",
                 Location = new Point(ClientArea.X, MessageLabel.Location.Y + 5 + MessageLabel.Size.Height)
             };
 
@@ -683,13 +683,13 @@ namespace Client.Scenes.Views
                 Size = new Size(70, SmallButtonHeight),
                 Location = new Point(ClientArea.Right - 75, Grid.Location.Y + Grid.Size.Height + 5),
                 Parent = this,
-                Label = { Text = "Delete" }
+                Label = { Text = "删除" }
             };
             DeleteButton.MouseClick += (o, e) =>
             {
                 if (Mail.Items.Count > 0)
                 {
-                    GameScene.Game.ReceiveChat("You cannot delete a mail with items inside", MessageType.System);
+                    GameScene.Game.ReceiveChat("邮件内有物品，无法删除", MessageType.System);
                     return;
                 }
 
@@ -871,12 +871,12 @@ namespace Client.Scenes.Views
         public SendMailDialog()
         {
             SetClientSize(new Size(255, 320));
-            TitleLabel.Text = "New Mail";
+            TitleLabel.Text = "写邮件";
 
             DXLabel label = new DXLabel
             {
                 Parent = this,
-                Text = "Recipient:"
+                Text = "收件人:"
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, ClientArea.Y);
 
@@ -893,7 +893,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Subject:"
+                Text = "主题:"
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, RecipientBox.Location.Y + 25);
 
@@ -911,7 +911,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Message:"
+                Text = "内容:"
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, SubjectBox.Location.Y + 25);
 
@@ -930,7 +930,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Items:",
+                Text = "物品:",
                 Location = new Point(ClientArea.X + 36, MessageBox.Location.Y + 5 + MessageBox.Size.Height)
             };
 
@@ -949,7 +949,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = this,
-                Text = "Gold:"
+                Text = "金币:"
             };
             label.Location = new Point(ClientArea.X + 42 - label.Size.Width, Grid.Location.Y + 10 + Grid.Size.Height);
 
@@ -971,7 +971,7 @@ namespace Client.Scenes.Views
                 Size = new Size(70, SmallButtonHeight),
                 Location = new Point(ClientArea.Right - 75, GoldBox.Location.Y),
                 Parent = this,
-                Label = { Text = "Send" },
+                Label = { Text = "发送" },
                 Enabled = false,
             };
             SendButton.MouseClick += (o, e) => Send();
