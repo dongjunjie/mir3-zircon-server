@@ -45,7 +45,7 @@ namespace Library
         Both,
         [Description("宠物模式: 跟随")]
         Move,
-        [Description("P宠物模式: 攻击")]
+        [Description("宠物模式: 攻击")]
         Attack,
         [Description("宠物模式: PvP")]
         PvP,
