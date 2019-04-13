@@ -116,7 +116,7 @@ namespace Client.Controls
             ActiveConfig = this;
 
             Size = new Size(300, 305);
-            TitleLabel.Text = "Configuration";
+            TitleLabel.Text = "系统设置";
             HasFooter = true;
 
             TabControl = new DXTabControl
@@ -129,35 +129,35 @@ namespace Client.Controls
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Graphics" } },
+                TabButton = { Label = { Text = "图像" } },
             };
 
             SoundTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Sound" } },
+                TabButton = { Label = { Text = "声音" } },
             };
 
             GameTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Game" } },
+                TabButton = { Label = { Text = "游戏" } },
             };
 
             NetworkTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Network" } },
+                TabButton = { Label = { Text = "网络" } },
             };
 
             ColourTab = new DXTab
             {
                 Parent = TabControl,
                 Border = true,
-                TabButton = { Label = { Text = "Colours" }, Visible = false },
+                TabButton = { Label = { Text = "颜色" }, Visible = false },
             };
 
 
@@ -170,7 +170,7 @@ namespace Client.Controls
             
             FullScreenCheckBox = new DXCheckBox
             {
-                Label = { Text = "Full Screen:" },
+                Label = { Text = "全屏:" },
                 Parent = GraphicsTab,
                 Checked = Config.FullScreen,
             };
@@ -178,7 +178,7 @@ namespace Client.Controls
 
             DXLabel label = new DXLabel
             {
-                Text = "Game Size:",
+                Text = "分辨率:",
                 Outline = true,
                 Parent = GraphicsTab,
             };
@@ -201,35 +201,35 @@ namespace Client.Controls
 
             VSyncCheckBox = new DXCheckBox
             {
-                Label = { Text = "V-Sync:" },
+                Label = { Text = "垂直同步:" },
                 Parent = GraphicsTab,
             };
             VSyncCheckBox.Location = new Point(120 - VSyncCheckBox.Size.Width, 60);
 
             LimitFPSCheckBox = new DXCheckBox
             {
-                Label = { Text = "Limit FPS:" },
+                Label = { Text = "限制FPS:" },
                 Parent = GraphicsTab,
             };
             LimitFPSCheckBox.Location = new Point(120 - LimitFPSCheckBox.Size.Width, 80);
 
             ClipMouseCheckBox = new DXCheckBox
             {
-                Label = { Text = "Clip Mouse:" },
+                Label = { Text = "捕获鼠标:" },
                 Parent = GraphicsTab,
             };
             ClipMouseCheckBox.Location = new Point(120 - ClipMouseCheckBox.Size.Width, 100);
 
             DebugLabelCheckBox = new DXCheckBox
             {
-                Label = { Text = "Debug Label:" },
+                Label = { Text = "显示顶部信息行:" },
                 Parent = GraphicsTab,
             };
             DebugLabelCheckBox.Location = new Point(120 - DebugLabelCheckBox.Size.Width, 120);
 
             label = new DXLabel
             {
-                Text = "Language:",
+                Text = "语音:",
                 Outline = true,
                 Parent = GraphicsTab,
             };
@@ -255,7 +255,7 @@ namespace Client.Controls
 
             BackgroundSoundBox = new DXCheckBox
             {
-                Label = { Text = "Background Sound:" },
+                Label = { Text = "背景音:" },
                 Parent = SoundTab,
                 Checked = Config.SoundInBackground,
             };
@@ -263,7 +263,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "System Volume:",
+                Text = "系统音量:",
                 Outline = true,
                 Parent = SoundTab,
             };
@@ -279,7 +279,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Music Volume:",
+                Text = "音乐音量:",
                 Outline = true,
                 Parent = SoundTab,
             };
@@ -295,7 +295,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Player Volume:",
+                Text = "角色音量:",
                 Outline = true,
                 Parent = SoundTab,
             };
@@ -310,7 +310,7 @@ namespace Client.Controls
             };
             label = new DXLabel
             {
-                Text = "Monster Volume:",
+                Text = "怪物音量:",
                 Outline = true,
                 Parent = SoundTab,
             };
@@ -326,7 +326,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Magic Volume:",
+                Text = "魔法音量:",
                 Outline = true,
                 Parent = SoundTab,
             };
@@ -347,42 +347,42 @@ namespace Client.Controls
 
             ItemNameCheckBox = new DXCheckBox
             {
-                Label = { Text = "Item Names:" },
+                Label = { Text = "物品显名:" },
                 Parent = GameTab,
             };
             ItemNameCheckBox.Location = new Point(120 - ItemNameCheckBox.Size.Width, 10);
 
             MonsterNameCheckBox = new DXCheckBox
             {
-                Label = { Text = "Monster Names:" },
+                Label = { Text = "怪物显名:" },
                 Parent = GameTab,
             };
             MonsterNameCheckBox.Location = new Point(120 - MonsterNameCheckBox.Size.Width, 35);
 
             PlayerNameCheckBox = new DXCheckBox
             {
-                Label = { Text = "Player Name:" },
+                Label = { Text = "角色名称:" },
                 Parent = GameTab,
             };
             PlayerNameCheckBox.Location = new Point(120 - PlayerNameCheckBox.Size.Width, 60);
 
             UserHealthCheckBox = new DXCheckBox
             {
-                Label = { Text = "User Health:" },
+                Label = { Text = "显示玩家血量:" },
                 Parent = GameTab,
             };
             UserHealthCheckBox.Location = new Point(120 - UserHealthCheckBox.Size.Width, 85);
 
             MonsterHealthCheckBox = new DXCheckBox
             {
-                Label = { Text = "Monster Health:" },
+                Label = { Text = "显示怪物血量:" },
                 Parent = GameTab,
             };
             MonsterHealthCheckBox.Location = new Point(120 - MonsterHealthCheckBox.Size.Width, 110);
 
             DamageNumbersCheckBox = new DXCheckBox
             {
-                Label = { Text = "Damage Numbers:" },
+                Label = { Text = "数字飘血:" },
                 Parent = GameTab,
             };
             DamageNumbersCheckBox.Location = new Point(120 - DamageNumbersCheckBox.Size.Width, 135);
@@ -390,14 +390,14 @@ namespace Client.Controls
 
             EscapeCloseAllCheckBox = new DXCheckBox
             {
-                Label = { Text = "Escape Close All:" },
+                Label = { Text = "Esc关闭所有窗口:" },
                 Parent = GameTab,
             };
             EscapeCloseAllCheckBox.Location = new Point(270 - EscapeCloseAllCheckBox.Size.Width, 10);
 
             ShiftOpenChatCheckBox = new DXCheckBox
             {
-                Label = { Text = "Shift + 1  Open Chat:" },
+                Label = { Text = "Shift + 1  打开对话栏:" },
                 Parent = GameTab,
                 Hint = "If turned on, Pressing Shift + 1 will open chat, if this is off you will use Quick Slot 1"
             };
@@ -405,7 +405,7 @@ namespace Client.Controls
 
             RightClickDeTargetCheckBox = new DXCheckBox
             {
-                Label = { Text = "Right Click De-Target:" },
+                Label = { Text = "跑开后取消攻击目标:" },
                 Parent = GameTab,
                 Hint = "If turned on, Right clicking to move away will also remove monster target."
             };
@@ -413,21 +413,21 @@ namespace Client.Controls
 
             MonsterBoxVisibleCheckBox = new DXCheckBox
             {
-                Label = { Text = "Show Monster Info:" },
+                Label = { Text = "显示怪物信息:" },
                 Parent = GameTab,
             };
             MonsterBoxVisibleCheckBox.Location = new Point(270 - MonsterBoxVisibleCheckBox.Size.Width, 85);
 
             LogChatCheckBox = new DXCheckBox
             {
-                Label = { Text = "Log Chat:" },
+                Label = { Text = "记录聊天对话:" },
                 Parent = GameTab,
             };
             LogChatCheckBox.Location = new Point(270 - LogChatCheckBox.Size.Width, 110);
 
             DrawEffectsCheckBox = new DXCheckBox
             {
-                Label = { Text = "Draw Effects:" },
+                Label = { Text = "显示特效:" },
                 Parent = GameTab,
             };
             DrawEffectsCheckBox.Location = new Point(270 - DrawEffectsCheckBox.Size.Width, 135);
@@ -438,7 +438,7 @@ namespace Client.Controls
                 Location = new Point(190, 160),
                 Size = new Size(80, SmallButtonHeight),
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Key Binds" }
+                Label = { Text = "按键绑定" }
             };
             KeyBindButton.MouseClick += (o, e) => KeyBindWindow.Visible = !KeyBindWindow.Visible;
             
@@ -448,7 +448,7 @@ namespace Client.Controls
 
             UseNetworkConfigCheckBox = new DXCheckBox
             {
-                Label = { Text = "Use Config:" },
+                Label = { Text = "使用文本配置:" },
                 Parent = NetworkTab,
                 Checked = Config.FullScreen,
             };
@@ -456,7 +456,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "IP Address:",
+                Text = "IP地址:",
                 Outline = true,
                 Parent = NetworkTab,
             };
@@ -471,7 +471,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Port:",
+                Text = "端口:",
                 Outline = true,
                 Parent = NetworkTab,
             };
@@ -490,7 +490,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Local Chat:",
+                Text = "本地聊天:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -505,7 +505,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "GM Whisper In:",
+                Text = "GM消息:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -520,7 +520,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Whisper In:",
+                Text = "收到私聊:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -535,7 +535,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Whisper Out:",
+                Text = "发送私聊:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -550,7 +550,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Group Chat:",
+                Text = "组队聊天:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -565,7 +565,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Guild Chat:",
+                Text = "行会聊天:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -580,7 +580,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Shout Chat:",
+                Text = "喊话聊天:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -595,7 +595,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Global Chat:",
+                Text = "全服聊天:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -611,7 +611,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Observer Chat:",
+                Text = "观察者聊天:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -626,7 +626,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Hint Text:",
+                Text = "提示信息:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -641,7 +641,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "System Text:",
+                Text = "系统消息:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -656,7 +656,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Gains Text:",
+                Text = "获取物品:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -671,7 +671,7 @@ namespace Client.Controls
 
             label = new DXLabel
             {
-                Text = "Announcements:",
+                Text = "匿名:",
                 Outline = true,
                 Parent = ColourTab,
             };
@@ -690,7 +690,7 @@ namespace Client.Controls
                 Location = new Point(180, 160),
                 Size = new Size(80, SmallButtonHeight),
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Reset All" }
+                Label = { Text = "重置所有" }
             };
             ResetColoursButton.MouseClick += (o, e) =>
             {
@@ -716,7 +716,7 @@ namespace Client.Controls
                 Location = new Point(Size.Width - 190, Size.Height - 43),
                 Size = new Size(80, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Apply" }
+                Label = { Text = "应用" }
             };
             SaveButton.MouseClick += SaveSettings;
 
@@ -725,7 +725,7 @@ namespace Client.Controls
                 Location = new Point(Size.Width - 100, Size.Height - 43),
                 Size = new Size(80, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Cancel" }
+                Label = { Text = "取消" }
             };
             CancelButton.MouseClick += CancelSettings;
 
@@ -734,7 +734,7 @@ namespace Client.Controls
                 Location = new Point(Size.Width - 280, Size.Height - 43),
                 Size = new Size(60, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Exit" },
+                Label = { Text = "退出" },
                 Visible = false,
             };
             ExitButton.MouseClick += CancelSettings;
