@@ -757,14 +757,14 @@ namespace Client.Scenes.Views
         {
             HomeTab = new DXTab
             {
-                TabButton = { Label = { Text = "Home" } },
+                TabButton = { Label = { Text = "主页" } },
                 Parent = GuildTabs,
                 Border = true,
             };
 
              new DXLabel
             {
-                Text = "Notice",
+                Text = "公告",
                 Parent = HomeTab,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -819,7 +819,7 @@ namespace Client.Scenes.Views
                 Parent = HomeTab,
                 Size = new Size(60, SmallButtonHeight),
                 Location = new Point(HomeTab.Size.Width - 66, 4),
-                Label = { Text = "Edit" },
+                Label = { Text = "编辑" },
                 ButtonType = ButtonType.SmallButton
             };
             EditNoticeButton.MouseClick += (o, e) =>
@@ -837,7 +837,7 @@ namespace Client.Scenes.Views
                 Parent = HomeTab,
                 Size = new Size(60, SmallButtonHeight),
                 Location = new Point(HomeTab.Size.Width - 131, 4),
-                Label = { Text = "Save" },
+                Label = { Text = "保存" },
                 ButtonType = ButtonType.SmallButton,
                 Visible = false,
             };
@@ -856,7 +856,7 @@ namespace Client.Scenes.Views
                 Parent = HomeTab,
                 Size = new Size(60, SmallButtonHeight),
                 Location = new Point(HomeTab.Size.Width - 66, 4),
-                Label = { Text = "Cancel" },
+                Label = { Text = "取消" },
                 ButtonType = ButtonType.SmallButton,
                 Visible = false,
             };
@@ -881,7 +881,7 @@ namespace Client.Scenes.Views
 
             new DXLabel
             {
-                Text = "Stats",
+                Text = "行会状态",
                 Parent = panel,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -894,7 +894,7 @@ namespace Client.Scenes.Views
 
             DXLabel label = new DXLabel
             {
-                Text = "Members:",
+                Text = "成员:",
                 Parent = panel,
                 Outline = true,
                 IsControl = false,
@@ -912,7 +912,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Guild Funds:",
+                Text = "行会基金:",
                 Parent = panel,
                 Outline = true,
                 IsControl = false,
@@ -930,7 +930,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Today's Growth:",
+                Text = "今日成长:",
                 Parent = panel,
                 Outline = true,
                 IsControl = false,
@@ -948,7 +948,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Total Contibution:",
+                Text = "总贡献值:",
                 Parent = panel,
                 Outline = true,
                 IsControl = false,
@@ -966,7 +966,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Today's Contribution:",
+                Text = "今日贡献值:",
                 Parent = panel,
                 Outline = true,
                 IsControl = false,
@@ -1018,7 +1018,7 @@ namespace Client.Scenes.Views
         {
             MemberTab = new DXTab
             {
-                TabButton = { Label = { Text = "Members" } },
+                TabButton = { Label = { Text = "成员" } },
                 Parent = GuildTabs,
                 Border = true,
             };
@@ -1080,7 +1080,7 @@ namespace Client.Scenes.Views
         {
             StorageTab = new DXTab
             {
-                TabButton = { Label = { Text = "Storage" } },
+                TabButton = { Label = { Text = "行会仓库" } },
                 Parent = GuildTabs,
                 Border = true,
             };
@@ -1098,7 +1098,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(5, 5),
-                Text = "Name:",
+                Text = "名称:",
             };
 
             ItemNameTextBox = new DXTextBox
@@ -1113,7 +1113,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(ItemNameTextBox.Location.X + ItemNameTextBox.Size.Width + 10, 5),
-                Text = "Item:",
+                Text = "类型:",
             };
 
 
@@ -1130,7 +1130,7 @@ namespace Client.Scenes.Views
             new DXListBoxItem
             {
                 Parent = ItemTypeComboBox.ListBox,
-                Label = { Text = $"All" },
+                Label = { Text = $"全部" },
                 Item = null
             };
 
@@ -1159,7 +1159,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ItemTypeComboBox.Location.X + ItemTypeComboBox.Size.Width + 33, label.Location.Y - 1),
                 Parent = filterPanel,
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Clear" }
+                Label = { Text = "清除" }
             };
             ClearButton.MouseClick += (o, e) =>
             {
@@ -1251,7 +1251,7 @@ namespace Client.Scenes.Views
         {
             ManageTab = new DXTab
             {
-                TabButton = { Label = { Text = "Manage" } },
+                TabButton = { Label = { Text = "管理" } },
                 Parent = GuildTabs,
                 Border = true,
             };
@@ -1267,7 +1267,7 @@ namespace Client.Scenes.Views
 
             new DXLabel
             {
-                Text = "Membership",
+                Text = "邀请成员",
                 Parent = AddMemberPanel,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -1282,7 +1282,7 @@ namespace Client.Scenes.Views
             DXLabel label = new DXLabel
             {
                 Parent = AddMemberPanel,
-                Text = "Member:",
+                Text = "角色名:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 32);
 
@@ -1301,7 +1301,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 170, label.Location.Y - 1),
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(60, SmallButtonHeight),
-                Label = { Text = "Invite" },
+                Label = { Text = "邀请" },
             };
             AddMemberButton.MouseClick += (o, e) =>
             {
@@ -1316,11 +1316,11 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 55, label.Location.Y + 25),
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(110, SmallButtonHeight),
-                Label = { Text = "Default Rank" },
+                Label = { Text = "设定默认等级" },
             };
             EditDefaultMemberButton.MouseClick += (o, e) =>
             {
-                GameScene.Game.GuildMemberBox.MemberNameLabel.Text = "Default Member";
+                GameScene.Game.GuildMemberBox.MemberNameLabel.Text = "默认成员";
                 GameScene.Game.GuildMemberBox.RankTextBox.TextBox.Text = GuildInfo.DefaultRank;
                 GameScene.Game.GuildMemberBox.Permission = GuildInfo.DefaultPermission;
                 GameScene.Game.GuildMemberBox.MemberIndex = 0;
@@ -1341,7 +1341,7 @@ namespace Client.Scenes.Views
 
             new DXLabel
             {
-                Text = "Treasury",
+                Text = "财务",
                 Parent = TreasuryPanel,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -1355,7 +1355,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = TreasuryPanel,
-                Text = "Guild Tax:",
+                Text = "行会税率:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 32);
 
@@ -1370,7 +1370,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = TreasuryPanel,
-                Text = "(Percent)",
+                Text = "(百分比)",
                 Location = new Point(ClientArea.X + 115, 32),
             };
 
@@ -1381,7 +1381,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 170, label.Location.Y - 1),
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(60, SmallButtonHeight),
-                Label = { Text = "Change" },
+                Label = { Text = "改变" },
             };
             SetTaxButton.MouseClick += (o, e) =>
             {
@@ -1394,7 +1394,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = TreasuryPanel,
-                Text = "Balance:",
+                Text = "平衡:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 54);
 
@@ -1418,7 +1418,7 @@ namespace Client.Scenes.Views
 
             new DXLabel
             {
-                Text = "Upgrade",
+                Text = "升级",
                 Parent = UpgradePanel,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -1432,7 +1432,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = UpgradePanel,
-                Text = "Members:",
+                Text = "成员:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 35);
 
@@ -1442,7 +1442,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 55, label.Location.Y - 1),
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(110, SmallButtonHeight),
-                Label = { Text = $"Upgrade ({Globals.GuildMemberCost:#,##0})" },
+                Label = { Text = $"升级 ({Globals.GuildMemberCost:#,##0})" },
             };
             IncreaseMemberButton.MouseClick += (o, e) =>
             {
@@ -1453,7 +1453,7 @@ namespace Client.Scenes.Views
             DXLabel label1 = new DXLabel
             {
                 Parent = UpgradePanel,
-                Text = "Limit:",
+                Text = "限制:",
             };
             label1.Location = new Point(ClientArea.X + 205 - label1.Size.Width, label.Location.Y);
 
@@ -1468,7 +1468,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = UpgradePanel,
-                Text = "Storage:",
+                Text = "行会仓库:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 60);
 
@@ -1478,7 +1478,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 55, label.Location.Y - 1),
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(110, SmallButtonHeight),
-                Label = { Text = $"Upgrade ({Globals.GuildStorageCost:#,##0})" },
+                Label = { Text = $"升级 ({Globals.GuildStorageCost:#,##0})" },
             };
             IncreaseStorageButton.MouseClick += (o, e) =>
             {
@@ -1489,7 +1489,7 @@ namespace Client.Scenes.Views
             label1 = new DXLabel
             {
                 Parent = UpgradePanel,
-                Text = "Limit:",
+                Text = "限制:",
             };
             label1.Location = new Point(ClientArea.X + 205 - label1.Size.Width, label.Location.Y);
 
@@ -1512,7 +1512,7 @@ namespace Client.Scenes.Views
 
             new DXLabel
             {
-                Text = "Guild War",
+                Text = "行会战",
                 Parent = GuildWarPanel,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -1527,7 +1527,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = GuildWarPanel,
-                Text = "Guild:",
+                Text = "目标行会:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 32);
 
@@ -1547,7 +1547,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 170, label.Location.Y - 1),
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(60, SmallButtonHeight),
-                Label = { Text = "Attack" },
+                Label = { Text = "开战" },
                 Enabled =  false,
             };
             StartWarButton.MouseClick += (o, e) => StartWar();
@@ -1555,7 +1555,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = GuildWarPanel,
-                Text = $"Cost: {Globals.GuildWarCost:#,##0} Gold",
+                Text = $"花费: {Globals.GuildWarCost:#,##0} 金币",
                 Location = new Point(ClientArea.X + 55, label.Location.Y + 25),
             };
 
@@ -2072,19 +2072,19 @@ namespace Client.Scenes.Views
         public event EventHandler<EventArgs> IsHeaderChanged;
         public void OnIsHeaderChanged(bool oValue, bool nValue)
         {
-            NameLabel.Text = "Name";
+            NameLabel.Text = "姓名";
             NameLabel.ForeColour = Color.FromArgb(198, 166, 99);
 
-            RankLabel.Text = "Rank";
+            RankLabel.Text = "称号";
             RankLabel.ForeColour = Color.FromArgb(198, 166, 99);
 
-            TotalLabel.Text = "Total Con.";
+            TotalLabel.Text = "总贡献值";
             TotalLabel.ForeColour = Color.FromArgb(198, 166, 99);
 
-            DailyLabel.Text = "Daily Con.";
+            DailyLabel.Text = "今日贡献值";
             DailyLabel.ForeColour = Color.FromArgb(198, 166, 99);
 
-            OnlineLabel.Text = "Online";
+            OnlineLabel.Text = "在线状态";
             OnlineLabel.ForeColour = Color.FromArgb(198, 166, 99);
 
             DrawTexture = false;
@@ -2191,7 +2191,7 @@ namespace Client.Scenes.Views
 
             if (MemberInfo.LastOnline == DateTime.MaxValue)
             {
-                OnlineLabel.Text = "Online";
+                OnlineLabel.Text = "在线";
                 OnlineLabel.ForeColour = Color.Green;
             }
             else
