@@ -30,13 +30,13 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 35, ClientArea.Y + 20),
                 Size = new Size(130, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Character Select" },
+                Label = { Text = "角色选择" },
             };
             ToSelectButton.MouseClick += (o, e) =>
             {
                 if (CEnvir.Now < MapObject.User.CombatTime.AddSeconds(10) && !GameScene.Game.Observer)
                 {
-                    GameScene.Game.ReceiveChat("Unable to logout whilst in combat.", MessageType.System);
+                    GameScene.Game.ReceiveChat("战斗中无法退出游戏.", MessageType.System);
                     return;
                 }
 
@@ -48,13 +48,13 @@ namespace Client.Scenes.Views
                 Location = new Point(ClientArea.X + 35, ClientArea.Y + 30 + DefaultHeight),
                 Size = new Size(130, DefaultHeight),
                 Parent = this,
-                Label = { Text = "Exit Game" },
+                Label = { Text = "退出游戏" },
             };
             ExitButton.MouseClick += (o, e) =>
             {
                 if (CEnvir.Now < MapObject.User.CombatTime.AddSeconds(10) && !GameScene.Game.Observer)
                 {
-                    GameScene.Game.ReceiveChat("Unable to exit game whilst in combat.", MessageType.System);
+                    GameScene.Game.ReceiveChat("战斗中无法退出游戏.", MessageType.System);
                     return;
                 }
 
