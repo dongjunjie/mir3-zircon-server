@@ -156,12 +156,12 @@ namespace Client.Scenes.Views
             if (Observable)
             {
                 ObserverButton.Index = 121;
-                ObserverButton.Hint = "Observable Status: Allowing";
+                ObserverButton.Hint = "观察者模式: 允许";
             }
             else
             {
                 ObserverButton.Index = 141;
-                ObserverButton.Hint = "Observable Status: Not Allowing";
+                ObserverButton.Hint = "观察者模式: 不允许";
             }
 
             ObserverableChanged?.Invoke(this, EventArgs.Empty);
@@ -190,7 +190,7 @@ namespace Client.Scenes.Views
         {
             SetClientSize(new Size(359, 480));
 
-            TitleLabel.Text = "Rankings";
+            TitleLabel.Text = "排行榜玩家(可ob)";
             
             Panel = new DXControl
             {
@@ -234,7 +234,7 @@ namespace Client.Scenes.Views
                 Parent = this,
                 LibraryFile = LibraryFile.GameInter2,
                 Index = 141,
-                Hint = "Observable Status: Not Allowing",
+                Hint = "观察者模式: 不允许",
             };
             ObserverButton.MouseClick += (o, e) =>
             {
@@ -242,7 +242,7 @@ namespace Client.Scenes.Views
                 if (GameScene.Game.Observer) return;
                 if (!GameScene.Game.User.InSafeZone)
                 {
-                    GameScene.Game.ReceiveChat("You can only change spectator mode whilst in safezone.", MessageType.System);
+                    GameScene.Game.ReceiveChat("你只能在安全区改变观察者模式.", MessageType.System);
                     return;
                 }
 
@@ -253,7 +253,7 @@ namespace Client.Scenes.Views
             OnlineOnlyBox = new DXCheckBox
             {
                 Parent = this,
-                Label = { Text = "Online Only" },
+                Label = { Text = "仅在线玩家" },
             };
             OnlineOnlyBox.CheckedChanged += (o, e) =>
             {
@@ -279,33 +279,33 @@ namespace Client.Scenes.Views
             new DXListBoxItem
             {
                 Parent = RequiredClassBox.ListBox,
-                Label = { Text = $"{RequiredClass.All}" },
+                Label = { Text = "无限制" },
                 Item = RequiredClass.All
             };
 
             new DXListBoxItem
             {
                 Parent = RequiredClassBox.ListBox,
-                Label = { Text = $"{RequiredClass.Warrior}" },
+                Label = { Text = "战士" },
                 Item = RequiredClass.Warrior
             };
             new DXListBoxItem
             {
                 Parent = RequiredClassBox.ListBox,
-                Label = { Text = $"{RequiredClass.Wizard}" },
+                Label = { Text = "法师" },
                 Item = RequiredClass.Wizard
             };
             new DXListBoxItem
             {
                 Parent = RequiredClassBox.ListBox,
-                Label = { Text = $"{RequiredClass.Taoist}" },
+                Label = { Text = "道士" },
                 Item = RequiredClass.Taoist
             };
 
             new DXListBoxItem
             {
                 Parent = RequiredClassBox.ListBox,
-                Label = { Text = $"{RequiredClass.Assassin}" },
+                Label = { Text = "刺客" },
                 Item = RequiredClass.Assassin
             };
 
@@ -313,7 +313,7 @@ namespace Client.Scenes.Views
             DXLabel label = new DXLabel
             {
                 Parent = this,
-                Text = "Class:",
+                Text = "职业:",
             };
             label.Location = new Point(RequiredClassBox.Location.X - label.Size.Width - 5, RequiredClassBox.Location.Y + (RequiredClassBox.Size.Height - label.Size.Height) / 2);
 
@@ -462,9 +462,9 @@ namespace Client.Scenes.Views
         public void OnHeaderChanged(bool oValue, bool nValue)
         {
             RankLabel.Text = "#";
-            NameLabel.Text = "Name";
-            ClassLabel.Text = "Class";
-            LevelLabel.Text = "Level";
+            NameLabel.Text = "姓名";
+            ClassLabel.Text = "职业";
+            LevelLabel.Text = "等级";
 
             DrawTexture = false;
 
@@ -567,7 +567,7 @@ namespace Client.Scenes.Views
             }
 
             Rank = null;
-            NameLabel.Text = "Updating...";
+            NameLabel.Text = "更新中...";
             NameLabel.ForeColour = Color.Orange;
             Visible = true;
 
@@ -648,7 +648,7 @@ namespace Client.Scenes.Views
                 Parent = this,
                 Location = new Point(LevelLabel.Location.X + LevelLabel.Size.Width + 5, 1),
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Observe" },
+                Label = { Text = "观战ob" },
                 Enabled = false,
                 Size = new Size(53, SmallButtonHeight)
             };
@@ -656,7 +656,7 @@ namespace Client.Scenes.Views
             {
                 if (GameScene.Game != null && CEnvir.Now < GameScene.Game.User.CombatTime.AddSeconds(10) && !GameScene.Game.Observer)
                 {
-                    GameScene.Game.ReceiveChat("Unable to observe whilst in combat.", MessageType.System);
+                    GameScene.Game.ReceiveChat("战斗状态下无法观战.", MessageType.System);
                     return;
                 }
 
