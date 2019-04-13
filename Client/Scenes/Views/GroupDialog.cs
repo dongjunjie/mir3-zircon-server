@@ -42,12 +42,12 @@ namespace Client.Scenes.Views
             if (AllowGroup)
             {
                 AllowGroupButton.Index = 122;
-                AllowGroupButton.Hint = "Group Status: Allowing";
+                AllowGroupButton.Hint = "组队状态: 允许";
             }
             else
             {
                 AllowGroupButton.Index = 142;
-                AllowGroupButton.Hint = "Group Status: Not Allowing";
+                AllowGroupButton.Hint = "组队状态: 不允许";
             }
         }
 
@@ -106,7 +106,7 @@ namespace Client.Scenes.Views
 
         public GroupDialog()
         {
-            TitleLabel.Text = "Group";
+            TitleLabel.Text = "组队";
             HasFooter = true;
 
             SetClientSize(new Size(200, 200));
@@ -116,7 +116,7 @@ namespace Client.Scenes.Views
                 LibraryFile = LibraryFile.GameInter2,
                 Index = 142,
                 Parent = this,
-                Hint = "Group Status: Not Allowing",
+                Hint = "组队状态: 不允许",
                 Location = new Point(ClientArea.X, Size.Height - 46)
             };
             AllowGroupButton.MouseClick += (o, e) =>
@@ -139,7 +139,7 @@ namespace Client.Scenes.Views
                 {
                     Label =
                     {
-                        Text = "Members"
+                        Text = "成员"
                     },
 
                     IsControl = false,
@@ -152,7 +152,7 @@ namespace Client.Scenes.Views
             {
                 Size = new Size(60, SmallButtonHeight),
                 ButtonType = ButtonType.SmallButton,
-                Label = {Text = "Invite"},
+                Label = {Text = "邀请"},
                 Location = new Point(ClientArea.Right - 135, Size.Height - 40),
                 Parent = this,
             };
@@ -162,17 +162,17 @@ namespace Client.Scenes.Views
 
                 if (Members.Count >= Globals.GroupLimit)
                 {
-                    GameScene.Game.ReceiveChat("Group member limit has been reached", MessageType.System);
+                    GameScene.Game.ReceiveChat("组队人数已达到上限", MessageType.System);
                     return;
                 }
 
                 if (Members.Count >= Globals.GroupLimit)
                 {
-                    GameScene.Game.ReceiveChat("You are not the leader of your group.", MessageType.System);
+                    GameScene.Game.ReceiveChat("你不是队长，无权限操作.", MessageType.System);
                     return;
                 }
 
-                DXInputWindow window = new DXInputWindow("Please enter the name of the person you wish to group.", "Invite Group Member")
+                DXInputWindow window = new DXInputWindow("请输入你要组队的人的名字.", "邀请组队")
                 {
                     ConfirmButton = { Enabled = false },
                     Modal = true
@@ -191,7 +191,7 @@ namespace Client.Scenes.Views
             {
                 Size = new Size(60, SmallButtonHeight),
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Remove" },
+                Label = { Text = "移除" },
                 Location = new Point(ClientArea.Right - 65, Size.Height - 40),
                 Parent = this,
                 Enabled = false,
