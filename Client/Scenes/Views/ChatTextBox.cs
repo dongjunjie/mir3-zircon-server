@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Client.Controls;
@@ -118,7 +119,7 @@ namespace Client.Scenes.Views
             {
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(60, SmallButtonHeight),
-                Label = { Text = Mode.ToString() },
+                Label = { Text = "本地" },
                 Parent = this,
             };
             ChatModeButton.MouseClick += (o, e) => Mode = (ChatMode) (((int) (Mode) + 1)%7);
@@ -315,12 +316,19 @@ namespace Client.Scenes.Views
 
     public enum ChatMode
     {
+        [Description("本地")]
         Local,
+        [Description("私聊")]
         Whisper,
+        [Description("组队")]
         Group,
+        [Description("行会")]
         Guild,
+        [Description("喊话")]
         Shout,
+        [Description("全服")]
         Global,
+        [Description("观察")]
         Observer, //7
     }
 
