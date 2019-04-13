@@ -32,7 +32,7 @@ namespace Client.Scenes.Views
 
         public InventoryDialog()
         {
-            TitleLabel.Text = "Inventory";
+            TitleLabel.Text = "背包";
             
             Grid = new DXItemGrid
             {
@@ -70,7 +70,7 @@ namespace Client.Scenes.Views
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
                 Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 41),
-                Text = "Gold",
+                Text = "金币",
                 Size = new Size(78, 20),
                 IsControl = false,
             };
@@ -99,7 +99,7 @@ namespace Client.Scenes.Views
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
                 Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 20),
-                Text = "Weight",
+                Text = "重量",
                 Size = new Size(78, 20),
                 IsControl = false,
             };
