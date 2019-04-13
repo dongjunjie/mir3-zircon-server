@@ -27,7 +27,7 @@ namespace Client.Scenes.Views
 
         public QuestDialog()
         {
-            TitleLabel.Text = "Quest Log";
+            TitleLabel.Text = "任务日志";
 
             SetClientSize(new Size(558, 380));
 
@@ -40,7 +40,7 @@ namespace Client.Scenes.Views
 
             CurrentTab = new QuestTab
             {
-                TabButton = { Label = { Text = "Current" } },
+                TabButton = { Label = { Text = "已接任务" } },
                 Parent = TabControl,
                 Border = true,
                 ChoiceGrid = { ReadOnly = true }
@@ -48,7 +48,7 @@ namespace Client.Scenes.Views
 
             AvailableTab = new QuestTab
             {
-                TabButton = { Label = { Text = "Available" } },
+                TabButton = { Label = { Text = "可接任务" } },
                 Parent = TabControl,
                 Border = true,
                 ShowTrackerBox = { Visible = false }
@@ -57,7 +57,7 @@ namespace Client.Scenes.Views
 
             CompletedTab = new QuestTab
             {
-                TabButton = { Label = { Text = "Completed" } },
+                TabButton = { Label = { Text = "已完成任务" } },
                 Parent = TabControl,
                 Border = true,
                 ShowTrackerBox = { Visible = false }
@@ -394,7 +394,7 @@ namespace Client.Scenes.Views
 
             DXLabel label = new DXLabel
             {
-                Text = "Details",
+                Text = "描述",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 //ForeColour = Color.FromArgb(198, 166, 99),
@@ -406,7 +406,7 @@ namespace Client.Scenes.Views
 
             ShowTrackerBox = new DXCheckBox
             {
-                Label = { Text = "Show Quest Tracker" },
+                Label = { Text = "显示任务追踪" },
                 Parent = this,
             };
             ShowTrackerBox.Location = new Point(width + 303 - ShowTrackerBox.Size.Width, 7);
@@ -430,7 +430,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Tasks",
+                Text = "任务内容",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 //ForeColour = Color.FromArgb(198, 166, 99),
@@ -454,7 +454,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Rewards",
+                Text = "奖励",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 //ForeColour = Color.FromArgb(198, 166, 99),
@@ -476,7 +476,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Choice",
+                Text = "可选奖励",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 //ForeColour = Color.FromArgb(198, 166, 99),
@@ -498,7 +498,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Start:",
+                Text = "发布点:",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 //ForeColour = Color.FromArgb(198, 166, 99),
@@ -525,7 +525,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "End:",
+                Text = "结束点:",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 //ForeColour = Color.FromArgb(198, 166, 99),
