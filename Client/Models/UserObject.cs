@@ -244,7 +244,7 @@ namespace Client.Models
                 
                 _canThrusting = value;
 
-                GameScene.Game.ReceiveChat(CanThrusting ? "Use Thrusting." : "Do not use Thrusting.", MessageType.Hint);
+                GameScene.Game.ReceiveChat(CanThrusting ? "刺杀剑术已开启." : "刺杀剑术已关闭.", MessageType.Hint);
             }
         }
         private bool _canThrusting;
@@ -258,7 +258,7 @@ namespace Client.Models
 
                 _CanHalfMoon = value;
 
-                GameScene.Game.ReceiveChat(CanHalfMoon ? "Use Half Moon Strike." : "Do not use Half Moon Strike.", MessageType.Hint);
+                GameScene.Game.ReceiveChat(CanHalfMoon ? "半月弯刀已开启." : "半月弯刀已关闭.", MessageType.Hint);
             }
         }
         private bool _CanHalfMoon;
@@ -285,7 +285,7 @@ namespace Client.Models
                 if (_CanFlameSplash == value) return;
                 _CanFlameSplash = value;
 
-                GameScene.Game.ReceiveChat(CanFlameSplash ? "Use Flame Splash." : "Do not use Flame Splash.", MessageType.Hint);
+                GameScene.Game.ReceiveChat(CanFlameSplash ? "朔月炎龙已开启." : "朔月炎龙已关闭.", MessageType.Hint);
             }
         }
         private bool _CanFlameSplash;

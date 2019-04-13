@@ -169,7 +169,7 @@ namespace Client.Scenes.Views
         public MagicTab(MagicSchool school)
         {
             TabButton.LibraryFile = LibraryFile.Interface;
-            TabButton.Hint = school.ToString();
+            TabButton.Hint = EnumService.GetDescription(school);
             Border = true;
 
             switch (school)
