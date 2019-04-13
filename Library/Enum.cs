@@ -27,29 +27,29 @@ namespace Library
 
     public enum AttackMode : byte
     {
-        [Description("Attack: 和平模式")]
+        [Description("攻击模式: 和平")]
         Peace,
-        [Description("Attack: 组队模式")]
+        [Description("攻击模式: 组队")]
         Group,
-        [Description("Attack: 行会模式")]
+        [Description("攻击模式: 行会")]
         Guild,
-        [Description("Attack: 红名模式")]
+        [Description("攻击模式: 红名")]
         WarRedBrown,
-        [Description("Attack: 全体模式")]
+        [Description("攻击模式: 全体")]
         All
     }
 
     public enum PetMode : byte
     {
-        [Description("Pet: 移动, 攻击")]
+        [Description("宠物模式: 跟随, 攻击")]
         Both,
-        [Description("Pet: 移动")]
+        [Description("宠物模式: 跟随")]
         Move,
-        [Description("Pet: 攻击")]
+        [Description("P宠物模式: 攻击")]
         Attack,
-        [Description("Pet: PvP")]
+        [Description("宠物模式: PvP")]
         PvP,
-        [Description("Pet: None")]
+        [Description("宠物模式: 无")]
         None,
     }
 

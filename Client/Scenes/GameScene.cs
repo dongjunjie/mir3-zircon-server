@@ -3527,6 +3527,21 @@ namespace Client.Scenes
             if (User == null) return;
             
             MainPanel.ClassLabel.Text = User.Class.ToString();
+            switch (User.Class)
+            {
+                case MirClass.Assassin:
+                    MainPanel.ClassLabel.Text = "刺客";
+                    break;
+                case MirClass.Taoist:
+                    MainPanel.ClassLabel.Text = "道士";
+                    break;
+                case MirClass.Warrior:
+                    MainPanel.ClassLabel.Text = "战士";
+                    break;
+                case MirClass.Wizard:
+                    MainPanel.ClassLabel.Text = "法师";
+                    break;
+            }
 
             foreach (NPCGoodsCell cell in NPCGoodsBox.Cells)
                 cell.UpdateColours();
