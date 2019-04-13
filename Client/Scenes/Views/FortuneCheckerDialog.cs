@@ -32,7 +32,7 @@ namespace Client.Scenes.Views
         public FortuneCheckerDialog()
         {
             //HasFooter = true;
-            TitleLabel.Text = "Fortune Checker";
+            TitleLabel.Text = "财富检查器";
             SetClientSize(new Size(485, 551));
             
             #region Search
@@ -50,7 +50,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(5, 5),
-                Text = "Name:",
+                Text = "名字:",
             };
 
             ItemNameBox = new DXTextBox
@@ -67,7 +67,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(ItemNameBox.Location.X + ItemNameBox.Size.Width + 10, 5),
-                Text = "Item:",
+                Text = "物品:",
             };
 
 
@@ -84,7 +84,7 @@ namespace Client.Scenes.Views
             new DXListBoxItem
             {
                 Parent = ItemTypeBox.ListBox,
-                Label = { Text = $"All" },
+                Label = { Text = "所有" },
                 Item = null
             };
 
@@ -112,7 +112,7 @@ namespace Client.Scenes.Views
                 Location = new Point(ItemTypeBox.Location.X + ItemTypeBox.Size.Width + 15, label.Location.Y - 1),
                 Parent = filterPanel,
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Search" }
+                Label = { Text = "搜索" }
             };
             SearchButton.MouseClick += (o, e) => Search();
         
@@ -282,9 +282,9 @@ namespace Client.Scenes.Views
         {
             if (Fortune == null)
             {
-                CountLabel.Text = "Not Checked";
-                ProgressLabel.Text = "Not Checked";
-                DateLabel.Text = "Not Checked";
+                CountLabel.Text = "未知";
+                ProgressLabel.Text = "未知";
+                DateLabel.Text = "未知";
                 return;
             }
             
@@ -343,7 +343,7 @@ namespace Client.Scenes.Views
             CountLabelLabel = new DXLabel
             {
                 Parent = this,
-                Text = "Drop Count:",
+                Text = "掉落数量:",
                 ForeColour = Color.White,
                 IsControl = false,
 
@@ -360,7 +360,7 @@ namespace Client.Scenes.Views
             ProgressLabelLabel = new DXLabel
             {
                 Parent = this,
-                Text = "Fortune Drop in:",
+                Text = "掉落地点:",
                 ForeColour = Color.White,
                 IsControl = false,
 
@@ -377,7 +377,7 @@ namespace Client.Scenes.Views
             DateLabelLabel = new DXLabel
             {
                 Parent = this,
-                Text = "Last Check:",
+                Text = "时间:",
                 ForeColour = Color.White,
                 IsControl = false,
 
@@ -394,7 +394,7 @@ namespace Client.Scenes.Views
             CheckButton = new DXButton
             {
                 Parent = this,
-                Label = { Text = "Check" },
+                Label = { Text = "检查" },
                 ButtonType = ButtonType.SmallButton,
                 Size = new Size(50, SmallButtonHeight),
                 Location = new Point(Size.Width - 55, 34)
@@ -408,7 +408,7 @@ namespace Client.Scenes.Views
         {
             if (GameScene.Game.Observer) return;
 
-            DXMessageBox box = new DXMessageBox("Are you sure you want to check your fortune progress?", "Fortune Check", DXMessageBoxButtons.YesNo);
+            DXMessageBox box = new DXMessageBox("确认要计算生成个人统计数据吗?", "数据统计", DXMessageBoxButtons.YesNo);
 
             box.YesButton.MouseClick += (o1, e1) =>
             {
