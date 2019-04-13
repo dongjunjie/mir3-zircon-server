@@ -2398,37 +2398,37 @@ namespace Client.Scenes.Views
             switch (Refine.Type)
             {
                 case RefineType.Durability:
-                    RefineTypeLabel.Text = "Durability";
+                    RefineTypeLabel.Text = "强度";
                     break;
                 case RefineType.DC:
-                    RefineTypeLabel.Text = "DC";
+                    RefineTypeLabel.Text = "防御";
                     break;
                 case RefineType.SpellPower:
-                    RefineTypeLabel.Text = "Spell Power";
+                    RefineTypeLabel.Text = "技能威力";
                     break;
                 case RefineType.Fire:
-                    RefineTypeLabel.Text = "Fire Element";
+                    RefineTypeLabel.Text = "火元素";
                     break;
                 case RefineType.Ice:
-                    RefineTypeLabel.Text = "Ice Element";
+                    RefineTypeLabel.Text = "冰元素";
                     break;
                 case RefineType.Lightning:
-                    RefineTypeLabel.Text = "Lightning Element";
+                    RefineTypeLabel.Text = "电元素";
                     break;
                 case RefineType.Wind:
-                    RefineTypeLabel.Text = "Wind Element";
+                    RefineTypeLabel.Text = "风元素";
                     break;
                 case RefineType.Holy:
-                    RefineTypeLabel.Text = "Holy Element";
+                    RefineTypeLabel.Text = "神圣元素";
                     break;
                 case RefineType.Dark:
-                    RefineTypeLabel.Text = "Dark Element";
+                    RefineTypeLabel.Text = "黑暗元素";
                     break;
                 case RefineType.Phantom:
-                    RefineTypeLabel.Text = "Phantom Element";
+                    RefineTypeLabel.Text = "幻影元素";
                     break;
                 case RefineType.Reset:
-                    RefineTypeLabel.Text = "Reset";
+                    RefineTypeLabel.Text = "重置";
                     break;
             }
 
@@ -2437,7 +2437,7 @@ namespace Client.Scenes.Views
 
             if (CEnvir.Now > Refine.RetrieveTime)
             {
-                RetrieveTimeLabel.Text = "Complete";
+                RetrieveTimeLabel.Text = "完成";
                 RetrieveTimeLabel.ForeColour = Color.LightSeaGreen;
             }
             else
@@ -2448,7 +2448,7 @@ namespace Client.Scenes.Views
                 {
                     if (Refine == null || CEnvir.Now > Refine.RetrieveTime)
                     {
-                        RetrieveTimeLabel.Text = "Complete";
+                        RetrieveTimeLabel.Text = "完成";
                         RetrieveTimeLabel.ForeColour = Color.LightSeaGreen;
                         RetrieveTimeLabel.ProcessAction = null;
                         return;
@@ -3762,11 +3762,11 @@ namespace Client.Scenes.Views
         {
             if (GameScene.Game.Inventory.All(x => x == null || x.Info.Effect != ItemEffect.CompanionTicket))
             {
-                GameScene.Game.ReceiveChat("You need a Companion Ticket to unlock a new appearance", MessageType.System);
+                GameScene.Game.ReceiveChat("你需要一个宠物票道具，来解锁新宠物", MessageType.System);
                 return;
             }
 
-            DXMessageBox box = new DXMessageBox($"Are you sure you want to use a Companion Ticket?\n\n" + $"" + $"This will unlock the {SelectedCompanionInfo.MonsterInfo.MonsterName} appearance for new companions", "Unlock Appearance", DXMessageBoxButtons.YesNo);
+            DXMessageBox box = new DXMessageBox($"你确认你要使用一张宠物票道具吗?\n\n" + $"" + $"This will unlock the {SelectedCompanionInfo.MonsterInfo.MonsterName} appearance for new companions", "Unlock Appearance", DXMessageBoxButtons.YesNo);
 
 
             box.YesButton.MouseClick += (o1, e1) =>
@@ -4782,7 +4782,7 @@ namespace Client.Scenes.Views
 
         public NPCItemFragmentDialog()
         {
-            TitleLabel.Text = "Fragment Items";
+            TitleLabel.Text = "拆解物品";
 
             Grid = new DXItemGrid
             {
@@ -4823,7 +4823,7 @@ namespace Client.Scenes.Views
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
                 Location = new Point(ClientArea.Left, ClientArea.Bottom - 45),
-                Text = "Fragment Cost:",
+                Text = "拆解费用:",
                 Size = new Size(79, 20),
                 IsControl = false,
             };
@@ -4848,7 +4848,7 @@ namespace Client.Scenes.Views
 
             FragmentButton = new DXButton
             {
-                Label = { Text = "Fragment" },
+                Label = { Text = "拆解" },
                 Location = new Point(ClientArea.Right - 80, CostLabel.Location.Y + CostLabel.Size.Height + 5),
                 ButtonType = ButtonType.SmallButton,
                 Parent = this,
