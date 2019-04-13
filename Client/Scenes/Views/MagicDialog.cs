@@ -34,7 +34,7 @@ namespace Client.Scenes.Views
 
         public MagicDialog()
         {
-            TitleLabel.Text = "Magic List";
+            TitleLabel.Text = "技能列表";
 
             HasFooter = false;
 
@@ -607,7 +607,7 @@ namespace Client.Scenes.Views
 
             if (MapObject.User.Magics.TryGetValue(Info, out magic))
             {
-                LevelLabel.Text = $"Level: {magic.Level}";
+                LevelLabel.Text = $"等级: {magic.Level}";
                 LevelLabel.ForeColour = Color.FromArgb(198, 166, 99);
 
                 SpellKey key = SpellKey.None;
@@ -638,7 +638,7 @@ namespace Client.Scenes.Views
                 if (Info.NeedLevel1 > MapObject.User.Level)
                 {
 
-                    ExperienceLabel.Text = $"Required Level: {Info.NeedLevel1}";
+                    ExperienceLabel.Text = $"需要等级: {Info.NeedLevel1}";
                     ExperienceLabel.ForeColour = Color.Red;
                 }
                 else
@@ -647,16 +647,16 @@ namespace Client.Scenes.Views
                     switch (magic.Level)
                     {
                         case 0:
-                            ExperienceLabel.Text = $"Experience: {magic.Experience}/{magic.Info.Experience1}";
+                            ExperienceLabel.Text = $"经验: {magic.Experience}/{magic.Info.Experience1}";
                             break;
                         case 1:
-                            ExperienceLabel.Text = $"Experience: {magic.Experience}/{magic.Info.Experience2}";
+                            ExperienceLabel.Text = $"经验: {magic.Experience}/{magic.Info.Experience2}";
                             break;
                         case 2:
-                            ExperienceLabel.Text = $"Experience: {magic.Experience}/{magic.Info.Experience3}";
+                            ExperienceLabel.Text = $"经验: {magic.Experience}/{magic.Info.Experience3}";
                             break;
                         default:
-                            ExperienceLabel.Text = $"Experience: {magic.Experience}/{(magic.Level - 2) * 500}";
+                            ExperienceLabel.Text = $"经验: {magic.Experience}/{(magic.Level - 2) * 500}";
                             break;
                     }
                     ExperienceLabel.ForeColour = Color.FromArgb(198, 166, 99);
@@ -664,10 +664,10 @@ namespace Client.Scenes.Views
             }
             else
             {
-                LevelLabel.Text = "Not Learned";
+                LevelLabel.Text = "尚未学习";
                 LevelLabel.ForeColour = Color.Red;
 
-                ExperienceLabel.Text = $"Required Level: {Info.NeedLevel1}";
+                ExperienceLabel.Text = $"需要等级: {Info.NeedLevel1}";
                 ExperienceLabel.ForeColour = MapObject.User.Level >= Info.NeedLevel1 ? Color.Green : Color.Red;
             }
 
