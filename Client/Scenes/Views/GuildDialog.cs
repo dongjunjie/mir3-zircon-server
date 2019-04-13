@@ -1394,7 +1394,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = TreasuryPanel,
-                Text = "平衡:",
+                Text = "行会基金:",
             };
             label.Location = new Point(ClientArea.X + 55 - label.Size.Width, 54);
 
