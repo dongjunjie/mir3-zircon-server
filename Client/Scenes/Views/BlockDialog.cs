@@ -23,7 +23,7 @@ namespace Client.Scenes.Views
 
         public BlockDialog()
         {
-            TitleLabel.Text = "Block List";
+            TitleLabel.Text = "黑名单";
 
             HasFooter = false;
 
@@ -38,7 +38,7 @@ namespace Client.Scenes.Views
 
             DXButton addButton = new DXButton
             {
-                Label = { Text = "Add" },
+                Label = { Text = "添加" },
                 Parent = this,
                 Location = new Point(ClientArea.X, ClientArea.Bottom - 20),
                 Size = new Size(80, SmallButtonHeight),
@@ -46,7 +46,7 @@ namespace Client.Scenes.Views
             };
             addButton.MouseClick += (o, e) =>
             {
-                DXInputWindow window = new DXInputWindow("Please enter the name of the person you wish to Block.", "Block Player")
+                DXInputWindow window = new DXInputWindow("输入你想添加进黑名单的玩家名字.", "确认添加")
                 {
                     ConfirmButton = { Enabled = false },
                     Modal = true
@@ -63,7 +63,7 @@ namespace Client.Scenes.Views
 
             DXButton removeButton = new DXButton
             {
-                Label = { Text = "Remove" },
+                Label = { Text = "移除" },
                 Parent = this,
                 Location = new Point(ClientArea.Right - 80, ClientArea.Bottom - 20),
                 Size = new Size(80, SmallButtonHeight),
@@ -74,7 +74,7 @@ namespace Client.Scenes.Views
             {
                 if (ListBox.SelectedItem == null) return;
 
-                DXMessageBox box = new DXMessageBox($"Are you sure you want to Un-Block {ListBox.SelectedItem.Label.Text}?", "Un-Block Player", DXMessageBoxButtons.YesNo);
+                DXMessageBox box = new DXMessageBox($"确认将玩家 {ListBox.SelectedItem.Label.Text} 移除黑名单?", "移除", DXMessageBoxButtons.YesNo);
 
                 box.YesButton.MouseClick += (o1, e1) =>
                 {
