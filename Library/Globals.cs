@@ -400,7 +400,7 @@ namespace Library
 
         public static Dictionary<RefineQuality, TimeSpan> RefineTimes = new Dictionary<RefineQuality, TimeSpan>
         {
-            [RefineQuality.Rush] = TimeSpan.FromMinutes(1),
+            [RefineQuality.Rush] = TimeSpan.FromSeconds(1),
             [RefineQuality.Quick] = TimeSpan.FromMinutes(30),
             [RefineQuality.Standard] = TimeSpan.FromHours(1),
             [RefineQuality.Careful] = TimeSpan.FromHours(6),
