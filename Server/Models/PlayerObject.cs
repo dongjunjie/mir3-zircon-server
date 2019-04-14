@@ -10742,7 +10742,7 @@ namespace Server.Models
 
             if (info == null) return;
 
-            if (SEnvir.Now < info.RetrieveTime && !Character.Account.TempAdmin)
+            if (SEnvir.Now < info.RetrieveTime && !Character.Account.TempAdmin && !Character.Account.Admin)
             {
                 Connection.ReceiveChat(Connection.Language.NPCRefineNotReady, MessageType.System);
 
