@@ -44,7 +44,7 @@ namespace Client.Scenes.Views
         public CharacterDialog()
         { 
             HasTitle = false;
-            SetClientSize(new Size(266, 371));
+            SetClientSize(new Size(266, 421));
 
 
             TabControl = new DXTabControl
@@ -613,6 +613,68 @@ namespace Client.Scenes.Views
                 Text = "0"
             };
 
+            label = new DXLabel
+            {
+                Parent = StatsTab,
+                Text = "暴击伤害:"
+            };
+            label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
+
+            DisplayStats[Stat.CriticalDamage] = new DXLabel
+            {
+                Parent = StatsTab,
+                Location = new Point(label.Location.X + label.Size.Width - 5, y),
+                ForeColour = Color.White,
+                Text = "0"
+            };
+
+
+            label = new DXLabel
+            {
+                Parent = StatsTab,
+                Text = "转生次数:"
+            };
+            label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
+
+            DisplayStats[Stat.Rebirth] = new DXLabel
+            {
+                Parent = StatsTab,
+                Location = new Point(label.Location.X + label.Size.Width - 5, y),
+                ForeColour = Color.White,
+                Text = "0"
+            };
+
+            label = new DXLabel
+            {
+                Parent = StatsTab,
+                Text = "格挡几率:"
+            };
+            label.Location = new Point(StatsTab.Size.Width / 4 - label.Size.Width + 25, y += 20);
+
+            DisplayStats[Stat.BlockChance] = new DXLabel
+            {
+                Parent = StatsTab,
+                Location = new Point(label.Location.X + label.Size.Width - 5, y),
+                ForeColour = Color.White,
+                Text = "0"
+            };
+
+
+            label = new DXLabel
+            {
+                Parent = StatsTab,
+                Text = "闪避几率:"
+            };
+            label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
+
+            DisplayStats[Stat.EvasionChance] = new DXLabel
+            {
+                Parent = StatsTab,
+                Location = new Point(label.Location.X + label.Size.Width - 5, y),
+                ForeColour = Color.White,
+                Text = "0"
+            };
+
 
             #region Attack
 
@@ -622,7 +684,7 @@ namespace Client.Scenes.Views
                 Parent = StatsTab,
                 Text = "元素攻击:"
             };
-            label.Location = new Point(50 - label.Size.Width, 175);
+            label.Location = new Point(50 - label.Size.Width, 215);
 
             DXImageControl icon = new DXImageControl
             {
@@ -767,7 +829,7 @@ namespace Client.Scenes.Views
                 Parent = StatsTab,
                 Text = "强元素:"
             };
-            label.Location = new Point( 50  - label.Size.Width, 235);
+            label.Location = new Point( 50  - label.Size.Width, 275);
 
 
             icon = new DXImageControl
@@ -932,7 +994,7 @@ namespace Client.Scenes.Views
                 Parent = StatsTab,
                 Text = "弱元素:"
             };
-            label.Location = new Point(50 - label.Size.Width, 295);
+            label.Location = new Point(50 - label.Size.Width, 335);
 
             icon = new DXImageControl
             {
