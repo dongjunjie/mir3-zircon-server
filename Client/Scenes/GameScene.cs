@@ -1438,6 +1438,7 @@ namespace Client.Scenes
             if (MouseItem.Info.Effect == ItemEffect.ItemPart)
                 label.Text += " - [碎片]";
             ItemLabel.Size = new Size(label.DisplayArea.Right + 4, label.DisplayArea.Bottom);
+            // 增加装备名字的颜色区分
             if(displayInfo.Rarity == Rarity.Elite)
             {
                 label.ForeColour = Color.MediumPurple;
