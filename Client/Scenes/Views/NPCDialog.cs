@@ -4858,9 +4858,7 @@ namespace Client.Scenes.Views
             FragmentButton.MouseClick += (o, e) =>
             {
                 if (GameScene.Game.Observer) return;
-
                 List<CellLinkInfo> links = new List<CellLinkInfo>();
-
                 foreach (DXItemCell cell in Grid.Grid)
                 {
                     if (cell.Link == null) continue;
@@ -4870,7 +4868,6 @@ namespace Client.Scenes.Views
                     cell.Link.Locked = true;
                     cell.Link = null;
                 }
-
                 CEnvir.Enqueue(new C.NPCFragment { Links = links });
             };
         }

@@ -9169,7 +9169,7 @@ namespace Server.Models
             S.ItemsChanged p = new S.ItemsChanged { Links = links };
             Enqueue(p);
 
-            if (Dead || NPC == null || NPCPage == null || NPCPage.DialogType != NPCDialogType.BuySell) return;
+            if (Dead ) return;
 
             if (!ParseLinks(p.Links, 0, 100)) return;
 
@@ -9268,7 +9268,7 @@ namespace Server.Models
             S.ItemsChanged p = new S.ItemsChanged { Links = links };
             Enqueue(p);
 
-            if (Dead || NPC == null || NPCPage == null || NPCPage.DialogType != NPCDialogType.ItemFragment) return;
+            if (Dead ) return;
 
             if (!ParseLinks(p.Links, 0, 100)) return;
 

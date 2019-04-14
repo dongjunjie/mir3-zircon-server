@@ -27,7 +27,18 @@ namespace Client.Scenes.Views
         public override WindowType Type => WindowType.InventoryBox;
         public override bool CustomSize => false;
         public override bool AutomaticVisiblity => true;
-
+        private DXButton RemoteSellButton;
+        private DXButton RemoteFragmentButton;
+        public void OpenFragmentDialog()
+        {
+            GameScene.Game.NPCItemFragmentBox.Visible = true;
+            GameScene.Game.NPCItemFragmentBox.Location = new Point(Size.Width - GameScene.Game.NPCItemFragmentBox.Size.Width, Size.Height);
+        }
+        public void OpenSellGoodsDialog()
+        {
+            GameScene.Game.NPCSellBox.Visible = true;
+            GameScene.Game.NPCSellBox.Location = new Point(0, Size.Height);
+        }
         #endregion
 
         public InventoryDialog()
@@ -42,7 +53,7 @@ namespace Client.Scenes.Views
                 GridType = GridType.Inventory
             };
 
-            SetClientSize(new Size(Grid.Size.Width, Grid.Size.Height+ 45));
+            SetClientSize(new Size(Grid.Size.Width, Grid.Size.Height+ 85));
             Grid.Location = ClientArea.Location;
 
 
@@ -54,7 +65,7 @@ namespace Client.Scenes.Views
                 ForeColour = Color.White,
                 DrawFormat = TextFormatFlags.VerticalCenter,
                 Parent = this,
-                Location = new Point(ClientArea.Left + 80, ClientArea.Bottom - 41),
+                Location = new Point(ClientArea.Left + 80, ClientArea.Bottom - 81),
                 Text = "0",
                 Size = new Size(ClientArea.Width - 81, 20),
                 Sound = SoundIndex.GoldPickUp
@@ -69,7 +80,7 @@ namespace Client.Scenes.Views
                 ForeColour = Color.White,
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
-                Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 41),
+                Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 81),
                 Text = "金币",
                 Size = new Size(78, 20),
                 IsControl = false,
@@ -84,7 +95,7 @@ namespace Client.Scenes.Views
                 ForeColour = Color.White,
                 DrawFormat = TextFormatFlags.VerticalCenter,
                 Parent = this,
-                Location = new Point(ClientArea.Left + 80, ClientArea.Bottom - 20),
+                Location = new Point(ClientArea.Left + 80, ClientArea.Bottom - 60),
                 Text = "0",
                 Size = new Size(ClientArea.Width - 81, 20),
                 Sound = SoundIndex.GoldPickUp
@@ -98,11 +109,31 @@ namespace Client.Scenes.Views
                 ForeColour = Color.White,
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
                 Parent = this,
-                Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 20),
+                Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 60),
                 Text = "重量",
                 Size = new Size(78, 20),
                 IsControl = false,
             };
+
+            RemoteSellButton = new DXButton
+            {
+                Location = new Point(ClientArea.Left + 1, ClientArea.Bottom - 35),
+                Size = new Size(78, DefaultHeight),
+                Parent = this,
+                Label = { Text = "远程出售" },
+                Enabled = true,
+            };
+            RemoteSellButton.MouseClick += (o, e) => OpenSellGoodsDialog();
+
+            RemoteFragmentButton = new DXButton
+            {
+                Location = new Point(ClientArea.Left + 80, ClientArea.Bottom - 35),
+                Size = new Size(78, DefaultHeight),
+                Parent = this,
+                Label = { Text = "远程拆解" },
+                Enabled = true,
+            };
+            RemoteFragmentButton.MouseClick += (o, e) => OpenFragmentDialog();
         }
 
         #region Methods
