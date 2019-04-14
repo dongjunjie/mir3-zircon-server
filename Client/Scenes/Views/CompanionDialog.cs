@@ -36,13 +36,13 @@ namespace Client.Scenes.Views
         public CompanionDialog()
         {
             TitleLabel.Text = "宠物";
-            SetClientSize(new Size(352, 341));
+            SetClientSize(new Size(352, 560));
 
             CompanionDisplayPoint = new Point(ClientArea.X + 60, ClientArea.Y + 50);
 
             InventoryGrid = new DXItemGrid
             {
-                GridSize = new Size(10, 4),
+                GridSize = new Size(10, 10),
                 Parent = this,
                 GridType = GridType.CompanionInventory,
                 Location = new Point(ClientArea.X, ClientArea.Y + 200),
