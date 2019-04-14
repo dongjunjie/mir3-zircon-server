@@ -6600,7 +6600,7 @@ namespace Client.Scenes.Views
 
         public NPCWeaponCraftWindow()
         {
-            TitleLabel.Text = "Weapon Craft";
+            TitleLabel.Text = "武器洗练";
 
             HasFooter = false;
 
@@ -6608,7 +6608,7 @@ namespace Client.Scenes.Views
 
             DXLabel label = new DXLabel
             {
-                Text = "Template / Weapon",
+                Text = "模板 / 武器",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6626,7 +6626,7 @@ namespace Client.Scenes.Views
             {
                 if (TemplateCell.Grid[0].Item == null || TemplateCell.Grid[0].Item.Info.Effect == ItemEffect.WeaponTemplate)
                 {
-                    ClassLabel.Text = "Class:";
+                    ClassLabel.Text = "职业:";
                     switch (RequiredClass)
                     {
                         case RequiredClass.None:
@@ -6649,7 +6649,7 @@ namespace Client.Scenes.Views
                 }
                 else
                 {
-                    ClassLabel.Text = "Stats:";
+                    ClassLabel.Text = "状态:";
                     PreviewImageBox.Index = TemplateCell.Grid[0].Item.Info.Image;
                 }
 
@@ -6661,7 +6661,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Yellow",
+                Text = "黄色",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6677,7 +6677,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Blue",
+                Text = "蓝色",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6693,7 +6693,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Red",
+                Text = "红色",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6709,7 +6709,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Purple",
+                Text = "紫色",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6726,7 +6726,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Green",
+                Text = "绿色",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6743,7 +6743,7 @@ namespace Client.Scenes.Views
 
             label = new DXLabel
             {
-                Text = "Grey",
+                Text = "灰色",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6761,7 +6761,7 @@ namespace Client.Scenes.Views
 
             ClassLabel = new DXLabel
             {
-                Text = "Class:",
+                Text = "职业:",
                 Parent = this,
                 Font = new Font(Config.FontName, CEnvir.FontSize(8F), FontStyle.Underline)
             };
@@ -6835,7 +6835,7 @@ namespace Client.Scenes.Views
                 Location = new Point(YellowCell.Location.X, ClientArea.Y + 260),
                 Size = new Size(YellowCell.Size.Width + 99, SmallButtonHeight),
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "Craft" }
+                Label = { Text = "洗练" }
             };
             AttemptButton.MouseClick += (o, e) =>
             {
