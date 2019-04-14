@@ -3762,11 +3762,11 @@ namespace Client.Scenes.Views
         {
             if (GameScene.Game.Inventory.All(x => x == null || x.Info.Effect != ItemEffect.CompanionTicket))
             {
-                GameScene.Game.ReceiveChat("你需要一个宠物票道具，来解锁新宠物", MessageType.System);
+                GameScene.Game.ReceiveChat("你需要一个宠物激活令牌（元宝商铺有卖），来解锁新宠物", MessageType.System);
                 return;
             }
 
-            DXMessageBox box = new DXMessageBox($"你确认你要使用一张宠物票道具吗?\n\n" + $"" + $"This will unlock the {SelectedCompanionInfo.MonsterInfo.MonsterName} appearance for new companions", "Unlock Appearance", DXMessageBoxButtons.YesNo);
+            DXMessageBox box = new DXMessageBox($"你确认你要使用一张宠物激活令牌吗?\n\n" + $"" + $"This will unlock the {SelectedCompanionInfo.MonsterInfo.MonsterName} appearance for new companions", "Unlock Appearance", DXMessageBoxButtons.YesNo);
 
 
             box.YesButton.MouseClick += (o1, e1) =>
@@ -4141,7 +4141,7 @@ namespace Client.Scenes.Views
                 Location = new Point(85, 60),
                 Size = new Size(80, SmallButtonHeight),
                 ButtonType = ButtonType.SmallButton,
-                Label = { Text = "商店" },
+                Label = { Text = "寄存" },
                 Visible = false
             };
             StoreButton.MouseClick += StoreButton_MouseClick;
