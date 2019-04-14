@@ -1379,7 +1379,7 @@ namespace Client.Scenes.Views
 
             DXButton inventory = new DXButton
             {
-                Label = { Text = "仓库库存" },
+                Label = { Text = "背包" },
                 Location = new Point(ClientArea.X, GoldLabel.Location.Y + GoldLabel.Size.Height + 5),
                 ButtonType = ButtonType.SmallButton,
                 Parent = this,
@@ -1397,7 +1397,7 @@ namespace Client.Scenes.Views
 
             DXButton equipment = new DXButton
             {
-                Label = { Text = "设备" },
+                Label = { Text = "装备" },
                 Location = new Point(ClientArea.X + 5 + inventory.Size.Width, GoldLabel.Location.Y + GoldLabel.Size.Height + 5),
                 ButtonType = ButtonType.SmallButton,
                 Parent = this,
