@@ -508,19 +508,12 @@ namespace Client.Scenes.Views
                     return;
                 }
                 
-                DXItemAmountWindow window = new DXItemAmountWindow("丢弃物品", cell.Item);
-
-                window.ConfirmButton.MouseClick += (o, a) =>
+                CEnvir.Enqueue(new C.ItemDrop
                 {
-                    if (window.Amount <= 0) return;
+                    Link = new CellLinkInfo { GridType = cell.GridType, Slot = cell.Slot, Count = cell.Item.Count }
+                });
 
-                    CEnvir.Enqueue(new C.ItemDrop
-                    {
-                        Link = new CellLinkInfo { GridType = cell.GridType, Slot = cell.Slot, Count = window.Amount }
-                    });
-
-                    cell.Locked = true;
-                };
+                cell.Locked = true;
 
                 DXItemCell.SelectedCell = null;
                 return;
