@@ -6788,26 +6788,27 @@ namespace Client.Scenes.Views
             new DXListBoxItem
             {
                 Parent = ClassComboBox.ListBox,
-                Label = { Text = $"{RequiredClass.Warrior}" },
+                Label = { Text = $"{EnumService.GetDescription(RequiredClass.Warrior)}" },
                 Item = RequiredClass.Warrior
             };
             new DXListBoxItem
             {
                 Parent = ClassComboBox.ListBox,
-                Label = { Text = $"{RequiredClass.Wizard}" },
+                Label = { Text = $"{EnumService.GetDescription(RequiredClass.Wizard)}" },
                 Item = RequiredClass.Wizard
             };
             new DXListBoxItem
             {
                 Parent = ClassComboBox.ListBox,
-                Label = { Text = $"{RequiredClass.Taoist}" },
+                Label = { Text = $"{EnumService.GetDescription(RequiredClass.Taoist)}" },
                 Item = RequiredClass.Taoist
             };
 
             new DXListBoxItem
             {
                 Parent = ClassComboBox.ListBox,
-                Label = { Text = $"{RequiredClass.Assassin}" },
+                Label = { Text = $"{EnumService.GetDescription(RequiredClass.Assassin)}" },
+               
                 Item = RequiredClass.Assassin
             };
 
