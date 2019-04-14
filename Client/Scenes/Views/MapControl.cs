@@ -508,7 +508,7 @@ namespace Client.Scenes.Views
                     return;
                 }
                 
-                DXItemAmountWindow window = new DXItemAmountWindow("Drop Item", cell.Item);
+                DXItemAmountWindow window = new DXItemAmountWindow("丢弃物品", cell.Item);
 
                 window.ConfirmButton.MouseClick += (o, a) =>
                 {
@@ -529,7 +529,7 @@ namespace Client.Scenes.Views
             if (GameScene.Game.GoldPickedUp)
             {
                 MapButtons &= ~e.Button;
-                DXItemAmountWindow window = new DXItemAmountWindow("Drop Item", new ClientUserItem(Globals.GoldInfo, User.Gold));
+                DXItemAmountWindow window = new DXItemAmountWindow("丢弃", new ClientUserItem(Globals.GoldInfo, User.Gold));
 
                 window.ConfirmButton.MouseClick += (o, a) =>
                 {
