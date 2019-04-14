@@ -1429,6 +1429,7 @@ namespace Client.Scenes
             DXLabel label = new DXLabel
             {
                 ForeColour = Color.Yellow,
+                Font = new Font(Config.FontName, CEnvir.FontSize(16F)),
                 Location = new Point(4, 4),
                 Parent = ItemLabel,
                 Text = displayInfo.ItemName 
@@ -1437,6 +1438,18 @@ namespace Client.Scenes
             if (MouseItem.Info.Effect == ItemEffect.ItemPart)
                 label.Text += " - [碎片]";
             ItemLabel.Size = new Size(label.DisplayArea.Right + 4, label.DisplayArea.Bottom);
+            if(displayInfo.Rarity == Rarity.Elite)
+            {
+                label.ForeColour = Color.MediumPurple;
+            }
+            else if(displayInfo.Rarity == Rarity.Superior)
+            {
+                label.ForeColour = Color.MediumSpringGreen;
+            }
+            else
+            {
+                label.ForeColour = Color.White;
+            }
 
 
 
@@ -1741,7 +1754,7 @@ namespace Client.Scenes
                 }
 
                 if (displayInfo.Rarity > Rarity.Common)
-                    text += $" ({displayInfo.Rarity})";
+                    text += $" ({ EnumService.GetDescription(displayInfo.Rarity)})";
 
 
                 label = new DXLabel
