@@ -1474,7 +1474,7 @@ namespace Client.Controls
                         case ItemEffect.GenderChange:
                             if (GameScene.Game.CharacterBox.Grid[(int) EquipmentSlot.Armour].Item != null)
                             {
-                                GameScene.Game.ReceiveChat("You cannot change gender whilst you are wearing armour.", MessageType.System);
+                                GameScene.Game.ReceiveChat("不能改变性别，请卸下你的盔甲.", MessageType.System);
                                 return false;
                             }
 
@@ -1503,7 +1503,7 @@ namespace Client.Controls
                         case ItemEffect.ArmourDye:
                             if (GameScene.Game.CharacterBox.Grid[(int)EquipmentSlot.Armour].Item == null)
                             {
-                                GameScene.Game.ReceiveChat("You need to be wearing an armour before you can apply a dye.", MessageType.System);
+                                GameScene.Game.ReceiveChat("在涂上染料之前，你需要先穿上一个盔甲.", MessageType.System);
                                 return false;
                             }
 
@@ -1667,18 +1667,18 @@ namespace Client.Controls
                             if (GameScene.Game.NPCRepairBox.IsVisible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName}, it is already fully repaired.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能修理 {Item.Info.ItemName}, 已经是满耐久的了.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCRepairBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能修理 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.NPCSellBox.IsVisible)
                             {
                                 if (!Item.Info.CanSell)
-                                    GameScene.Game.ReceiveChat($"Unable to Sell {Item.Info.ItemName}, it cannot be sold.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能出售 {Item.Info.ItemName}, 这是不可出售的.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCSellBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to Sell {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能出售 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
@@ -1711,7 +1711,7 @@ namespace Client.Controls
                                             return;
                                         break;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
                             if (GameScene.Game.NPCRefinementStoneBox.IsVisible)
@@ -1734,7 +1734,7 @@ namespace Client.Controls
                                         MoveItem(GameScene.Game.NPCRefinementStoneBox.CrystalGrid);
                                         return;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
                             if (GameScene.Game.NPCWeaponCraftBox.IsVisible)
@@ -1769,7 +1769,7 @@ namespace Client.Controls
                                         MoveItem(GameScene.Game.NPCWeaponCraftBox.TemplateCell);
                                         return;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to Craft.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来洗练.", MessageType.System);
                                 return;
                             }
 
@@ -1777,7 +1777,7 @@ namespace Client.Controls
                             {
 
                                 if (!Item.CanFragment())
-                                    GameScene.Game.ReceiveChat($"Unable to Fragment {Item.Info.ItemName}, it cannot be Fragmented.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能拆解 {Item.Info.ItemName}, 它是不可拆解的.", MessageType.System);
                                 else MoveItem(GameScene.Game.NPCItemFragmentBox.Grid);
                                 
                                 return;
@@ -1788,10 +1788,10 @@ namespace Client.Controls
                                 if (GameScene.Game.NPCAccessoryLevelBox.TargetCell.Grid[0].Link == null)
                                 {
                                     if (!MoveItem(GameScene.Game.NPCAccessoryLevelBox.TargetCell))
-                                        GameScene.Game.ReceiveChat($"Unable to Level {Item.Info.ItemName}.", MessageType.System);
+                                        GameScene.Game.ReceiveChat($"不能升级 {Item.Info.ItemName}.", MessageType.System);
                                 }
                                 else if (!MoveItem(GameScene.Game.NPCAccessoryLevelBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to level.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来升级.", MessageType.System);
 
                                 return;
                             }
@@ -1801,7 +1801,7 @@ namespace Client.Controls
                             {
 
                                 if (!Item.CanAccessoryUpgrade())
-                                    GameScene.Game.ReceiveChat($"Unable to Upgrade {Item.Info.ItemName}.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能升级 {Item.Info.ItemName}.", MessageType.System);
                                 else
                                     MoveItem(GameScene.Game.NPCAccessoryUpgradeBox.TargetCell);
 
@@ -1811,7 +1811,7 @@ namespace Client.Controls
                             if (GameScene.Game.NPCAccessoryResetBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.NPCAccessoryResetBox.AccessoryGrid))
-                                    GameScene.Game.ReceiveChat($"Unable to Reset {Item.Info.ItemName}.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能重置 {Item.Info.ItemName}.", MessageType.System);
                                 
 
                                 return;
@@ -1823,7 +1823,7 @@ namespace Client.Controls
                                 {
                                     case ItemType.Ore:
                                         if (Item.Info.Effect != ItemEffect.BlackIronOre)
-                                            GameScene.Game.ReceiveChat($"Only Black Iron Ore can be used.", MessageType.System);
+                                            GameScene.Game.ReceiveChat($"只有黑铁矿可以使用.", MessageType.System);
                                         else
                                             MoveItem(GameScene.Game.NPCRefineBox.BlackIronGrid);
                                         return;
@@ -1836,7 +1836,7 @@ namespace Client.Controls
                                         MoveItem(GameScene.Game.NPCRefineBox.SpecialGrid);
                                         return;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
 
@@ -1856,28 +1856,28 @@ namespace Client.Controls
                             if (GameScene.Game.StorageBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.StorageBox.Grid))
-                                    GameScene.Game.ReceiveChat("No Free Space in Storage.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("仓库空间不足.", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.TradeBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.TradeBox.UserGrid))
-                                    GameScene.Game.ReceiveChat("Unable to trade this item.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("这个物品无法交易.", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.GuildBox.StorageTab.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.GuildBox.StorageGrid))
-                                    GameScene.Game.ReceiveChat("Unable to store this item in guild storage.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("这个物品无法存在行会仓库.", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.CompanionBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.CompanionBox.InventoryGrid))
-                                    GameScene.Game.ReceiveChat("No Free Space in companion's Inventory.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("宠物背包空间不足.", MessageType.System);
                                 return;
                             }
 
@@ -1890,18 +1890,18 @@ namespace Client.Controls
                             if (GameScene.Game.NPCRepairBox.IsVisible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName}, it is already fully repaired.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能修理 {Item.Info.ItemName}, 耐久已经满了.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCRepairBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能修理 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.NPCSellBox.IsVisible)
                             {
                                 if (!Item.Info.CanSell)
-                                    GameScene.Game.ReceiveChat($"Unable to Sell {Item.Info.ItemName}, it cannot be sold.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能出售 {Item.Info.ItemName}, 它是不可出售的.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCSellBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to Sell {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能出售 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
@@ -1911,7 +1911,7 @@ namespace Client.Controls
                                 {
                                     case ItemType.Ore:
                                         if (Item.Info.Effect != ItemEffect.BlackIronOre)
-                                            GameScene.Game.ReceiveChat($"Only Black Iron Ore can be used.", MessageType.System);
+                                            GameScene.Game.ReceiveChat($"只有黑铁矿可以使用.", MessageType.System);
                                         else
                                             MoveItem(GameScene.Game.NPCRefineBox.BlackIronGrid);
                                         return;
@@ -1924,7 +1924,7 @@ namespace Client.Controls
                                         MoveItem(GameScene.Game.NPCRefineBox.SpecialGrid);
                                         return;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
 
@@ -1957,7 +1957,7 @@ namespace Client.Controls
                                             return;
                                         break;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
 
@@ -1966,10 +1966,10 @@ namespace Client.Controls
                                 if (GameScene.Game.NPCAccessoryLevelBox.TargetCell.Grid[0].Link == null)
                                 {
                                     if (!MoveItem(GameScene.Game.NPCAccessoryLevelBox.TargetCell))
-                                        GameScene.Game.ReceiveChat($"Unable to Level {Item.Info.ItemName}.", MessageType.System);
+                                        GameScene.Game.ReceiveChat($"不能升级 {Item.Info.ItemName}.", MessageType.System);
                                 }
                                 else if (!MoveItem(GameScene.Game.NPCAccessoryLevelBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to level.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来升级.", MessageType.System);
 
                                 return;
                             }
@@ -1978,7 +1978,7 @@ namespace Client.Controls
                             {
 
                                 if (!Item.CanAccessoryUpgrade())
-                                    GameScene.Game.ReceiveChat($"Unable to Upgrade {Item.Info.ItemName}.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能升级 {Item.Info.ItemName}.", MessageType.System);
                                 else
                                     MoveItem(GameScene.Game.NPCAccessoryUpgradeBox.TargetCell);
 
@@ -1988,7 +1988,7 @@ namespace Client.Controls
                             if (GameScene.Game.NPCAccessoryResetBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.NPCAccessoryResetBox.AccessoryGrid))
-                                    GameScene.Game.ReceiveChat($"Unable to Reset {Item.Info.ItemName}.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能重置 {Item.Info.ItemName}.", MessageType.System);
 
                                 return;
                             }
@@ -2008,26 +2008,26 @@ namespace Client.Controls
                             if (GameScene.Game.StorageBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.StorageBox.Grid))
-                                    GameScene.Game.ReceiveChat("No Free Space in Storage.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("仓库空间不足.", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.TradeBox.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.TradeBox.UserGrid))
-                                    GameScene.Game.ReceiveChat("Unable to trade this item.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("这件物品无法交易.", MessageType.System);
                                 return;
                             }
 
                             if (GameScene.Game.GuildBox.StorageTab.IsVisible)
                             {
                                 if (!MoveItem(GameScene.Game.GuildBox.StorageGrid))
-                                    GameScene.Game.ReceiveChat("Unable to store this item in guild storage.", MessageType.System);
+                                    GameScene.Game.ReceiveChat("这件物品无法存进行会仓库.", MessageType.System);
                                 return;
                             }
 
                             if (!MoveItem(GameScene.Game.InventoryBox.Grid))
-                                GameScene.Game.ReceiveChat("No Free Space in Inventory.", MessageType.System);
+                                GameScene.Game.ReceiveChat("个人背包空间不足.", MessageType.System);
 
 
                             break;
@@ -2037,9 +2037,9 @@ namespace Client.Controls
                             if (GameScene.Game.NPCRepairBox.Visible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName}, it is already fully repaired.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能修理 {Item.Info.ItemName}, 耐久已经满了.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCRepairBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能修理 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
@@ -2072,7 +2072,7 @@ namespace Client.Controls
                                             return;
                                         break;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
                             if (GameScene.Game.NPCRefineBox.Visible)
@@ -2081,7 +2081,7 @@ namespace Client.Controls
                                 {
                                     case ItemType.Ore:
                                         if (Item.Info.Effect != ItemEffect.BlackIronOre)
-                                            GameScene.Game.ReceiveChat($"Only Black Iron Ore can be used.", MessageType.System);
+                                            GameScene.Game.ReceiveChat($"只有黑铁矿能够使用.", MessageType.System);
                                         else
                                             MoveItem(GameScene.Game.NPCRefineBox.BlackIronGrid);
                                         return;
@@ -2091,7 +2091,7 @@ namespace Client.Controls
                                         MoveItem(GameScene.Game.NPCRefineBox.AccessoryGrid);
                                         return;
                                 }
-                                GameScene.Game.ReceiveChat($"Unable to use {Item.Info.ItemName} to refine.", MessageType.System);
+                                GameScene.Game.ReceiveChat($"不能使用 {Item.Info.ItemName} 来精练.", MessageType.System);
                                 return;
                             }
                             if (GameScene.Game.MarketPlaceBox.ConsignTab.IsVisible)
@@ -2109,9 +2109,9 @@ namespace Client.Controls
                             if (GameScene.Game.NPCRepairBox.Visible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName}, it is already fully repaired.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能修理 {Item.Info.ItemName}, 耐久已经满了.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCRepairBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能修理 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
                             
@@ -2130,9 +2130,9 @@ namespace Client.Controls
                             if (GameScene.Game.NPCRepairBox.Visible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName}, it is already fully repaired.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能修理 {Item.Info.ItemName}, 耐久已经满了.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCRepairBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能修理 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
@@ -2141,7 +2141,7 @@ namespace Client.Controls
                                 if (GameScene.Game.NPCAccessoryLevelBox.TargetCell.Grid[0].Link == null)
                                 {
                                     if (!MoveItem(GameScene.Game.NPCAccessoryLevelBox.TargetCell))
-                                        GameScene.Game.ReceiveChat($"Unable to Level {Item.Info.ItemName}.", MessageType.System);
+                                        GameScene.Game.ReceiveChat($"不能升级 {Item.Info.ItemName}.", MessageType.System);
                                 }
                                 return;
                             }
@@ -2149,7 +2149,7 @@ namespace Client.Controls
                             if (GameScene.Game.NPCAccessoryUpgradeBox.IsVisible)
                             {
                                 if (!Item.CanAccessoryUpgrade())
-                                    GameScene.Game.ReceiveChat($"Unable to Upgrade {Item.Info.ItemName}.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能升级 {Item.Info.ItemName}.", MessageType.System);
                                 else
                                     MoveItem(GameScene.Game.NPCAccessoryUpgradeBox.TargetCell);
 
@@ -2166,7 +2166,7 @@ namespace Client.Controls
 
 
                             if (!MoveItem(GameScene.Game.InventoryBox.Grid))
-                                GameScene.Game.ReceiveChat("No Free Space in Inventory.", MessageType.System);
+                                GameScene.Game.ReceiveChat("个人背包空间不足.", MessageType.System);
 
                             break;
                         case GridType.CompanionEquipment:
@@ -2176,16 +2176,16 @@ namespace Client.Controls
                             if (GameScene.Game.NPCRepairBox.Visible)
                             {
                                 if (Item.CurrentDurability >= Item.MaxDurability || !Item.Info.CanRepair)
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName}, it is already fully repaired.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"不能修理 {Item.Info.ItemName}, 耐久已经满了.", MessageType.System);
                                 else if (!MoveItem(GameScene.Game.NPCRepairBox.Grid))
-                                    GameScene.Game.ReceiveChat($"Unable to repair {Item.Info.ItemName} here.", MessageType.System);
+                                    GameScene.Game.ReceiveChat($"我这里不能修理 {Item.Info.ItemName} .", MessageType.System);
                                 return;
                             }
 
 
 
                             if (!MoveItem(GameScene.Game.InventoryBox.Grid))
-                                GameScene.Game.ReceiveChat("No Free Space in Inventory.", MessageType.System);
+                                GameScene.Game.ReceiveChat("个人背包空间不足.", MessageType.System);
 
                             break;
                         default:
