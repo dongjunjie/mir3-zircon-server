@@ -723,7 +723,7 @@ namespace Client.Controls
                 return;
             }
 
-            //Put Item back where it came from
+            //把物品放回原处
             if (SelectedCell == this || SelectedCell.Item == null)
             {
                 SelectedCell = null;
@@ -1443,8 +1443,14 @@ namespace Client.Controls
                     if (!GameScene.Game.CanUseItem(Item) || 
                         GridType != GridType.Inventory && GridType != GridType.CompanionEquipment && GridType != GridType.CompanionInventory) return false;
 
-                    if ((CEnvir.Now < GameScene.Game.UseItemTime && Item.Info.Effect != ItemEffect.ElixirOfPurification) || MapObject.User.Horse != HorseType.None) return false;
-
+                    if ((CEnvir.Now < GameScene.Game.UseItemTime && Item.Info.Effect != ItemEffect.ElixirOfPurification)) return false;
+                    //骑马无法使用物品提示
+                    if (MapObject.User.Horse != HorseType.None)
+                    {
+                      //  DXMessageBox.Show("骑行状态无法使用.", "提示");
+                        GameScene.Game.ReceiveChat("骑行状态无法使用任何物品", MessageType.System);
+                        return false;
+                    }
 
                     GameScene.Game.UseItemTime = CEnvir.Now.AddMilliseconds(Math.Max(250, Item.Info.Durability));
                     
