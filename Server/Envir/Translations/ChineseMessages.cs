@@ -17,7 +17,7 @@ namespace Server.Envir.Translations
         public override string HuntGoldRefund { get; set; } = "Your {0} Hunt Gold was refunded.";
 
 
-        public override string Welcome { get; set; } = "Welcome to Zircon Server.";
+        public override string Welcome { get; set; } = "欢迎来到骑尼仔3服务器.";
         public override string WelcomeObserver { get; set; } = "You are now Observing {0}, to stop, please logout.";
         public override string ObserverChangeFail { get; set; } = "You cannot change observable mode unless you are in SafeZone";
         public override string OnlineCount { get; set; } = "Users Online: {0}, Observers Online: {1}";

@@ -22,7 +22,7 @@ namespace Client.Scenes.Views
 
         public ExitDialog()
         {
-            TitleLabel.Text = @"Exit Game";
+            TitleLabel.Text = @"退出游戏";
 
             SetClientSize(new Size(200, 50 + DefaultHeight + DefaultHeight));
             ToSelectButton = new DXButton

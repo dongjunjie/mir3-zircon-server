@@ -11896,7 +11896,7 @@ namespace Server.Models
 
                 if (!CanGainItems(false, new ItemCheck(weap, 1, UserItemFlags.None, TimeSpan.Zero)))
                 {
-                    Connection.ReceiveChat("Not enough bag space available.", MessageType.System);
+                    Connection.ReceiveChat("背包空间不足.", MessageType.System);
                     return;
                 }
             }
@@ -16844,7 +16844,7 @@ namespace Server.Models
                         target.GainExperience(expbonus, false, int.MaxValue, false);
                     }
 
-                    SEnvir.Broadcast(new S.Chat {Text = $"{Name} has died and lost {expbonus:##,##0} Experience, {target?.Name ?? "No one"} has won the experience.", Type = MessageType.System});
+                    SEnvir.Broadcast(new S.Chat {Text = $"{Name} 已死亡并损失 {expbonus:##,##0} 经验, {target?.Name ?? "无人"} 获得这些经验.", Type = MessageType.System});
                 }
 
                 // Enqueue(new S.LevelChanged { Level = Level, Experience = Experience });

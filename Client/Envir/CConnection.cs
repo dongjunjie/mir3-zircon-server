@@ -244,7 +244,7 @@ namespace Client.Envir
                     DateTime expiry = CEnvir.Now.Add(p.Duration);
                     DXMessageBox box = DXMessageBox.Show($"这个账号已经被管理员禁止了.\n\nReason: {p.Message}\n" +
                                                          $"Expiary Date: {expiry}\n" +
-                                                         $"Duration: {Math.Floor(p.Duration.TotalHours):#,##0} Hours, {p.Duration.Minutes} Minutes, {p.Duration.Seconds} Seconds", "修改密码");
+                                                         $"持续: {Math.Floor(p.Duration.TotalHours):#,##0} 小时, {p.Duration.Minutes} 分钟, {p.Duration.Seconds} 秒", "修改密码");
 
                     box.ProcessAction = () =>
                     {
@@ -261,7 +261,7 @@ namespace Client.Envir
                         box.Label.Text = $"这个账号已经被管理员禁止了.\n\n" +
                                          $"Reason: {p.Message}\n" +
                                          $"Expiary Date: {expiry}\n" +
-                                         $"Duration: {Math.Floor(remaining.TotalHours):#,##0} Hours, {remaining.Minutes} Minutes, {remaining.Seconds} Seconds";
+                                         $"持续: {Math.Floor(remaining.TotalHours):#,##0} 小时, {remaining.Minutes} 分钟, {remaining.Seconds} 秒";
                     };
                     break;
                 case ChangePasswordResult.Success:
@@ -301,7 +301,7 @@ namespace Client.Envir
                     expiry = CEnvir.Now.Add(p.Duration);
                     box = DXMessageBox.Show($"You cannot request another password reset so soon.\n" +
                                             $"Next available Reset: {expiry}\n" +
-                                            $"Duration: {Math.Floor(p.Duration.TotalHours):#,##0} Hours, {p.Duration.Minutes} Minutes, {p.Duration.Seconds} Seconds", "重置密码");
+                                            $"持续: {Math.Floor(p.Duration.TotalHours):#,##0} 小时, {p.Duration.Minutes} 分钟, {p.Duration.Seconds} 秒", "重置密码");
 
                     box.ProcessAction = () =>
                     {
@@ -317,14 +317,14 @@ namespace Client.Envir
 
                         box.Label.Text = $"You cannot request another password reset so soon.\n" +
                                          $"Next Possible Reset: {expiry}\n" +
-                                         $"Duration: {Math.Floor(remaining.TotalHours):#,##0} Hours, {remaining.Minutes} Minutes, {remaining.Seconds} Seconds";
+                                         $"持续: {Math.Floor(remaining.TotalHours):#,##0} 小时, {remaining.Minutes} 分钟, {remaining.Seconds} 秒";
                     };
                     break;
                 case RequestPasswordResetResult.Banned:
                     expiry = CEnvir.Now.Add(p.Duration);
                     box = DXMessageBox.Show($"这个账号已经被禁止了.\n\nReason: {p.Message}\n" +
                                             $"Expiary Date: {expiry}\n" +
-                                            $"Duration: {Math.Floor(p.Duration.TotalHours):#,##0} Hours, {p.Duration.Minutes} Minutes, {p.Duration.Seconds} Seconds", "重置密码");
+                                            $"持续: {Math.Floor(p.Duration.TotalHours):#,##0} 小时, {p.Duration.Minutes} 分钟, {p.Duration.Seconds} 秒", "重置密码");
 
                     box.ProcessAction = () =>
                     {
@@ -341,7 +341,7 @@ namespace Client.Envir
                         box.Label.Text = $"这个账号已经被禁止了.\n\n" +
                                          $"Reason: {p.Message}\n" +
                                          $"Expiary Date: {expiry}\n" +
-                                         $"Duration: {Math.Floor(remaining.TotalHours):#,##0} Hours, {remaining.Minutes} Minutes, {remaining.Seconds} Seconds";
+                                         $"持续: {Math.Floor(remaining.TotalHours):#,##0} 小时, {remaining.Minutes} 分钟, {remaining.Seconds} 秒";
                     };
                     break;
                 case RequestPasswordResetResult.Success:
@@ -435,7 +435,7 @@ namespace Client.Envir
                     expiry = CEnvir.Now.Add(p.Duration);
                     box = DXMessageBox.Show($"Cannot request another activation e-mail so soon.\n" +
                                             $"Next available request: {expiry}\n" +
-                                            $"Duration: {Math.Floor(p.Duration.TotalHours):#,##0} Hours, {p.Duration.Minutes} Minutes, {p.Duration.Seconds} Seconds", "Request Activation Key");
+                                            $"持续: {Math.Floor(p.Duration.TotalHours):#,##0} 小时, {p.Duration.Minutes} 分钟, {p.Duration.Seconds} 秒", "Request Activation Key");
 
                     box.ProcessAction = () =>
                     {
@@ -451,7 +451,7 @@ namespace Client.Envir
 
                         box.Label.Text = $"Cannot request another activation e-mail so soon.\n" +
                                          $"Next Possible request: {expiry}\n" +
-                                         $"Duration: {Math.Floor(remaining.TotalHours):#,##0} Hours, {remaining.Minutes} Minutes, {remaining.Seconds} Seconds";
+                                         $"持续: {Math.Floor(remaining.TotalHours):#,##0} 小时, {remaining.Minutes} 分钟, {remaining.Seconds} 秒";
                     };
                     break;
                 case RequestActivationKeyResult.Success:
@@ -500,7 +500,7 @@ namespace Client.Envir
                     DXMessageBox box = DXMessageBox.Show($"这个账号已经被禁止了.\n\n" +
                                                          $"Reason: {p.Message}\n" +
                                                          $"Expiary Date: {expiry}\n" +
-                                                         $"Duration: {Math.Floor(p.Duration.TotalHours):#,##0} Hours, {p.Duration.Minutes} Minutes, {p.Duration.Seconds} Seconds", "账号登陆");
+                                                         $"持续: {Math.Floor(p.Duration.TotalHours):#,##0} 小时, {p.Duration.Minutes} 分钟, {p.Duration.Seconds} 秒", "账号登陆");
 
                     box.ProcessAction = () =>
                     {
@@ -517,7 +517,7 @@ namespace Client.Envir
                         box.Label.Text = $"这个账号已经被禁止了.\n\n" +
                                          $"Reason: {p.Message}\n" +
                                          $"Expiary Date: {expiry}\n" +
-                                         $"Duration: {Math.Floor(remaining.TotalHours):#,##0} Hours, {remaining.Minutes} Minutes, {remaining.Seconds} Seconds";
+                                         $"持续: {Math.Floor(remaining.TotalHours):#,##0} 小时, {remaining.Minutes} 分钟, {remaining.Seconds} 秒";
                     };
                     break;
                 case LoginResult.AlreadyLoggedIn:
@@ -712,8 +712,8 @@ namespace Client.Envir
                 case StartGameResult.Delayed:
                     expiry = CEnvir.Now.Add(p.Duration);
 
-                    box = DXMessageBox.Show($"This character has recently logged out please wait.\n" +
-                                            $"Duration: {Math.Floor(p.Duration.TotalHours):#,##0} Hours, {p.Duration.Minutes} Minutes, {p.Duration.Seconds} Seconds", "开始游戏");
+                    box = DXMessageBox.Show($"这个账号刚刚退出，请等待一段时间再登陆.\n" +
+                                            $"持续: {Math.Floor(p.Duration.TotalHours):#,##0} 小时, {p.Duration.Minutes} 分钟, {p.Duration.Seconds} 秒", "开始游戏");
 
                     box.ProcessAction = () =>
                     {
@@ -727,8 +727,8 @@ namespace Client.Envir
 
                         TimeSpan remaining = expiry - CEnvir.Now;
 
-                        box.Label.Text = $"This character has recently logged out please wait.\n" +
-                                         $"Duration: {Math.Floor(remaining.TotalHours):#,##0} Hours, {remaining.Minutes:#,##0} Minutes, {remaining.Seconds} Seconds";
+                        box.Label.Text = $"这个账号刚刚退出，请等待一段时间再登陆.\n" +
+                                         $"持续: {Math.Floor(remaining.TotalHours):#,##0} 小时, {remaining.Minutes:#,##0} 分钟, {remaining.Seconds} 秒";
                     };
                     break;
                 case StartGameResult.UnableToSpawn:

@@ -2034,12 +2034,12 @@ namespace Client.Scenes
 
                 if (CEnvir.Now >= value)
                 {
-                    label.Text = "复活 ready";
+                    label.Text = "可以复活";
                     label.ForeColour = Color.LimeGreen;
                 }
                 else
                 {
-                    label.Text = $"复活 ready in {Functions.ToString(value - CEnvir.Now, true)}";
+                    label.Text = $"复活 CD {Functions.ToString(value - CEnvir.Now, true)}";
                     label.ForeColour = Color.Red;
                 }
 
@@ -2781,7 +2781,7 @@ namespace Client.Scenes
 
                     if (User.AttackMagic != magic.Info.Magic)
                     {
-                        ReceiveChat($"{magic.Info.Name} is now Ready.", MessageType.Hint);
+                        ReceiveChat($"{magic.Info.Name} 已就绪.", MessageType.Hint);
                         int attackDelay = Globals.AttackDelay - MapObject.User.Stats[Stat.AttackSpeed] * Globals.ASpeedRate;
                         attackDelay = Math.Max(800, attackDelay);
 
@@ -2800,7 +2800,7 @@ namespace Client.Scenes
 
                     if (User.AttackMagic != magic.Info.Magic)
                     {
-                        ReceiveChat($"{magic.Info.Name} is now Ready.", MessageType.Hint);
+                        ReceiveChat($"{magic.Info.Name} 已就绪.", MessageType.Hint);
                         ToggleTime = CEnvir.Now + TimeSpan.FromMilliseconds(500);
 
                         User.AttackMagic = magic.Info.Magic;
