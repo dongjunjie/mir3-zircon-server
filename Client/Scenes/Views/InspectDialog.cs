@@ -582,7 +582,7 @@ namespace Client.Scenes.Views
             label = new DXLabel
             {
                 Parent = StatsTab,
-                Text = "掉落倍率:"
+                Text = "掉落爆率:"
             };
             label.Location = new Point(StatsTab.Size.Width / 4 * 3 - label.Size.Width + 25, y);
 

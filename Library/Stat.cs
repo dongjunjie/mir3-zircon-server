@@ -522,7 +522,7 @@ namespace Library
 
         [StatDescription(Title = "经验倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         ExperienceRate,
-        [StatDescription(Title = "掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "掉落爆率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         DropRate,
         [StatDescription(Title = "空白状态", Mode = StatType.None)]
         None,
@@ -675,7 +675,7 @@ namespace Library
         [StatDescription(Title = "常规怪物基础金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterGold,
 
-        [StatDescription(Title = "常规怪物基础掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "常规怪物基础掉落爆率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MonsterDrop,
 
         [StatDescription(Title = "常规怪物基础伤害倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
@@ -702,7 +702,7 @@ namespace Library
         [StatDescription(Title = "基础金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         BaseGoldRate,
 
-        [StatDescription(Title = "基础掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "基础掉落爆率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         BaseDropRate,
 
         [StatDescription(Title = "Frost Bite Damage", Format = "{0}", Mode = StatType.Default)]
@@ -714,7 +714,7 @@ namespace Library
         [StatDescription(Title = "最大常规怪物基础金币倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterGold,
 
-        [StatDescription(Title = "最大常规怪物基础掉落倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
+        [StatDescription(Title = "最大常规怪物基础掉落爆率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]
         MaxMonsterDrop,
 
         [StatDescription(Title = "最大常规怪物基础伤害倍率", Format = "{0:+#0%;-#0%;#0%}", Mode = StatType.Percent)]

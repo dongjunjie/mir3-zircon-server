@@ -5297,19 +5297,19 @@ namespace Client.Scenes.Views
 
                 if (frag1.Count < 1 || frag1[0].Count != 10)
                 {
-                    GameScene.Game.ReceiveChat("你需要10个低级碎片来精练。You need Fragment (I) x10 to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要10个低级碎片来大师精练。You need Fragment (I) x10 to Master Refine", MessageType.System);
                     return;
                 }
 
                 if (frag2.Count < 1 || frag2[0].Count != 10)
                 {
-                    GameScene.Game.ReceiveChat("你需要10个中级碎片来精练。You need Fragment (II) x10 to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要10个中级碎片来大师精练。You need Fragment (II) x10 to Master Refine", MessageType.System);
                     return;
                 }
 
                 if (frag3.Count < 1)
                 {
-                    GameScene.Game.ReceiveChat("你需要10个高级碎片来精练。You need at least 1x Fragment (III) to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要10个高级碎片来大师精练。You need at least 1x Fragment (III) to Master Refine", MessageType.System);
                     return;
                 }
 
@@ -5401,25 +5401,25 @@ namespace Client.Scenes.Views
 
                 if (frag1.Count < 1 || frag1[0].Count != 10)
                 {
-                    GameScene.Game.ReceiveChat("你需要10个低级碎片来精练。You need Fragment (I) x10 to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要10个低级碎片来大师精练。You need Fragment (I) x10 to Master Refine", MessageType.System);
                     return;
                 }
 
                 if (frag2.Count < 1 || frag2[0].Count != 10)
                 {
-                    GameScene.Game.ReceiveChat("你需要10个中级碎片来精练。You need Fragment (II) x10 to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要10个中级碎片来大师精练。You need Fragment (II) x10 to Master Refine", MessageType.System);
                     return;
                 }
 
                 if (frag3.Count < 1)
                 {
-                    GameScene.Game.ReceiveChat("你需要10个高级碎片来精练。You need at least 1x Fragment (III) to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要10个高级碎片来大师精练。You need at least 1x Fragment (III) to Master Refine", MessageType.System);
                     return;
                 }
 
                 if (stone.Count < 1)
                 {
-                    GameScene.Game.ReceiveChat("你需要1个精练石。You need Refinement Stone x1 to Master Refine", MessageType.System);
+                    GameScene.Game.ReceiveChat("你需要1个精练石来大师精练。You need Refinement Stone x1 to Master Refine", MessageType.System);
                     return;
                 }
 

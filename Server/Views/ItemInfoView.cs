@@ -103,7 +103,7 @@ namespace Server.Views
             builder.Append((info == null ? "魔法值" : string.Format("+{0}", info.Stats[Stat.Mana])) + ", ");
             builder.Append((info == null ? "幸运" : string.Format("+{0}", info.Stats[Stat.Luck])) + ", ");
             builder.Append((info == null ? "经验倍率" : string.Format("+{0}", info.Stats[Stat.ExperienceRate])) + ", ");
-            builder.Append((info == null ? "掉落倍率" : string.Format("+{0}", info.Stats[Stat.DropRate])) + ", ");
+            builder.Append((info == null ? "掉落爆率" : string.Format("+{0}", info.Stats[Stat.DropRate])) + ", ");
             builder.Append((info == null ? "金币倍率" : string.Format("+{0}", info.Stats[Stat.GoldRate])) + ", ");
             builder.Append((info == null ? "技能倍率" : string.Format("+{0}", info.Stats[Stat.SkillRate])) + ", ");
             builder.Append((info == null ? "耐久" : string.Format("+{0}", info.Stats[Stat.Duration])) + ", ");
