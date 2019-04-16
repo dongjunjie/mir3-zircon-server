@@ -8007,13 +8007,13 @@ namespace Server.Models
         {
             if (!Globals.CharacterReg.IsMatch(newName))
             {
-                Connection.ReceiveChat("Unacceptable character name.", MessageType.System);
+                Connection.ReceiveChat("不合法角色名.", MessageType.System);
                 return;
             }
 
             if (newName == Name)
             {
-                Connection.ReceiveChat($"Your name is already {newName}.", MessageType.System);
+                Connection.ReceiveChat($"你已经改名为 {newName}.", MessageType.System);
                 return;
             }
 
@@ -8022,7 +8022,7 @@ namespace Server.Models
                 {
                     if (SEnvir.CharacterInfoList[i].Account == Character.Account) continue;
 
-                    Connection.ReceiveChat("This name is already in use.", MessageType.System);
+                    Connection.ReceiveChat("这个名字已经被其他账号使用.", MessageType.System);
                     return;
                 }
 
