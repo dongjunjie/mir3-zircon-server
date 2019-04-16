@@ -2482,7 +2482,7 @@ namespace Client.Scenes
                 ForeColour = User.Level < MouseMagic.NeedLevel1 ? Color.Red : Color.White,
                 Location = new Point(4, MagicLabel.DisplayArea.Bottom),
                 Parent = MagicLabel,
-                Text = $"Rank 1 Requirement: Level {MouseMagic.NeedLevel1}",
+                Text = $"等级1需要: 等级 {MouseMagic.NeedLevel1}",
             };
             width = label.DisplayArea.Right + 10;
             label = new DXLabel
@@ -2500,7 +2500,7 @@ namespace Client.Scenes
                 ForeColour = User.Level < MouseMagic.NeedLevel2 ? Color.Red : Color.White,
                 Location = new Point(4, MagicLabel.DisplayArea.Bottom),
                 Parent = MagicLabel,
-                Text = $"Rank 2 Requirement: Level {MouseMagic.NeedLevel2}",
+                Text = $"等级2需要: 等级 {MouseMagic.NeedLevel2}",
             };
 
             label = new DXLabel
@@ -2518,7 +2518,7 @@ namespace Client.Scenes
                 ForeColour = User.Level < MouseMagic.NeedLevel3 ? Color.Red : Color.White,
                 Location = new Point(4, MagicLabel.DisplayArea.Bottom),
                 Parent = MagicLabel,
-                Text = $"Rank 3 Requirement: Level {MouseMagic.NeedLevel3}",
+                Text = $"等级3需要: 等级 {MouseMagic.NeedLevel3}",
             };
 
             label = new DXLabel
@@ -2536,7 +2536,7 @@ namespace Client.Scenes
                 ForeColour = magic?.Level < 3 ? Color.Red : Color.White,
                 Location = new Point(4, MagicLabel.DisplayArea.Bottom),
                 Parent = MagicLabel,
-                Text = $"Rank 4+ Requirement: Books",
+                Text = $"等级4需要: 吃技能书",
             };
             MagicLabel.Size = new Size(label.DisplayArea.Right + 4 > MagicLabel.Size.Width ? label.DisplayArea.Right + 4 : MagicLabel.Size.Width, label.DisplayArea.Bottom);
             
