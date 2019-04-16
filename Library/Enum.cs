@@ -510,7 +510,7 @@ namespace Library
         Passive,
         [Description("武器掌握")]
         WeaponSkills,
-        [Description("自然")]
+        [Description("均衡")]
         Neutral,
         [Description("火")]
         Fire,

@@ -221,7 +221,7 @@ namespace Client.Scenes
                 if (_AutoRun == value) return;
                 _AutoRun = value;
                 
-                ReceiveChat(value ? "[AutoRun: On]" : "[AutoRun: Off]", MessageType.Hint);
+                ReceiveChat(value ? "[自动跑步: 开]" : "[自动跑步: 关]", MessageType.Hint);
             }
         }
         private bool _AutoRun;
@@ -811,7 +811,7 @@ namespace Client.Scenes
             }
 
             if (result)
-                Game.ReceiveChat("Chat Layout Loaded", MessageType.Announcement);
+                Game.ReceiveChat("聊天布局已加载", MessageType.Announcement);
             else
                 ChatOptionsBox.CreateDefaultWindows();
         }
@@ -2078,7 +2078,7 @@ namespace Client.Scenes
                     ForeColour = Color.LightSeaGreen,
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = "Created by a Game Master.",
+                    Text = "GM(骑尼仔)制作.",
                 };
 
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -2095,7 +2095,7 @@ namespace Client.Scenes
                     ForeColour = Color.MediumAquamarine,
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = $"Fragment Cost: {MouseItem.FragmentCost():#,##0}",
+                    Text = $"拆解花费: {MouseItem.FragmentCost():#,##0}",
                 };
 
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -2106,7 +2106,7 @@ namespace Client.Scenes
                     ForeColour = Color.MediumAquamarine,
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = $"Fragments: {(MouseItem.Info.Rarity == Rarity.Common ? "Fragment" : "Framgent (II)")} x{MouseItem.FragmentCount():#,##0}",
+                    Text = $"拆解: {(MouseItem.Info.Rarity == Rarity.Common ? "低级碎片" : "中级碎片")} x{MouseItem.FragmentCount():#,##0}",
                 };
 
                 ItemLabel.Size = new Size(label.DisplayArea.Right + 4 > ItemLabel.Size.Width ? label.DisplayArea.Right + 4 : ItemLabel.Size.Width,
@@ -2121,7 +2121,7 @@ namespace Client.Scenes
                 {
                     Location = new Point(4, ItemLabel.DisplayArea.Bottom),
                     Parent = ItemLabel,
-                    Text = $"Reset Available in {Functions.ToString(MouseItem.NextReset - CEnvir.Now, true)}",
+                    Text = $"距离下次重置还需要 {Functions.ToString(MouseItem.NextReset - CEnvir.Now, true)}",
                     ForeColour = Color.Red,
                 };
 
@@ -2819,7 +2819,7 @@ namespace Client.Scenes
                 if (CEnvir.Now >= OutputTime)
                 {
                     OutputTime = CEnvir.Now.AddSeconds(1);
-                    ReceiveChat($"Unable to cast {magic.Info.Name}, it is still on Cooldown.", MessageType.Hint);
+                    ReceiveChat($"无法使用技能 {magic.Info.Name}, 还在cd冷却中.", MessageType.Hint);
                 }
                 return;
             }
@@ -2833,7 +2833,7 @@ namespace Client.Scenes
                         if (CEnvir.Now >= OutputTime)
                         {
                             OutputTime = CEnvir.Now.AddSeconds(1);
-                            ReceiveChat($"Unable to cast {magic.Info.Name} whilst in combat", MessageType.Hint);
+                            ReceiveChat($"无法使用技能 {magic.Info.Name} 因为你还处于战斗状态", MessageType.Hint);
                         }
                         return;
                     }
@@ -2843,7 +2843,7 @@ namespace Client.Scenes
                         if (CEnvir.Now >= OutputTime)
                         {
                             OutputTime = CEnvir.Now.AddSeconds(1);
-                            ReceiveChat($"Unable to cast {magic.Info.Name}, You do not have enough Health.", MessageType.Hint);
+                            ReceiveChat($"无法使用技能 {magic.Info.Name}, 因为你没有足够的生命值.", MessageType.Hint);
                         }
                         return;
                     }
@@ -2856,7 +2856,7 @@ namespace Client.Scenes
                         if (CEnvir.Now >= OutputTime)
                         {
                             OutputTime = CEnvir.Now.AddSeconds(1);
-                            ReceiveChat($"Unable to cast {magic.Info.Name}, You do not have enough Mana.", MessageType.Hint);
+                            ReceiveChat($"无法使用技能 {magic.Info.Name}, 魔法值不足.", MessageType.Hint);
                         }
                         return;
                     }
@@ -2867,7 +2867,7 @@ namespace Client.Scenes
                         if (CEnvir.Now >= OutputTime)
                         {
                             OutputTime = CEnvir.Now.AddSeconds(1);
-                            ReceiveChat($"Unable to cast {magic.Info.Name}, You do not have enough Health.", MessageType.Hint);
+                            ReceiveChat($"无法使用技能 {magic.Info.Name}, 因为你没有足够的生命值.", MessageType.Hint);
                         }
                         return;
                     }
@@ -2876,7 +2876,7 @@ namespace Client.Scenes
                         if (CEnvir.Now >= OutputTime)
                         {
                             OutputTime = CEnvir.Now.AddSeconds(1);
-                            ReceiveChat($"Unable to cast {magic.Info.Name}, You do not have enough Mana.", MessageType.Hint);
+                            ReceiveChat($"无法使用技能 {magic.Info.Name}, 魔法值不足.", MessageType.Hint);
                         }
                         return;
                     }
@@ -2888,7 +2888,7 @@ namespace Client.Scenes
                         if (CEnvir.Now >= OutputTime)
                         {
                             OutputTime = CEnvir.Now.AddSeconds(1);
-                            ReceiveChat($"Unable to cast {magic.Info.Name}, You do not have enough Mana.", MessageType.Hint);
+                            ReceiveChat($"无法使用技能 {magic.Info.Name}, 魔法值不足.", MessageType.Hint);
                         }
                         return;
                     }
@@ -2922,7 +2922,7 @@ namespace Client.Scenes
                     {
                         if (CEnvir.Now < OutputTime) return;
                         OutputTime = CEnvir.Now.AddSeconds(1);
-                        ReceiveChat($"Unable to cast {magic.Info.Name}, Your target is too far.", MessageType.Hint);
+                        ReceiveChat($"无法使用技能 {magic.Info.Name}, 目标太远了.", MessageType.Hint);
                         return;
                     }
 
@@ -3090,7 +3090,7 @@ namespace Client.Scenes
                     {
                         if (CEnvir.Now < OutputTime) return;
                         OutputTime = CEnvir.Now.AddSeconds(1);
-                        ReceiveChat($"Unable to cast {magic.Info.Name}, Your target is too far.", MessageType.Hint);
+                        ReceiveChat($"无法使用技能 {magic.Info.Name}, 目标太远了.", MessageType.Hint);
                         return;
                     }
                     break;
@@ -3102,7 +3102,7 @@ namespace Client.Scenes
             {
                 if (CEnvir.Now < OutputTime) return;
                 OutputTime = CEnvir.Now.AddSeconds(1);
-                ReceiveChat($"Unable to cast {magic.Info.Name}, Your target is too far.", MessageType.Hint);
+                ReceiveChat($"无法使用技能 {magic.Info.Name}, 目标太远了.", MessageType.Hint);
                 return;
             }
 
@@ -3458,14 +3458,14 @@ namespace Client.Scenes
                 case EquipmentSlot.Shield:
                     if (User.HandWeight - (Equipment[(int) slot]?.Info.Weight ?? 0) + item.Weight > User.Stats[Stat.HandWeight])
                     {
-                        ReceiveChat($"Unable to hold {item.Info.ItemName}, it is too heavy.", MessageType.System);
+                        ReceiveChat($"不能拿起 {item.Info.ItemName}, 太重了.", MessageType.System);
                         return false;
                     }
                     break;
                 default:
                     if (User.WearWeight - (Equipment[(int) slot]?.Info.Weight ?? 0) + item.Weight > User.Stats[Stat.WearWeight])
                     {
-                        ReceiveChat($"Unable to wear {item.Info.ItemName}, it is too heavy.", MessageType.System);
+                        ReceiveChat($"不能穿上 {item.Info.ItemName}, 太重了.", MessageType.System);
                         return false;
                     }
                     break;
@@ -3822,10 +3822,10 @@ namespace Client.Scenes
             switch (task.Task)
             {
                 case QuestTaskType.KillMonster:
-                    builder.AppendFormat("Kill {0} ", task.Amount);
+                    builder.AppendFormat("杀死 {0} ", task.Amount);
                     break;
                 case QuestTaskType.GainItem:
-                    builder.AppendFormat("Collect {0} {1} from ", task.Amount, task.ItemParameter?.ItemName);
+                    builder.AppendFormat("收集物品 {0} {1} 从 ", task.Amount, task.ItemParameter?.ItemName);
                     
                     break;
             }
@@ -3844,14 +3844,14 @@ namespace Client.Scenes
                     }
 
                     if (needComma)
-                        builder.Append(" or ");
+                        builder.Append(" 或 ");
 
                     needComma = true;
 
                     builder.Append(monster.Monster.MonsterName);
 
                     if (monster.Map != null)
-                        builder.AppendFormat(" in {0}", monster.Map.Description);
+                        builder.AppendFormat(" 位于 {0}", monster.Map.Description);
                 }
             }
             else
@@ -3860,7 +3860,7 @@ namespace Client.Scenes
             if (userQuest != null)
             {
                 if (userTask != null && userTask.Completed)
-                    builder.Append(" (Completed)");
+                    builder.Append(" (完成)");
                 else
                     builder.Append($" ({userTask?.Amount ?? 0}/{task.Amount})");
             }

@@ -344,10 +344,10 @@ namespace Client.Scenes.Views
                     text = $"泣血杜鹃\n";
                     break;
                 case BuffType.WhiteLotus:
-                    text = $"White Lotus\n";
+                    text = $"暗夜百合\n";
                     break;
                 case BuffType.RedLotus:
-                    text = $"暗夜百合\n";
+                    text = $"恶魔玫瑰\n";
                     break;
                 case BuffType.Cloak:
                     text = $"潜行\n";
@@ -399,7 +399,7 @@ namespace Client.Scenes.Views
             if (buff.RemainingTime != TimeSpan.MaxValue)
                 text += $"\n持续时间: {Functions.ToString(buff.RemainingTime, true)}";
 
-            if (buff.Pause) text += "\n暂停 (无效).";
+            if (buff.Pause) text += "\n暂停 (失效).";
 
             return text;
         }
