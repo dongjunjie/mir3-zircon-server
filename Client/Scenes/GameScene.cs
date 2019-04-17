@@ -228,6 +228,7 @@ namespace Client.Scenes
         private DateTime nextAutoSkillTime;
         private int _AutoSkillCoolDown;
         private MagicType autoUseSkillType;
+        private MagicType[] autoSkillList;
 
         #region StorageSize
 
@@ -891,13 +892,103 @@ namespace Client.Scenes
                     switch (User.Class)
                     {
                         case MirClass.Warrior:
+                            if (autoSkillList == null)
+                            {
+                                autoSkillList = new MagicType[3] { MagicType.BladeStorm, MagicType.FlamingSword, MagicType.Might };
+                            }
+                            foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
+                            {
+                                // 如果都没勾选就退出, 不用浪费循环
+                                if (!Game.AutoPotionBox.AutoBladeStormSkillCheckBox.Checked && !Game.AutoPotionBox.AutoFlamingSwordSkillCheckBox.Checked && !Game.AutoPotionBox.AutoMightSkillCheckBox.Checked)
+                                {
+                                    break;
+                                }
+                                // 如果不是指定可以自动化的技能，退出，不用浪费循环
+                                if (!autoSkillList.Contains(pair.Key.Magic))
+                                {
+                                    continue;
+                                }
+                                // 莲月剑法
+                                if (pair.Key.Magic == MagicType.BladeStorm && Game.AutoPotionBox.AutoBladeStormSkillCheckBox.Checked)
+                                {
+                                    UseMagic(pair.Value);
+                                    continue;
+                                }
+                                // 烈火剑法
+                                if (pair.Key.Magic == MagicType.FlamingSword && Game.AutoPotionBox.AutoFlamingSwordSkillCheckBox.Checked)
+                                {
+                                    UseMagic(pair.Value);
+                                    continue;
+                                }
+                                // 破血狂杀
+                                if (pair.Key.Magic == MagicType.Might && Game.AutoPotionBox.AutoMightSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.Might))
+                                {
+                                    UseMagic(pair.Value);
+                                    break;
+                                }
+                            }
                             break;
                         case MirClass.Wizard:
+                            if(autoSkillList == null)
+                            {
+                                autoSkillList = new MagicType[2] { MagicType.MagicShield, MagicType.Renounce };
+                            }
+                            foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
+                            {
+                                // 如果都没勾选就退出, 不用浪费循环
+                                if (!Game.AutoPotionBox.AutoMagicShieldSkillCheckBox.Checked && !Game.AutoPotionBox.AutoRenounceSkillCheckBox.Checked )
+                                {
+                                    break;
+                                }
+                                // 如果不是指定可以自动化的技能，退出，不用浪费循环
+                                if (!autoSkillList.Contains(pair.Key.Magic))
+                                {
+                                    continue;
+                                }
+                                // 魔法盾
+                                if (pair.Key.Magic == MagicType.MagicShield && Game.AutoPotionBox.AutoMagicShieldSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.MagicShield))
+                                {
+                                    UseMagic(pair.Value);
+                                    break;
+                                }
+                                // 凝血离魄
+                                if (pair.Key.Magic == MagicType.Renounce && Game.AutoPotionBox.AutoRenounceSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.Renounce))
+                                {
+                                    UseMagic(pair.Value);
+                                    break;
+                                }
+                            }
                             break;
                         case MirClass.Taoist:
+                            if (autoSkillList == null)
+                            {
+                                autoSkillList = new MagicType[1] { MagicType.CelestialLight };
+                            }
+                            foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
+                            {
+                                // 如果都没勾选就退出, 不用浪费循环
+                                if (!Game.AutoPotionBox.AutoCelestialLightSkillCheckBox.Checked)
+                                {
+                                    break;
+                                }
+                                // 如果不是指定可以自动化的技能，退出，不用浪费循环
+                                if (!autoSkillList.Contains(pair.Key.Magic))
+                                {
+                                    continue;
+                                }
+                                // 阴阳法环
+                                if (pair.Key.Magic == MagicType.CelestialLight && Game.AutoPotionBox.AutoCelestialLightSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.CelestialLight))
+                                {
+                                    UseMagic(pair.Value);
+                                    break;
+                                }
+                            }
                             break;
                         case MirClass.Assassin:
-                            MagicType[] autoSkillList = new MagicType[6] {MagicType.Evasion, MagicType.RagingWind, MagicType.FullBloom, MagicType.WhiteLotus,MagicType.RedLotus, MagicType.SweetBrier };
+                            if (autoSkillList == null)
+                            {
+                                autoSkillList = new MagicType[6] { MagicType.Evasion, MagicType.RagingWind, MagicType.FullBloom, MagicType.WhiteLotus, MagicType.RedLotus, MagicType.SweetBrier };
+                            }
                             foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
                             {
                                 // 如果都没勾选就退出, 不用浪费循环
@@ -4497,6 +4588,8 @@ namespace Client.Scenes
                 _NPCID = 0;
                 _Companion = null;
                 _Partner = null;
+                autoSkillList = null;
+                autoUseSkillType = MagicType.None;
 
                 PickUpTime = DateTime.MinValue;
                 UseItemTime = DateTime.MinValue;

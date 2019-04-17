@@ -25,6 +25,12 @@ namespace Client.Scenes.Views
         private DXLabel TaoistSkillPanelTitle;
         private DXControl AssassinSkillPanel;
         private DXLabel AssassinSkillPanelTitle;
+        public DXCheckBox AutoBladeStormSkillCheckBox;
+        public DXCheckBox AutoFlamingSwordSkillCheckBox;
+        public DXCheckBox AutoMightSkillCheckBox;
+        public DXCheckBox AutoMagicShieldSkillCheckBox;
+        public DXCheckBox AutoRenounceSkillCheckBox;
+        public DXCheckBox AutoCelestialLightSkillCheckBox;
         public DXCheckBox AutoFourFlowerSkillCheckBox;
         public DXCheckBox AutoRagingWindSkillCheckBox;
         public DXCheckBox AutoEvasionSkillCheckBox;
@@ -100,6 +106,30 @@ namespace Client.Scenes.Views
                 Text = "战士技能"
             };
 
+            AutoBladeStormSkillCheckBox = new DXCheckBox
+            {
+                Parent = WarriorSkillPanel,
+                Label = { Text = "自动莲月" },
+                Checked = false,
+                Location = new Point(5, WarriorSkillPanelTitle.Size.Height + 5)
+            };
+
+            AutoFlamingSwordSkillCheckBox = new DXCheckBox
+            {
+                Parent = WarriorSkillPanel,
+                Label = { Text = "自动烈火" },
+                Checked = false,
+                Location = new Point(WarriorSkillPanel.Size.Width / 2 + 5, WarriorSkillPanelTitle.Size.Height + 5)
+            };
+
+            AutoMightSkillCheckBox = new DXCheckBox
+            {
+                Parent = WarriorSkillPanel,
+                Label = { Text = "自动破血狂杀" },
+                Checked = false,
+                Location = new Point(5, WarriorSkillPanelTitle.Size.Height + 23)
+            };
+
             WizardSkillPanel = new DXControl
             {
                 Parent = AutoSkillTab,
@@ -119,6 +149,22 @@ namespace Client.Scenes.Views
                 Text = "法师技能"
             };
 
+            AutoMagicShieldSkillCheckBox = new DXCheckBox
+            {
+                Parent = WizardSkillPanel,
+                Label = { Text = "自动魔法盾" },
+                Checked = false,
+                Location = new Point(5, WizardSkillPanelTitle.Size.Height + 5)
+            };
+
+            AutoRenounceSkillCheckBox = new DXCheckBox
+            {
+                Parent = WizardSkillPanel,
+                Label = { Text = "自动凝血离魄" },
+                Checked = false,
+                Location = new Point(WizardSkillPanel.Size.Width / 2 + 5, WizardSkillPanelTitle.Size.Height + 5)
+            };
+
             TaoistSkillPanel = new DXControl
             {
                 Parent = AutoSkillTab,
@@ -136,6 +182,16 @@ namespace Client.Scenes.Views
                 Location = new Point(5, 5),
                 Text = "道士技能"
             };
+
+
+            AutoCelestialLightSkillCheckBox = new DXCheckBox
+            {
+                Parent = TaoistSkillPanel,
+                Label = { Text = "自动阴阳法环" },
+                Checked = false,
+                Location = new Point(5, TaoistSkillPanelTitle.Size.Height + 5)
+            };
+
 
             AssassinSkillPanel = new DXControl
             {
