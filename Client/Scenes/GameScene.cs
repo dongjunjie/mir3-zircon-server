@@ -875,6 +875,45 @@ namespace Client.Scenes
                         item.ExpireTime -= ticks;
                     }
                 }
+
+                // feature 辅助功能：自动释放技能
+                if (Game.nextAutoSkillTime == null)
+                {
+                    Game.nextAutoSkillTime = CEnvir.Now;
+                }
+                if (CEnvir.Now >= Game.nextAutoSkillTime)
+                {
+                    switch (User.Class)
+                    {
+                        case MirClass.Warrior:
+                            break;
+                        case MirClass.Wizard:
+                            break;
+                        case MirClass.Taoist:
+                            break;
+                        case MirClass.Assassin:
+                            if (Game.AutoPotionBox.AutoEvasionSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.Evasion) && User.Magics.ContainsValue())
+                            {
+                                Game.ReceiveChat("自动使用Evasion开始", MessageType.Announcement);
+                                UseMagic(SpellKey.Spell02);
+                                //User.MagicAction = new ObjectAction(MirAction.Spell, MirDirection.Up, MapObject.User.CurrentLocation, MagicType.Evasion, 0, MapObject.User.CurrentLocation, false);
+                                //User.MagicAction = new ObjectAction(MirAction.Spell, MirDirection.Up, MapObject.User.CurrentLocation, magic.Info.Magic, new List<uint> { targetID }, new List<Point> { targetLocation }, false);
+                                Game.ReceiveChat("自动使用Evasion结束", MessageType.Announcement);
+                            }
+                            foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
+                            {
+                                User.Magics.
+                                    Magics.TryGetValue(MagicType.Evasion, out magic)
+                                if (pair.Key.Magic != MagicType.Thrusting) continue;
+
+                                if (pair.Value.Cost > CurrentMP) break;
+
+                                attackMagic = pair.Key.Magic;
+                                break;
+                            }
+                    }
+                    Game.nextAutoSkillTime = CEnvir.Now.AddSeconds(1);
+                }
             }
 
             if (MouseItem != null && CEnvir.Now > ItemRefreshTime)
@@ -2703,7 +2742,10 @@ namespace Client.Scenes
             ItemLabel.Size = new Size(ItemLabel.Size.Width, ItemLabel.Size.Height + 4);
         }
 
-
+        public void UseMagic(MagicType magic)
+        {
+            return;
+        }
         public void UseMagic(SpellKey key)
         {
             if (Game.Observer || User == null || User.Horse != HorseType.None || MagicBarBox == null) return;
