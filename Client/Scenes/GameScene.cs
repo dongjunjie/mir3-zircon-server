@@ -225,6 +225,9 @@ namespace Client.Scenes
             }
         }
         private bool _AutoRun;
+        private DateTime nextAutoSkillTime;
+        private int _AutoSkillCoolDown;
+        private MagicType autoUseSkillType;
 
         #region StorageSize
 
@@ -877,8 +880,10 @@ namespace Client.Scenes
                 }
 
                 // feature 辅助功能：自动释放技能
-                if (Game.nextAutoSkillTime == null)
+                _AutoSkillCoolDown = 2; // 每次自动释放技能后，等待的ticks
+                if (Game.nextAutoSkillTime == null || Game.nextAutoSkillTime < CEnvir.Now)
                 {
+                    // Game.ReceiveChat("初始化nextAutoSkillTime", MessageType.Announcement);
                     Game.nextAutoSkillTime = CEnvir.Now;
                 }
                 if (CEnvir.Now >= Game.nextAutoSkillTime)
@@ -892,28 +897,69 @@ namespace Client.Scenes
                         case MirClass.Taoist:
                             break;
                         case MirClass.Assassin:
-                            if (Game.AutoPotionBox.AutoEvasionSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.Evasion) && User.Magics.ContainsValue())
-                            {
-                                Game.ReceiveChat("自动使用Evasion开始", MessageType.Announcement);
-                                UseMagic(SpellKey.Spell02);
-                                //User.MagicAction = new ObjectAction(MirAction.Spell, MirDirection.Up, MapObject.User.CurrentLocation, MagicType.Evasion, 0, MapObject.User.CurrentLocation, false);
-                                //User.MagicAction = new ObjectAction(MirAction.Spell, MirDirection.Up, MapObject.User.CurrentLocation, magic.Info.Magic, new List<uint> { targetID }, new List<Point> { targetLocation }, false);
-                                Game.ReceiveChat("自动使用Evasion结束", MessageType.Announcement);
-                            }
+                            MagicType[] autoSkillList = new MagicType[6] {MagicType.Evasion, MagicType.RagingWind, MagicType.FullBloom, MagicType.WhiteLotus,MagicType.RedLotus, MagicType.SweetBrier };
                             foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
                             {
-                                User.Magics.
-                                    Magics.TryGetValue(MagicType.Evasion, out magic)
-                                if (pair.Key.Magic != MagicType.Thrusting) continue;
+                                // 如果都没勾选就退出, 不用浪费循环
+                                if (!Game.AutoPotionBox.AutoEvasionSkillCheckBox.Checked && !Game.AutoPotionBox.AutoFourFlowerSkillCheckBox.Checked && !Game.AutoPotionBox.AutoRagingWindSkillCheckBox.Checked)
+                                {
+                                    break;
+                                }
+                                // 如果不是指定可以自动化的技能，退出，不用浪费循环
+                                if (!autoSkillList.Contains(pair.Key.Magic))
+                                {
+                                    continue;
+                                }
+                                // 风之闪避
+                                if (pair.Key.Magic == MagicType.Evasion && Game.AutoPotionBox.AutoEvasionSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.Evasion))
+                                {
+                                    // Game.ReceiveChat("自动使用风之闪避", MessageType.Announcement);
+                                    UseMagic(pair.Value);
+                                    break;
+                                }
+                                // 风之守护
+                                if (pair.Key.Magic == MagicType.RagingWind && Game.AutoPotionBox.AutoRagingWindSkillCheckBox.Checked && !User.VisibleBuffs.Contains(BuffType.RagingWind) )
+                                {
+                                    // Game.ReceiveChat("自动使用风之守护", MessageType.Announcement);
+                                    UseMagic(pair.Value);
+                                    break;
+                                }
+                                // 自动四花
+                                if(Game.AutoPotionBox.AutoFourFlowerSkillCheckBox.Checked)
+                                {
+                                    // WhiteLotus --> RedLotus --> SweetBrier --> FullBloom --> WhiteLotus --> ..
+                                    if (autoUseSkillType == MagicType.SweetBrier && pair.Key.Magic == MagicType.SweetBrier)
+                                    {
+                                        UseMagic(pair.Value);
+                                        autoUseSkillType = MagicType.FullBloom;
+                                        continue;
+                                    }
+                                    else if (autoUseSkillType == MagicType.RedLotus && pair.Key.Magic == MagicType.RedLotus)
+                                    {
+                                        UseMagic(pair.Value);
+                                        autoUseSkillType = MagicType.SweetBrier;
+                                        break;
+                                    }
+                                    else if (autoUseSkillType == MagicType.WhiteLotus && pair.Key.Magic == MagicType.WhiteLotus)
+                                    {
+                                        UseMagic(pair.Value);
+                                        autoUseSkillType = MagicType.RedLotus;
+                                        break;
+                                    }
+                                    else if(pair.Key.Magic == MagicType.FullBloom && autoUseSkillType != MagicType.WhiteLotus && autoUseSkillType != MagicType.RedLotus && autoUseSkillType != MagicType.SweetBrier)
+                                    {
+                                        UseMagic(pair.Value);
+                                        autoUseSkillType = MagicType.WhiteLotus;
+                                        break;
+                                    }
+                                }
 
-                                if (pair.Value.Cost > CurrentMP) break;
-
-                                attackMagic = pair.Key.Magic;
-                                break;
                             }
+                            break;
                     }
-                    Game.nextAutoSkillTime = CEnvir.Now.AddSeconds(1);
+                    Game.nextAutoSkillTime = CEnvir.Now.AddSeconds(_AutoSkillCoolDown);
                 }
+               
             }
 
             if (MouseItem != null && CEnvir.Now > ItemRefreshTime)
@@ -2742,44 +2788,10 @@ namespace Client.Scenes
             ItemLabel.Size = new Size(ItemLabel.Size.Width, ItemLabel.Size.Height + 4);
         }
 
-        public void UseMagic(MagicType magic)
-        {
-            return;
-        }
-        public void UseMagic(SpellKey key)
+        public void UseMagic(ClientUserMagic magic)
         {
             if (Game.Observer || User == null || User.Horse != HorseType.None || MagicBarBox == null) return;
-
-            ClientUserMagic magic = null;
-
-            foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
-            {
-
-                switch (MagicBarBox.SpellSet)
-                {
-                    case 1:
-                        if (pair.Value.Set1Key == key)
-                            magic = pair.Value;
-                        break;
-                    case 2:
-                        if (pair.Value.Set2Key == key)
-                            magic = pair.Value;
-                        break;
-                    case 3:
-                        if (pair.Value.Set3Key == key)
-                            magic = pair.Value;
-                        break;
-                    case 4:
-                        if (pair.Value.Set4Key == key)
-                            magic = pair.Value;
-                        break;
-                }
-
-                if (magic != null) break;
-            }
-
             if (magic == null || User.Level < magic.Info.NeedLevel1) return;
-
             switch (magic.Info.Magic)
             {
                 case MagicType.Swordsmanship:
@@ -2852,8 +2864,8 @@ namespace Client.Scenes
                     //Endurance
             }
 
-            if (CEnvir.Now < User.NextMagicTime || User.Dead || User.Buffs.Any(x => x.Type == BuffType.DragonRepulse || x.Type ==  BuffType.FrostBite) ||     
-                (User.Poison & PoisonType.Paralysis) == PoisonType.Paralysis || 
+            if (CEnvir.Now < User.NextMagicTime || User.Dead || User.Buffs.Any(x => x.Type == BuffType.DragonRepulse || x.Type == BuffType.FrostBite) ||
+                (User.Poison & PoisonType.Paralysis) == PoisonType.Paralysis ||
                 (User.Poison & PoisonType.Silenced) == PoisonType.Silenced) return;
 
             if (CEnvir.Now < magic.NextCast)
@@ -3055,7 +3067,7 @@ namespace Client.Scenes
                     direction = MirDirection.Down;
                     break;
                 case MagicType.Fetter:
-                    direction = MirDirection.Down;                    
+                    direction = MirDirection.Down;
                     break;
                 case MagicType.Renounce:
                     break;
@@ -3176,9 +3188,43 @@ namespace Client.Scenes
             //switch spell type.
 
             if (MouseObject != null && MouseObject.Race == ObjectType.Monster)
-                FocusObject = (MonsterObject) MouseObject;
+                FocusObject = (MonsterObject)MouseObject;
 
             User.MagicAction = new ObjectAction(MirAction.Spell, direction, MapObject.User.CurrentLocation, magic.Info.Magic, new List<uint> { targetID }, new List<Point> { targetLocation }, false);
+        }
+        public void UseMagic(SpellKey key)
+        {
+            if (Game.Observer || User == null || User.Horse != HorseType.None || MagicBarBox == null) return;
+
+            ClientUserMagic magic = null;
+
+            foreach (KeyValuePair<MagicInfo, ClientUserMagic> pair in User.Magics)
+            {
+
+                switch (MagicBarBox.SpellSet)
+                {
+                    case 1:
+                        if (pair.Value.Set1Key == key)
+                            magic = pair.Value;
+                        break;
+                    case 2:
+                        if (pair.Value.Set2Key == key)
+                            magic = pair.Value;
+                        break;
+                    case 3:
+                        if (pair.Value.Set3Key == key)
+                            magic = pair.Value;
+                        break;
+                    case 4:
+                        if (pair.Value.Set4Key == key)
+                            magic = pair.Value;
+                        break;
+                }
+
+                if (magic != null) break;
+            }
+            UseMagic(magic);
+
 
 
         }
