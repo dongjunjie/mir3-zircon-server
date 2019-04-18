@@ -24,6 +24,29 @@ namespace Client.Scenes.Views
         public DXLabel WeightLabel, HungerLabel, NameLabel, LevelLabel, ExperienceLabel, Level3Label, Level5Label, Level7Label, Level10Label, Level11Label, Level13Label, Level15Label;
         public DXComboBox ModeComboBox;
 
+        // feature 拾取过滤 物品显示过滤
+        private DXTabControl CompanionTabControl;
+        private DXTab CompanionBagTab, PickUpFilterTab, ItemNameFilterTab;
+        private DXTextBox PickupFilterText;
+        private DXControl WarriorSkillPanel;
+        private DXLabel WarriorSkillPanelTitle;
+        private DXControl WizardSkillPanel;
+        private DXLabel WizardSkillPanelTitle;
+        private DXControl TaoistSkillPanel;
+        private DXLabel TaoistSkillPanelTitle;
+        private DXControl AssassinSkillPanel;
+        private DXLabel AssassinSkillPanelTitle;
+        public DXCheckBox AutoBladeStormSkillCheckBox;
+        public DXCheckBox AutoFlamingSwordSkillCheckBox;
+        public DXCheckBox AutoMightSkillCheckBox;
+        public DXCheckBox AutoMagicShieldSkillCheckBox;
+        public DXCheckBox AutoRenounceSkillCheckBox;
+        public DXCheckBox AutoCelestialLightSkillCheckBox;
+        public DXCheckBox AutoFourFlowerSkillCheckBox;
+        public DXCheckBox AutoRagingWindSkillCheckBox;
+        public DXCheckBox AutoEvasionSkillCheckBox;
+        // feature end
+
         public int BagWeight, MaxBagWeight, InventorySize;
 
 
@@ -36,24 +59,70 @@ namespace Client.Scenes.Views
         public CompanionDialog()
         {
             TitleLabel.Text = "宠物";
-            SetClientSize(new Size(352, 560));
+            SetClientSize(new Size(352, 590));
 
-            CompanionDisplayPoint = new Point(ClientArea.X + 60, ClientArea.Y + 50);
+            // feature 拾取过滤 物品显示过滤
+            HasTitle = true;
+            CompanionTabControl = new DXTabControl
+            {
+                Parent = this,
+                Location = ClientArea.Location,
+                Size = ClientArea.Size,
+            };
+
+            CompanionBagTab = new DXTab
+            {
+                Parent = CompanionTabControl,
+                Border = true,
+                TabButton = { Label = { Text = "宠物背包" } },
+            };
+            PickUpFilterTab = new DXTab
+            {
+                Parent = CompanionTabControl,
+                Border = true,
+                TabButton = { Label = { Text = "拾取过滤" } },
+            };
+            ItemNameFilterTab = new DXTab
+            {
+                Parent = CompanionTabControl,
+                Border = true,
+                TabButton = { Label = { Text = "显示过滤" } },
+            };
+
+            CompanionTabControl.SelectedTab = CompanionBagTab;
+
+            PickupFilterText = new DXTextBox
+            {
+                Size = new Size(PickUpFilterTab.Size.Width, 400),
+                Location = new Point(0, 400),
+                Parent = PickUpFilterTab,
+                MaxLength = 999999,
+                AllowResize = true,
+                CanResizeHeight = true,
+                BorderSize = 2,
+                BorderColour = Color.FromArgb(198, 166, 99),
+                Opacity = 0.35f,
+            };
+
+            // feature end
+
+            //CompanionDisplayPoint = new Point(ClientArea.X + 60, ClientArea.Y + 50);
+            CompanionDisplayPoint = new Point(60, 120);
 
             InventoryGrid = new DXItemGrid
             {
                 GridSize = new Size(10, 10),
-                Parent = this,
+                Parent = CompanionBagTab,
                 GridType = GridType.CompanionInventory,
-                Location = new Point(ClientArea.X, ClientArea.Y + 200),
+                Location = new Point(0, 200),
             };
 
             EquipmentGrid = new DXItemCell[Globals.CompanionEquipmentSize];
             DXItemCell cell;
             EquipmentGrid[(int)CompanionSlot.Bag] = cell = new DXItemCell
             {
-                Location = new Point(ClientArea.X + 196, ClientArea.Y + 5),
-                Parent = this,
+                Location = new Point(196, 5),
+                Parent = CompanionBagTab,
                 FixedBorder = true,
                 Border = true,
                 Slot = (int)CompanionSlot.Bag,
@@ -63,8 +132,8 @@ namespace Client.Scenes.Views
 
             EquipmentGrid[(int)CompanionSlot.Head] = cell = new DXItemCell
             {
-                Location = new Point(ClientArea.X + 236, ClientArea.Y + 5),
-                Parent = this,
+                Location = new Point(236, 5),
+                Parent = CompanionBagTab,
                 FixedBorder = true,
                 Border = true,
                 Slot = (int)CompanionSlot.Head,
@@ -74,8 +143,8 @@ namespace Client.Scenes.Views
 
             EquipmentGrid[(int)CompanionSlot.Back] = cell = new DXItemCell
             {
-                Location = new Point(ClientArea.X + 276, ClientArea.Y + 5),
-                Parent = this,
+                Location = new Point(276, 5),
+                Parent = CompanionBagTab,
                 FixedBorder = true,
                 Border = true,
                 Slot = (int)CompanionSlot.Back,
@@ -85,8 +154,8 @@ namespace Client.Scenes.Views
 
             EquipmentGrid[(int)CompanionSlot.Food] = cell = new DXItemCell
             {
-                Location = new Point(ClientArea.X + 316, ClientArea.Y + 5),
-                Parent = this,
+                Location = new Point(316, 5),
+                Parent = CompanionBagTab,
                 FixedBorder = true,
                 Border = true,
                 Slot = (int)CompanionSlot.Food,
@@ -96,11 +165,12 @@ namespace Client.Scenes.Views
 
             DXCheckBox PickUpCheckBox = new DXCheckBox
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Label = { Text = "拾取物品:" },
                 Visible = false
             };
-            PickUpCheckBox.Location = new Point(ClientArea.Right - PickUpCheckBox.Size.Width +3, ClientArea.Y + 45);
+            //PickUpCheckBox.Location = new Point(ClientArea.Right - PickUpCheckBox.Size.Width +3, ClientArea.Y + 45);
+            PickUpCheckBox.Location = new Point(60, 90);
 
             /*
             new DXLabel
@@ -121,7 +191,7 @@ namespace Client.Scenes.Views
 
             DXLabel label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -129,22 +199,22 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 3",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y );
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y - 70);
 
             Level3Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 3),
+                Location = new Point(235, CompanionDisplayPoint.Y - 67),
                 Text = "不可用"
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -152,22 +222,22 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 5",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 20);
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y - 50);
 
             Level5Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 23),
+                Location = new Point(235, CompanionDisplayPoint.Y - 47),
                 Text = "不可用"
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -175,23 +245,23 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 7",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 40);
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y - 30);
 
             Level7Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 43),
+                Location = new Point(235, CompanionDisplayPoint.Y - 27),
                 Text = "不可用"
             };
 
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -199,23 +269,23 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 10",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 60);
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y - 10);
 
             Level10Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 63),
+                Location = new Point(235, CompanionDisplayPoint.Y - 7),
                 Text = "不可用"
             };
 
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -223,22 +293,22 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 11",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 80);
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 10);
 
             Level11Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 83),
+                Location = new Point(235, CompanionDisplayPoint.Y + 13),
                 Text = "不可用"
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -246,22 +316,22 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 13",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 100);
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 30);
 
             Level13Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 103),
+                Location = new Point(235, CompanionDisplayPoint.Y + 33),
                 Text = "不可用"
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -269,32 +339,32 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "Level 15",
             };
-            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 120);
+            label.Location = new Point(235 - label.Size.Width, CompanionDisplayPoint.Y + 50);
 
             Level15Label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(235, CompanionDisplayPoint.Y + 123),
+                Location = new Point(235, CompanionDisplayPoint.Y + 53),
                 Text = "不可用"
             };
 
             NameLabel = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 43)
+                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y - 27)
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -302,21 +372,21 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "名字",
             };
-            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 40);
+            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y - 30);
 
             LevelLabel = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 63)
+                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y - 7)
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -324,21 +394,21 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "等级",
             };
-            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 60);
+            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y - 10);
 
             ExperienceLabel = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 83)
+                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 13)
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -346,21 +416,21 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "经验",
             };
-            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 80);
+            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 10);
 
             HungerLabel = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 103)
+                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 33)
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -368,21 +438,21 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "饥饿度",
             };
-            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 100);
+            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 30);
 
             WeightLabel = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 ForeColour = Color.White,
                 Outline = true,
                 OutlineColour = Color.Black,
                 IsControl = false,
-                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 123)
+                Location = new Point(CompanionDisplayPoint.X + 25, CompanionDisplayPoint.Y + 53)
             };
 
             label = new DXLabel
             {
-                Parent = this,
+                Parent = CompanionBagTab,
                 Outline = true,
                 Font = new Font(Config.FontName, CEnvir.FontSize(10F), FontStyle.Bold),
                 ForeColour = Color.FromArgb(198, 166, 99),
@@ -390,7 +460,7 @@ namespace Client.Scenes.Views
                 IsControl = false,
                 Text = "重量",
             };
-            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 120);
+            label.Location = new Point(CompanionDisplayPoint.X + 30 - label.Size.Width, CompanionDisplayPoint.Y + 50);
         }
 
         #region Methods
@@ -440,6 +510,7 @@ namespace Client.Scenes.Views
 
 
             if (CompanionDisplay == null) return;
+            if (CompanionTabControl.SelectedTab != CompanionBagTab) return;
 
             int x = DisplayArea.X + CompanionDisplayPoint.X;
             int y = DisplayArea.Y + CompanionDisplayPoint.Y;
@@ -498,7 +569,39 @@ namespace Client.Scenes.Views
             {
                 CompanionDisplay = null;
                 CompanionDisplayPoint = Point.Empty;
-                
+
+                if (CompanionTabControl != null)
+                {
+                    if (!CompanionTabControl.IsDisposed)
+                        CompanionTabControl.Dispose();
+
+                    CompanionTabControl = null;
+                }
+
+                if (CompanionBagTab != null)
+                {
+                    if (!CompanionBagTab.IsDisposed)
+                        CompanionBagTab.Dispose();
+
+                    CompanionBagTab = null;
+                }
+
+                if (PickUpFilterTab != null)
+                {
+                    if (!PickUpFilterTab.IsDisposed)
+                        PickUpFilterTab.Dispose();
+
+                    PickUpFilterTab = null;
+                }
+
+                if (ItemNameFilterTab != null)
+                {
+                    if (!ItemNameFilterTab.IsDisposed)
+                        ItemNameFilterTab.Dispose();
+
+                    ItemNameFilterTab = null;
+                }
+
                 if (EquipmentGrid != null)
                 {
                     for (int i = 0; i < EquipmentGrid.Length; i++)
