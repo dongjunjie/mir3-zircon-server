@@ -139,7 +139,7 @@ namespace Client.Scenes.Views
             {
                 Parent = CompanionTabControl,
                 Border = true,
-                TabButton = { Label = { Text = "显示过滤" } },
+                TabButton = { Label = { Text = "尚未开放" } },
             };
 
             CompanionTabControl.SelectedTab = CompanionBagTab;
