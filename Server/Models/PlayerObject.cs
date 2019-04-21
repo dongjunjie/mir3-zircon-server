@@ -150,6 +150,18 @@ namespace Server.Models
 
         public decimal SwiftBladeLifeSteal, FlameSplashLifeSteal, DestructiveSurgeLifeSteal;
 
+        // feature 自动拾取
+        public List<String> AutoPickUpItemList = new List<String>();
+        public void AutoPickUpItemListChanged(List<String> l)
+        {
+            AutoPickUpItemList = l;
+            Connection.ReceiveChat(AutoPickUpItemList.Count.ToString(), MessageType.System);
+            foreach (string str in AutoPickUpItemList)
+            {
+                Connection.ReceiveChat(str, MessageType.System);
+            }
+        }
+
         public PlayerObject(CharacterInfo info, SConnection con)
         {
             Character = info;

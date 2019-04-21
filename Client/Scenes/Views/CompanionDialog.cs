@@ -1,5 +1,11 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 using Client.Controls;
 using Client.Envir;
@@ -27,24 +33,71 @@ namespace Client.Scenes.Views
         // feature 拾取过滤 物品显示过滤
         private DXTabControl CompanionTabControl;
         private DXTab CompanionBagTab, PickUpFilterTab, ItemNameFilterTab;
-        private DXTextBox PickupFilterText;
-        private DXControl WarriorSkillPanel;
-        private DXLabel WarriorSkillPanelTitle;
-        private DXControl WizardSkillPanel;
-        private DXLabel WizardSkillPanelTitle;
-        private DXControl TaoistSkillPanel;
-        private DXLabel TaoistSkillPanelTitle;
-        private DXControl AssassinSkillPanel;
-        private DXLabel AssassinSkillPanelTitle;
-        public DXCheckBox AutoBladeStormSkillCheckBox;
-        public DXCheckBox AutoFlamingSwordSkillCheckBox;
-        public DXCheckBox AutoMightSkillCheckBox;
-        public DXCheckBox AutoMagicShieldSkillCheckBox;
-        public DXCheckBox AutoRenounceSkillCheckBox;
-        public DXCheckBox AutoCelestialLightSkillCheckBox;
-        public DXCheckBox AutoFourFlowerSkillCheckBox;
-        public DXCheckBox AutoRagingWindSkillCheckBox;
-        public DXCheckBox AutoEvasionSkillCheckBox;
+        private DXLabel PickUpFilterItemTypelabel;
+        public DXTextBox PickUpFilterItemNameBox;
+        public DXComboBox PickUpFilterItemTypeBox;
+        public DXButton PickUpFilterSearchButton;
+        public DXVScrollBar PickupFilterSearchScrollBar;
+        public List<ItemInfo> PickUpFilterSearchResults;
+        public PickUpFilterRow[] PickUpFilterRow;
+
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)Keys.Enter) return;
+
+            e.Handled = true;
+
+            if (PickUpFilterSearchButton.Enabled)
+                Search();
+        }
+
+        public void RefreshList()
+        {
+            if (PickUpFilterSearchResults == null) return;
+
+            PickupFilterSearchScrollBar.MaxValue = PickUpFilterSearchResults.Count;
+
+            for (int i = 0; i < PickUpFilterRow.Length; i++)
+            {
+                if (i + PickupFilterSearchScrollBar.Value >= PickUpFilterSearchResults.Count)
+                {
+                    PickUpFilterRow[i].ItemInfo = null;
+                    PickUpFilterRow[i].Visible = false;
+                    continue;
+                }
+
+                PickUpFilterRow[i].ItemInfo = PickUpFilterSearchResults[i + PickupFilterSearchScrollBar.Value];
+                PickUpFilterRow[i].AutoPickUpCheckBox.Checked = GameScene.Game.AutoPickUpItemList.Contains(PickUpFilterSearchResults[i + PickupFilterSearchScrollBar.Value].ItemName);
+                PickUpFilterRow[i].DisplayItemNameCheckBox.Checked = GameScene.Game.DisplayNameItemList.Contains(PickUpFilterSearchResults[i + PickupFilterSearchScrollBar.Value].ItemName);
+                PickUpFilterRow[i].HighLightItemNameCheckBox.Checked = GameScene.Game.HightLightItemList.Contains(PickUpFilterSearchResults[i + PickupFilterSearchScrollBar.Value].ItemName);
+            }
+
+        }
+
+        private void SearchScrollBar_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshList();
+        }
+
+        public void Search()
+        {
+            PickUpFilterSearchResults = new List<ItemInfo>();
+            PickupFilterSearchScrollBar.MaxValue = 0;
+            foreach (var row in PickUpFilterRow)
+                row.Visible = true;
+            ItemType filter = (ItemType?)PickUpFilterItemTypeBox.SelectedItem ?? 0;
+            bool useFilter = PickUpFilterItemTypeBox.SelectedItem != null;
+            foreach (ItemInfo info in Globals.ItemInfoList.Binding)
+            {
+                if (useFilter && info.ItemType != filter) continue;
+                if (!string.IsNullOrEmpty(PickUpFilterItemNameBox.TextBox.Text) && info.ItemName.IndexOf(PickUpFilterItemNameBox.TextBox.Text, StringComparison.OrdinalIgnoreCase) < 0) continue;
+                PickUpFilterSearchResults.Add(info);
+            }
+
+            RefreshList();
+        }
+
         // feature end
 
         public int BagWeight, MaxBagWeight, InventorySize;
@@ -59,7 +112,7 @@ namespace Client.Scenes.Views
         public CompanionDialog()
         {
             TitleLabel.Text = "宠物";
-            SetClientSize(new Size(352, 590));
+            SetClientSize(new Size(355, 590));
 
             // feature 拾取过滤 物品显示过滤
             HasTitle = true;
@@ -91,18 +144,109 @@ namespace Client.Scenes.Views
 
             CompanionTabControl.SelectedTab = CompanionBagTab;
 
-            PickupFilterText = new DXTextBox
+            DXControl filterPanel = new DXControl
             {
-                Size = new Size(PickUpFilterTab.Size.Width, 400),
-                Location = new Point(0, 400),
                 Parent = PickUpFilterTab,
-                MaxLength = 999999,
-                AllowResize = true,
-                CanResizeHeight = true,
-                BorderSize = 2,
-                BorderColour = Color.FromArgb(198, 166, 99),
-                Opacity = 0.35f,
+                Size = new Size(PickUpFilterTab.Size.Width, 26),
+                Location = new Point(0, 0),
+                Border = true,
+                BorderColour = Color.FromArgb(198, 166, 99)
             };
+
+            DXLabel PickUpFilterItemNameLabel = new DXLabel
+            {
+                Parent = filterPanel,
+                Location = new Point(5, 5),
+                Text = "名字:",
+            };
+
+            PickUpFilterItemNameBox = new DXTextBox
+            {
+                Parent = filterPanel,
+                Size = new Size(90, 20),
+                Location = new Point(PickUpFilterItemNameLabel.Location.X + PickUpFilterItemNameLabel.Size.Width + 5, PickUpFilterItemNameLabel.Location.Y),
+            };
+            PickUpFilterItemNameBox.TextBox.KeyPress += TextBox_KeyPress;
+
+
+
+            PickUpFilterItemTypelabel = new DXLabel
+            {
+                Parent = filterPanel,
+                Location = new Point(PickUpFilterItemNameBox.Location.X + PickUpFilterItemNameBox.Size.Width + 10, 5),
+                Text = "物品:",
+            };
+
+
+
+            PickUpFilterItemTypeBox = new DXComboBox
+            {
+                Parent = filterPanel,
+                Location = new Point(PickUpFilterItemTypelabel.Location.X + PickUpFilterItemTypelabel.Size.Width + 5, PickUpFilterItemTypelabel.Location.Y),
+                Size = new Size(72, DXComboBox.DefaultNormalHeight),
+                DropDownHeight = 198
+            };
+
+
+            new DXListBoxItem
+            {
+                Parent = PickUpFilterItemTypeBox.ListBox,
+                Label = { Text = "所有" },
+                Item = null
+            };
+
+            Type itemType = typeof(ItemType);
+
+            for (ItemType i = ItemType.Nothing; i <= ItemType.ItemPart; i++)
+            {
+                MemberInfo[] infos = itemType.GetMember(i.ToString());
+
+                DescriptionAttribute description = infos[0].GetCustomAttribute<DescriptionAttribute>();
+
+                new DXListBoxItem
+                {
+                    Parent = PickUpFilterItemTypeBox.ListBox,
+                    Label = { Text = description?.Description ?? i.ToString() },
+                    Item = i
+                };
+            }
+
+            PickUpFilterItemTypeBox.ListBox.SelectItem(null);
+
+            PickUpFilterSearchButton = new DXButton
+            {
+                Size = new Size(80, SmallButtonHeight),
+                Location = new Point(PickUpFilterItemTypeBox.Location.X + PickUpFilterItemTypeBox.Size.Width + 15, PickUpFilterItemTypelabel.Location.Y - 1),
+                Parent = filterPanel,
+                ButtonType = ButtonType.SmallButton,
+                Label = { Text = "搜索" }
+            };
+            PickUpFilterSearchButton.MouseClick += (o, e) => Search();
+
+            PickUpFilterRow = new PickUpFilterRow[9];
+
+            PickupFilterSearchScrollBar = new DXVScrollBar
+            {
+                Parent = PickUpFilterTab,
+                Location = new Point(PickUpFilterTab.Size.Width - 14 , filterPanel.Size.Height + 5),
+                Size = new Size(14, PickUpFilterTab.Size.Height - 5 - filterPanel.Size.Height),
+                VisibleSize = PickUpFilterRow.Length,
+                Change = 3,
+            };
+            PickupFilterSearchScrollBar.ValueChanged += SearchScrollBar_ValueChanged;
+
+
+            for (int i = 0; i < PickUpFilterRow.Length; i++)
+            {
+                int index = i;
+                PickUpFilterRow[index] = new PickUpFilterRow
+                {
+                    Parent = PickUpFilterTab,
+                    Location = new Point(0, filterPanel.Size.Height + 5 + i * 58),
+                };
+                //   SearchRows[index].MouseClick += (o, e) => { SelectedRow = SearchRows[index]; };
+                PickUpFilterRow[index].MouseWheel += PickupFilterSearchScrollBar.DoMouseWheel;
+            }
 
             // feature end
 
@@ -709,6 +853,241 @@ namespace Client.Scenes.Views
                 BagWeight = 0;
                 MaxBagWeight = 0;
                 InventorySize = 0;
+            }
+
+        }
+
+        #endregion
+    }
+
+    public sealed class PickUpFilterRow : DXControl
+    {
+
+        #region Properties
+
+        #region Selected
+
+        public bool Selected
+        {
+            get => _Selected;
+            set
+            {
+                if (_Selected == value) return;
+
+                bool oldValue = _Selected;
+                _Selected = value;
+
+                OnSelectedChanged(oldValue, value);
+            }
+        }
+        private bool _Selected;
+        public event EventHandler<EventArgs> SelectedChanged;
+        public void OnSelectedChanged(bool oValue, bool nValue)
+        {
+            BackColour = Selected ? Color.FromArgb(80, 80, 125) : Color.FromArgb(25, 20, 0);
+            ItemCell.BorderColour = Selected ? Color.FromArgb(198, 166, 99) : Color.FromArgb(99, 83, 50);
+
+            SelectedChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
+
+        #region ItemInfo
+
+        public ItemInfo ItemInfo
+        {
+            get { return _ItemInfo; }
+            set
+            {
+
+                ItemInfo oldValue = _ItemInfo;
+                _ItemInfo = value;
+
+                OnItemInfoChanged(oldValue, value);
+            }
+        }
+        private ItemInfo _ItemInfo;
+        public event EventHandler<EventArgs> ItemInfoChanged;
+        public void OnItemInfoChanged(ItemInfo oValue, ItemInfo nValue)
+        {
+            ItemInfoChanged?.Invoke(this, EventArgs.Empty);
+            Visible = ItemInfo != null;
+
+            if (ItemInfo == null)
+            {
+                return;
+            }
+
+            ItemCell.Item = new ClientUserItem(ItemInfo, 1);
+            ItemCell.RefreshItem();
+
+            NameLabel.Text = ItemInfo.ItemName;
+
+            NameLabel.ForeColour = Color.FromArgb(198, 166, 99);
+
+            ItemInfoChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
+
+        public DXItemCell ItemCell;
+        public DXLabel NameLabel, CountLabelLabel, CountLabel, ProgressLabelLabel, ProgressLabel, DateLabel, TogoLabel, DateLabelLabel;
+        public DXButton CheckButton;
+        public DXCheckBox AutoPickUpCheckBox, DisplayItemNameCheckBox, HighLightItemNameCheckBox;
+
+        #endregion
+
+
+
+        public PickUpFilterRow()
+        {
+            Size = new Size(335, 55);
+
+            DrawTexture = true;
+            BackColour = Selected ? Color.FromArgb(80, 80, 125) : Color.FromArgb(25, 20, 0);
+
+            Visible = false;
+
+            ItemCell = new DXItemCell
+            {
+                Parent = this,
+                Location = new Point((Size.Height - DXItemCell.CellHeight) / 2, (Size.Height - DXItemCell.CellHeight) / 2),
+                FixedBorder = true,
+                Border = true,
+                ReadOnly = true,
+                ItemGrid = new ClientUserItem[1],
+                Slot = 0,
+                FixedBorderColour = true,
+            };
+
+            NameLabel = new DXLabel
+            {
+                Parent = this,
+                Location = new Point(ItemCell.Location.X + ItemCell.Size.Width, 22),
+                IsControl = false,
+            };
+
+            AutoPickUpCheckBox = new DXCheckBox
+            {
+                Parent = this,
+                Label = { Text = "自动拾取" },
+                Checked = false,
+                Location = new Point(220, 5),
+                
+            };
+            AutoPickUpCheckBox.MouseClick += (o, e) =>
+            {
+                if(!AutoPickUpCheckBox.Checked && !GameScene.Game.AutoPickUpItemList.Contains(ItemInfo.ItemName))
+                {
+                    GameScene.Game.AutoPickUpItemList.Add(ItemInfo.ItemName);
+                    GameScene.Game.ReceiveChat(GameScene.Game.AutoPickUpItemList.Count.ToString(), MessageType.Announcement);
+                }
+                else if(AutoPickUpCheckBox.Checked && GameScene.Game.AutoPickUpItemList.Contains(ItemInfo.ItemName))
+                {
+                    GameScene.Game.AutoPickUpItemList.Remove(ItemInfo.ItemName);
+                    GameScene.Game.ReceiveChat(GameScene.Game.AutoPickUpItemList.Count.ToString(), MessageType.Announcement);
+                }
+                GameScene.Game.SaveAutoPickUpItemList();
+            };
+
+            DisplayItemNameCheckBox = new DXCheckBox
+            {
+                Parent = this,
+                Label = { Text = "物品显名" },
+                Checked = false,
+                Location = new Point(220, 20)
+            };
+            DisplayItemNameCheckBox.MouseClick += (o, e) =>
+            {
+                if (!DisplayItemNameCheckBox.Checked && !GameScene.Game.DisplayNameItemList.Contains(ItemInfo.ItemName))
+                {
+                    GameScene.Game.DisplayNameItemList.Add(ItemInfo.ItemName);
+                }
+                else if (DisplayItemNameCheckBox.Checked && GameScene.Game.DisplayNameItemList.Contains(ItemInfo.ItemName))
+                {
+                    GameScene.Game.DisplayNameItemList.Remove(ItemInfo.ItemName);
+                }
+                GameScene.Game.SaveDisplayNameItemList();
+            };
+
+            HighLightItemNameCheckBox = new DXCheckBox
+            {
+                Parent = this,
+                Label = { Text = "物品高亮" },
+                Checked = false,
+                Location = new Point(220, 35)
+            };
+            HighLightItemNameCheckBox.MouseClick += (o, e) =>
+            {
+                if (!HighLightItemNameCheckBox.Checked && !GameScene.Game.HightLightItemList.Contains(ItemInfo.ItemName))
+                {
+                    GameScene.Game.HightLightItemList.Add(ItemInfo.ItemName);
+                }
+                else if (HighLightItemNameCheckBox.Checked && GameScene.Game.HightLightItemList.Contains(ItemInfo.ItemName))
+                {
+                    GameScene.Game.HightLightItemList.Remove(ItemInfo.ItemName);
+                }
+                GameScene.Game.SaveHightLightItemList();
+            };
+
+
+        }
+
+        #region IDisposable
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            if (disposing)
+            {
+                _Selected = false;
+                SelectedChanged = null;
+
+                _ItemInfo = null;
+                ItemInfoChanged = null;
+
+
+                if (ItemCell != null)
+                {
+                    if (!ItemCell.IsDisposed)
+                        ItemCell.Dispose();
+
+                    ItemCell = null;
+                }
+
+                if (NameLabel != null)
+                {
+                    if (!NameLabel.IsDisposed)
+                        NameLabel.Dispose();
+
+                    NameLabel = null;
+                }
+
+                if (AutoPickUpCheckBox != null)
+                {
+                    if (!AutoPickUpCheckBox.IsDisposed)
+                        AutoPickUpCheckBox.Dispose();
+
+                    AutoPickUpCheckBox = null;
+                }
+
+                if (DisplayItemNameCheckBox != null)
+                {
+                    if (!DisplayItemNameCheckBox.IsDisposed)
+                        DisplayItemNameCheckBox.Dispose();
+
+                    DisplayItemNameCheckBox = null;
+                }
+
+                if (HighLightItemNameCheckBox != null)
+                {
+                    if (!HighLightItemNameCheckBox.IsDisposed)
+                        HighLightItemNameCheckBox.Dispose();
+
+                    HighLightItemNameCheckBox = null;
+                }
+
             }
 
         }

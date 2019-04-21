@@ -64,15 +64,15 @@ namespace Client.Envir
         public static bool ShiftOpenChat { get; set; } = true;
         public static bool SpecialRepair { get; set; } = true;
         public static bool RightClickDeTarget { get; set; } = true;
-
         public static bool MonsterBoxExpanded { get; set; } = true;
         public static bool MonsterBoxVisible { get; set; } = true;
         public static bool QuestTrackerVisible { get; set; } = true;
-
         public static bool LogChat { get; set; } = true;
-
         public static int RankingClass { get; set; } = (int)RequiredClass.All;
         public static bool RankingOnline { get; set; } = true;
+        public static string PickUpListFile { get; set; } = ".\\拾取列表.txt";
+        public static string DisplayNameItemListFile { get; set; } = ".\\显名列表.txt";
+        public static string HightLightItemListFile { get; set; } = ".\\高亮列表.txt";
 
         [ConfigSection("Colours")]
         public static Color LocalTextColour { get; set; } = Color.White;
@@ -89,4 +89,5 @@ namespace Client.Envir
         public static Color GainsTextColour { get; set; } = Color.GreenYellow;
         public static Color AnnouncementTextColour { get; set; } = Color.DarkBlue;
     }
+
 }

@@ -621,4 +621,9 @@ namespace Library.Network.ClientPackets
         public CellLinkInfo Green { get; set; }
         public CellLinkInfo Grey { get; set; }
     }
+    // 宠物自动拾取列表变更
+    public sealed class AutoPickUpItemListChanged : Packet
+    {
+        public List<String> AutoPickUpItemList { get; set; }
+    }
 }

@@ -1209,6 +1209,13 @@ namespace Server.Envir
 
             Player.NPCWeaponCraft(p);
         }
+
+        public void Process(C.AutoPickUpItemListChanged p)
+        {
+            if (Stage != GameStage.Game) return;
+
+            Player.AutoPickUpItemListChanged(p.AutoPickUpItemList);
+        }
     }
 
 

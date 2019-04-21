@@ -199,7 +199,13 @@ namespace Client.Scenes.Views
                         break;
                     case ObjectType.Item:
                         if (!Config.ShowItemNames || ob.CurrentLocation == MapLocation) continue;
-                        break;
+                        string name = ob.Name.Split('(')[0].Trim();
+                        if (!GameScene.Game.DisplayNameItemList.Contains(name)) continue;
+                        if (GameScene.Game.HightLightItemList.Contains(name))
+                        {
+                            ob.NameLabel.ForeColour = Color.Red;
+                        }
+                            break;
                     case ObjectType.NPC:
                         break;
                     case ObjectType.Spell:

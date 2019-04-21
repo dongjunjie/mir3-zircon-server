@@ -160,7 +160,7 @@ namespace Server.Models.Monsters
 
                 ItemCheck check = new ItemCheck(item.Item, item.Item.Count - amount, item.Item.Flags, item.Item.ExpireTime);
 
-                if (!CanGainItems(true, check)) continue;
+                if (!CompanionOwner.AutoPickUpItemList.Contains(item.Item.Info.ItemName) || !CanGainItems(true, check)) continue;
 
 
                 if (distance != bestDistance) closest.Clear();

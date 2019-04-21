@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -229,6 +230,32 @@ namespace Client.Scenes
         private int _AutoSkillCoolDown;
         private MagicType autoUseSkillType;
         private MagicType[] autoSkillList;
+
+        #region AutoPickUpItemList
+        public List<String> AutoPickUpItemList = new List<String>();
+        public List<String> DisplayNameItemList = new List<String>();
+        public List<String> HightLightItemList = new List<String>();
+        public void SaveAutoPickUpItemList()
+        {
+            FileStream fs = new FileStream(Config.PickUpListFile, FileMode.Truncate, FileAccess.ReadWrite);
+            fs.Close();
+            File.AppendAllLines(Config.PickUpListFile, GameScene.Game.AutoPickUpItemList);
+            // 传到服务端
+            CEnvir.Enqueue(new C.AutoPickUpItemListChanged { AutoPickUpItemList = GameScene.Game.AutoPickUpItemList });
+        }
+        public void SaveDisplayNameItemList()
+        {
+            FileStream fs = new FileStream(Config.DisplayNameItemListFile, FileMode.Truncate, FileAccess.ReadWrite);
+            fs.Close();
+            File.AppendAllLines(Config.DisplayNameItemListFile, GameScene.Game.DisplayNameItemList);
+        }
+        public void SaveHightLightItemList()
+        {
+            FileStream fs = new FileStream(Config.HightLightItemListFile, FileMode.Truncate, FileAccess.ReadWrite);
+            fs.Close();
+            File.AppendAllLines(Config.HightLightItemListFile, GameScene.Game.HightLightItemList);
+        }
+        #endregion
 
         #region StorageSize
 
@@ -635,6 +662,22 @@ namespace Client.Scenes
 
             foreach (DXWindow window in DXWindow.Windows)
                 window.LoadSettings();
+
+            // feature 拾取过滤 在创建GameScene的时候第一次加载
+            foreach (string str in System.IO.File.ReadAllLines(Config.PickUpListFile, Encoding.UTF8))
+            {
+                AutoPickUpItemList.Add(str);
+            }
+            SaveAutoPickUpItemList();
+            foreach (string str in System.IO.File.ReadAllLines(Config.DisplayNameItemListFile, Encoding.UTF8))
+            {
+                DisplayNameItemList.Add(str);
+            }
+            foreach (string str in System.IO.File.ReadAllLines(Config.HightLightItemListFile, Encoding.UTF8))
+            {
+                HightLightItemList.Add(str);
+            }
+
         }
 
         #region Methods
