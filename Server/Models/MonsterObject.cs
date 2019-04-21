@@ -2783,9 +2783,6 @@ namespace Server.Models
                         ItemCheck check = new ItemCheck(ob.Item, ob.Item.Count - goldAmount, ob.Item.Flags,
                             ob.Item.ExpireTime);
              
-                        owner.Connection.ReceiveChat("检查ob名字", MessageType.System);
-                        owner.Connection.ReceiveChat(ob.Item.Info.ItemName, MessageType.System);
-                        owner.Connection.ReceiveChat(owner.AutoPickUpItemList.Contains(ob.Item.Info.ItemName.Trim()).ToString(), MessageType.System);
                         if (owner.AutoPickUpItemList.Contains(ob.Item.Info.ItemName.Trim()) && owner.Companion.CanGainItems(true, check)) ob.PickUpItem(owner.Companion);
 
                     }

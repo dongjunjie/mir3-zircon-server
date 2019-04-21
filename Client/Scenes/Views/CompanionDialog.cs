@@ -980,12 +980,10 @@ namespace Client.Scenes.Views
                 if(!AutoPickUpCheckBox.Checked && !GameScene.Game.AutoPickUpItemList.Contains(ItemInfo.ItemName))
                 {
                     GameScene.Game.AutoPickUpItemList.Add(ItemInfo.ItemName);
-                    GameScene.Game.ReceiveChat(GameScene.Game.AutoPickUpItemList.Count.ToString(), MessageType.Announcement);
                 }
                 else if(AutoPickUpCheckBox.Checked && GameScene.Game.AutoPickUpItemList.Contains(ItemInfo.ItemName))
                 {
                     GameScene.Game.AutoPickUpItemList.Remove(ItemInfo.ItemName);
-                    GameScene.Game.ReceiveChat(GameScene.Game.AutoPickUpItemList.Count.ToString(), MessageType.Announcement);
                 }
                 GameScene.Game.SaveAutoPickUpItemList();
             };

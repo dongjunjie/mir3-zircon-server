@@ -155,11 +155,8 @@ namespace Server.Models
         public void AutoPickUpItemListChanged(List<String> l)
         {
             AutoPickUpItemList = l;
-            Connection.ReceiveChat(AutoPickUpItemList.Count.ToString(), MessageType.System);
-            foreach (string str in AutoPickUpItemList)
-            {
-                Connection.ReceiveChat(str, MessageType.System);
-            }
+            Connection.ReceiveChat("按U开启宠物自动捡取过滤。想批量修改的话可以修改当前目录的 拾取列表.txt ，然后重启客户端。", MessageType.System);
+            Connection.ReceiveChat("当前自动捡取物品数：" + AutoPickUpItemList.Count.ToString(), MessageType.System);
         }
 
         public PlayerObject(CharacterInfo info, SConnection con)
