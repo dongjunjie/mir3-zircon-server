@@ -18,6 +18,7 @@ namespace Library
         public static ItemInfo GoldInfo;
 
         public static DBCollection<ItemInfo> ItemInfoList;
+        public static DBCollection<DropInfo> DropInfoList;
         public static DBCollection<MagicInfo> MagicInfoList;
         public static DBCollection<MapInfo> MapInfoList;
         public static DBCollection<NPCPage> NPCPageList;

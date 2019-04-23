@@ -195,6 +195,8 @@ namespace Client.Scenes
         public EditCharacterDialog EditCharacterBox;
         public FortuneCheckerDialog FortuneCheckerBox;
         public NPCWeaponCraftWindow NPCWeaponCraftBox;
+        public MonsterDropListDialog MonsterDropListBox;
+        public MonsterDropItemsDialog MonsterDropItemsBox;
 
         public ClientUserItem[] Inventory = new ClientUserItem[Globals.InventorySize];
         public ClientUserItem[] Equipment = new ClientUserItem[Globals.EquipmentSize];
@@ -651,6 +653,18 @@ namespace Client.Scenes
             };
 
             NPCWeaponCraftBox = new NPCWeaponCraftWindow
+            {
+                Visible = false,
+                Parent = this,
+            };
+
+            MonsterDropListBox = new MonsterDropListDialog
+            {
+                Parent = this,
+                Visible = false,
+            };
+
+            MonsterDropItemsBox = new MonsterDropItemsDialog
             {
                 Visible = false,
                 Parent = this,
@@ -4612,6 +4626,22 @@ namespace Client.Scenes
                         MagicBarBox.Dispose();
 
                     MagicBarBox = null;
+                }
+
+                if (MonsterDropListBox != null)
+                {
+                    if (!MonsterDropListBox.IsDisposed)
+                        MonsterDropListBox.Dispose();
+
+                    MonsterDropListBox = null;
+                }
+
+                if (MonsterDropItemsBox != null)
+                {
+                    if (!MonsterDropItemsBox.IsDisposed)
+                        MonsterDropItemsBox.Dispose();
+
+                    MonsterDropItemsBox = null;
                 }
 
                 Inventory = null;

@@ -300,6 +300,7 @@ namespace Client.Envir
                 Session = new Session(SessionMode.Users, @".\Data\"){ BackUp = false};
 
                 Globals.ItemInfoList = Session.GetCollection<ItemInfo>();
+                Globals.DropInfoList = CEnvir.Session.GetCollection<DropInfo>();
                 Globals.MagicInfoList = Session.GetCollection<MagicInfo>();
                 Globals.MapInfoList = Session.GetCollection<MapInfo>();
                 Globals.NPCPageList = Session.GetCollection<NPCPage>();

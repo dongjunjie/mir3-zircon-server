@@ -27,8 +27,7 @@ namespace Client.Scenes.Views
         public override WindowType Type => WindowType.InventoryBox;
         public override bool CustomSize => false;
         public override bool AutomaticVisiblity => true;
-        private DXButton RemoteSellButton;
-        private DXButton RemoteFragmentButton;
+        private DXButton RemoteSellButton, RemoteFragmentButton, MonsterDropListButton;
         public void OpenFragmentDialog()
         {
             GameScene.Game.NPCItemFragmentBox.Visible = true;
@@ -38,6 +37,11 @@ namespace Client.Scenes.Views
         {
             GameScene.Game.NPCSellBox.Visible = true;
             GameScene.Game.NPCSellBox.Location = new Point(0, Size.Height);
+        }
+        public void OpenMonsterDropListDialog()
+        {
+            GameScene.Game.MonsterDropListBox.Visible = true;
+            GameScene.Game.MonsterDropListBox.Location = new Point(500, Size.Height);
         }
         #endregion
 
@@ -134,6 +138,16 @@ namespace Client.Scenes.Views
                 Enabled = true,
             };
             RemoteFragmentButton.MouseClick += (o, e) => OpenFragmentDialog();
+
+            MonsterDropListButton = new DXButton
+            {
+                Location = new Point(ClientArea.Left + 159, ClientArea.Bottom - 35),
+                Size = new Size(78, DefaultHeight),
+                Parent = this,
+                Label = { Text = "爆率查询" },
+                Enabled = true,
+            };
+            MonsterDropListButton.MouseClick += (o, e) => OpenMonsterDropListDialog();
         }
 
         #region Methods

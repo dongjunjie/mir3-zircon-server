@@ -138,6 +138,8 @@
     <Compile Include="Scenes\Views\MapControl.cs" />
     <Compile Include="Scenes\Views\MiniMapDialog.cs" />
     <Compile Include="Scenes\Views\MonsterDialog.cs" />
+    <Compile Include="Scenes\Views\MonsterDropItemsDialog.cs" />
+    <Compile Include="Scenes\Views\MonsterDropListDialog.cs" />
     <Compile Include="Scenes\Views\NPCDialog.cs" />
     <Compile Include="Scenes\Views\QuestDialog.cs" />
     <Compile Include="Scenes\Views\QuestTrackerDialog.cs" />
