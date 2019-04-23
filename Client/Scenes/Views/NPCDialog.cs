@@ -1988,10 +1988,9 @@ namespace Client.Scenes.Views
                 new DXListBoxItem
                 {
                     Parent = RefineQualityBox.ListBox,
-                    Label = { Text = $"{pair.Key}" },
+                    Label = { Text = $"{EnumService.GetDescription(pair.Key)}" },
                     Item = pair.Key
                 };
-
             label = new DXLabel
             {
                 Parent = this,

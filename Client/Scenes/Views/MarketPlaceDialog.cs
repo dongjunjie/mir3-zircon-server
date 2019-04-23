@@ -309,7 +309,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(ItemNameBox.Location.X + ItemNameBox.Size.Width + 10, 5),
-                Text = "物品:",
+                Text = "筛选:",
             };
 
 
@@ -353,7 +353,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(ItemTypeBox.Location.X + ItemTypeBox.Size.Width + 10, 5),
-                Text = "分类:",
+                Text = "排序:",
             };
 
             SortBox = new DXComboBox
@@ -972,7 +972,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(StoreItemNameBox.Location.X + StoreItemNameBox.Size.Width + 10, 5),
-                Text = "物品:",
+                Text = "筛选:",
             };
 
 
@@ -1024,7 +1024,7 @@ namespace Client.Scenes.Views
             {
                 Parent = filterPanel,
                 Location = new Point(StoreItemTypeBox.Location.X + StoreItemTypeBox.Size.Width + 10, 5),
-                Text = "分类:",
+                Text = "排序:",
             };
 
             StoreSortBox = new DXComboBox

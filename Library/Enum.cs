@@ -1100,22 +1100,26 @@ namespace Library
 
     public enum MarketPlaceSort
     {
+        [Description("最新上架排序")]
         Newest,
+        [Description("最旧上架排序")]
         Oldest,
-        [Description("Highest Price")]
+        [Description("价格从高到低")]
         HighestPrice,
-        [Description("Lowest Price")]
+        [Description("价格从低到高")]
         LowestPrice,
     }
 
 
     public enum MarketPlaceStoreSort
     {
+        [Description("字母排序")]
         Alphabetical,
-        [Description("Highest Price")]
+        [Description("价格从高到低")]
         HighestPrice,
-        [Description("Lowest Price")]
+        [Description("价格从低到高")]
         LowestPrice,
+        [Description("我喜爱的")]
         Favourite
     }
 
@@ -1147,10 +1151,15 @@ namespace Library
 
     public enum RefineQuality : byte
     {
+        [Description("急速")]
         Rush,
+        [Description("快速")]
         Quick,
+        [Description("标准")]
         Standard,
+        [Description("谨慎")]
         Careful,
+        [Description("精准")]
         Precise,
     }
 
