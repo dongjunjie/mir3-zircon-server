@@ -514,7 +514,7 @@ namespace Client.Scenes.Views
                 Visible = true;
                 RankLabel.Text = Rank.Rank.ToString();
                 NameLabel.Text = Rank.Name;
-                ClassLabel.Text = Rank.Class.ToString();
+                ClassLabel.Text = EnumService.GetDescription(Rank.Class);
                 RankLabel.ForeColour = Color.Silver;
                 NameLabel.ForeColour = Color.Silver;
                 ClassLabel.ForeColour = Color.Silver;

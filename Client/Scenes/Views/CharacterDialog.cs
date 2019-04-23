@@ -1440,7 +1440,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your AC?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的物防?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1467,7 +1467,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your MR?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的魔防?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1494,7 +1494,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your Health?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的生命值?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1521,7 +1521,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your Mana?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的魔法值?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1549,7 +1549,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your DC?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的攻击?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1576,7 +1576,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your MC?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的魔法?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1603,7 +1603,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your SC?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的道术?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
@@ -1631,7 +1631,7 @@ namespace Client.Scenes.Views
 
                 if (check.Checked)
                 {
-                    DXMessageBox box = new DXMessageBox("Are you sure you want to increase your Element Attack?", "修炼确认", DXMessageBoxButtons.YesNo);
+                    DXMessageBox box = new DXMessageBox("确认提升你的元素攻击?", "修炼确认", DXMessageBoxButtons.YesNo);
 
                     box.YesButton.MouseClick += (o1, e1) =>
                     {
